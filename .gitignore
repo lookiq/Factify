@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Output & Temporary Files
+output/
+temp/
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.wav
+*.mp3
+
+# Credentials & Sensitive Secrets
+.env
+client_secret*.json
+token.json
+credentials.json
+*.key
+
+# Environments & IDEs
+.venv/
+env/
+venv/
+.idea/
+.vscode/
+*.log
