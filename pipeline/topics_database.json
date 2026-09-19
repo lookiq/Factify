@@ -1,0 +1,226 @@
+[
+  {
+    "id": "jupiter_dive",
+    "title": "What Happens If You Jump Into Jupiter? #Shorts",
+    "top_header": "WHAT HAPPENS IF YOU",
+    "sub_header": "JUMP INTO JUPITER?",
+    "script": "If you jumped into Jupiter wearing a spacesuit, you would not land on a surface. Jupiter is a gas giant with no solid ground. You would free-fall through freezing ammonia clouds at over one hundred thousand miles per hour. Within minutes, the atmospheric pressure would equal being buried under thousands of miles of ocean, crushing you instantly before reaching molten diamond rain. Subscribe to Factify for more mind-blowing facts!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "NO SOLID GROUND ON JUPITER!",
+        "color": "#FFFFFF",
+        "boxcolor": "red@0.9"
+      },
+      {
+        "start": 4.5,
+        "end": 9.5,
+        "text": "FREE-FALLING AT 100,000 MPH!",
+        "color": "#FFFF00",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 9.5,
+        "end": 15.0,
+        "text": "CRUSHED BY THOUSANDS OF TONS!",
+        "color": "#FF3366",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 15.0,
+        "end": 21.0,
+        "text": "RAIN OF LIQUID DIAMONDS!",
+        "color": "#00FFFF",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 21.0,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#00FF66",
+        "boxcolor": "black@0.9"
+      }
+    ],
+    "footage_url": "https://images-assets.nasa.gov/video/GSFC_20130314_Jupiter_m11204_HotSpots/GSFC_20130314_Jupiter_m11204_HotSpots~medium.mp4",
+    "tags": [
+      "what happens if you jump into jupiter",
+      "jupiter facts",
+      "space mystery",
+      "astronomy",
+      "gas giant",
+      "science facts",
+      "Factify",
+      "shorts"
+    ],
+    "used": false
+  },
+  {
+    "id": "neutron_star_density",
+    "title": "The Heaviest Teaspoon in the Universe #Shorts",
+    "top_header": "DEADLIEST STAR DENSITY",
+    "sub_header": "ONE TEASPOON = MOUNT EVEREST!",
+    "script": "A single teaspoon of a neutron star weighs over six billion tons. That is heavier than all of Mount Everest combined. When a massive star runs out of nuclear fuel, its core collapses with such immense force that protons and electrons are crushed into pure neutrons. A single sugar-cube sized chunk dropped on Earth would slice straight through our planet like a laser. Subscribe to Factify for more mind-bending facts!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.2,
+        "text": "ONE TEASPOON = 6 BILLION TONS!",
+        "color": "#FFFFFF",
+        "boxcolor": "red@0.9"
+      },
+      {
+        "start": 4.2,
+        "end": 9.0,
+        "text": "HEAVIER THAN MOUNT EVEREST!",
+        "color": "#FFFF00",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 9.0,
+        "end": 14.5,
+        "text": "PROTONS CRUSHED INTO NEUTRONS!",
+        "color": "#FF3366",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 14.5,
+        "end": 19.5,
+        "text": "WOULD SLICE EARTH IN HALF!",
+        "color": "#00FFFF",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 19.5,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#00FF66",
+        "boxcolor": "black@0.9"
+      }
+    ],
+    "footage_url": "https://images-assets.nasa.gov/video/GSFC_20171016_GravitationalWaves_m12740_GravitationalWaves/GSFC_20171016_GravitationalWaves_m12740_GravitationalWaves~medium.mp4",
+    "tags": [
+      "neutron star",
+      "space facts",
+      "physics",
+      "astronomy",
+      "heaviest object",
+      "science",
+      "Factify",
+      "shorts"
+    ],
+    "used": false
+  },
+  {
+    "id": "black_hole_spaghettification",
+    "title": "What Happens If You Fall Into a Black Hole? #Shorts",
+    "top_header": "SPAGHETTIFICATION",
+    "sub_header": "FALLING INTO A BLACK HOLE!",
+    "script": "If you fell feet-first into a black hole, gravity at your feet would be millions of times stronger than at your head. You would be stretched vertically and compressed horizontally like a strand of noodles in a process physicists call spaghettification. Once past the event horizon, space-time itself curves so severely that time stops, and not even light can ever escape. Subscribe to Factify for more insane facts!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "STRETCHED INTO NOODLES!",
+        "color": "#FFFFFF",
+        "boxcolor": "red@0.9"
+      },
+      {
+        "start": 4.5,
+        "end": 9.5,
+        "text": "THE SPAGHETTIFICATION EFFECT!",
+        "color": "#FFFF00",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 9.5,
+        "end": 15.0,
+        "text": "GRAVITY BENDS TIME ITSELF!",
+        "color": "#FF3366",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 15.0,
+        "end": 20.0,
+        "text": "NOT EVEN LIGHT ESCAPES!",
+        "color": "#00FFFF",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 20.0,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#00FF66",
+        "boxcolor": "black@0.9"
+      }
+    ],
+    "footage_url": "https://images-assets.nasa.gov/video/GSFC_20190925_BlackHole_m13442/GSFC_20190925_BlackHole_m13442~medium.mp4",
+    "tags": [
+      "black hole",
+      "spaghettification",
+      "space mystery",
+      "physics",
+      "astronomy",
+      "mind blowing facts",
+      "Factify",
+      "shorts"
+    ],
+    "used": false
+  },
+  {
+    "id": "solar_storm_superflare",
+    "title": "The Solar Storm That Could End The Internet #Shorts",
+    "top_header": "COSMIC THREAT",
+    "sub_header": "SOLAR STORM BLACKOUT!",
+    "script": "Every few hundred years, our Sun unleashes a catastrophic coronal mass ejection aimed directly at Earth. In 1859, the Carrington Event sent massive electrical currents through telegraph wires, shocking operators and sparking fires. If a super solar storm hits Earth today, it would fry power grids worldwide, cripple GPS satellites, and plunge the global internet into total darkness for months. Subscribe to Factify for more incredible facts!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "MASSIVE SOLAR SUPERSTORM!",
+        "color": "#FFFFFF",
+        "boxcolor": "red@0.9"
+      },
+      {
+        "start": 4.5,
+        "end": 9.8,
+        "text": "TELEGRAPH WIRES BURST IN FLAMES!",
+        "color": "#FFFF00",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 9.8,
+        "end": 15.0,
+        "text": "COULD FRY GLOBAL INTERNET!",
+        "color": "#FF3366",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 15.0,
+        "end": 20.5,
+        "text": "WORLDWIDE BLACKOUT FOR MONTHS!",
+        "color": "#00FFFF",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 20.5,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#00FF66",
+        "boxcolor": "black@0.9"
+      }
+    ],
+    "footage_url": "https://images-assets.nasa.gov/video/GSFC_20150917_Shorter_Flares_SolarDynamics/GSFC_20150917_Shorter_Flares_SolarDynamics~medium.mp4",
+    "tags": [
+      "solar storm",
+      "sun flare",
+      "carrington event",
+      "internet blackout",
+      "science facts",
+      "space mystery",
+      "Factify",
+      "shorts"
+    ],
+    "used": false
+  }
+]

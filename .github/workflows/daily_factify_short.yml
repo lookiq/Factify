@@ -1,0 +1,52 @@
+name: Daily Factify Shorts Generator & Uploader
+
+on:
+  schedule:
+    # 21:30 UTC = 3:30 AM Bangladesh (BST) / 4:30 PM US Eastern
+    - cron: '30 21 * * *'
+  workflow_dispatch: # Allows manual 1-click execution anytime
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install FFmpeg
+        run: |
+          sudo apt update
+          sudo apt install -y ffmpeg
+
+      - name: Install Python Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build Factify Short (Voice + Footage + Subtitles)
+        run: |
+          python pipeline/build_short.py
+
+      - name: Upload to Factify Shorts Channel
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          YOUTUBE_PRIVACY_STATUS: 'public'
+        run: |
+          python pipeline/upload_to_youtube.py
+
+      - name: Commit Updated Topic Database & Upload History
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add pipeline/topics_database.json upload_history.log || true
+          git commit -m "chore(bot): update topic database after daily Factify upload [skip ci]" || echo "No changes to commit"
+          git push origin main || echo "Nothing to push"
