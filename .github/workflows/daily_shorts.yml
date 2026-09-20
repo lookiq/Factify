@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
+    defaults:
+      run:
+        working-directory: office_production_pipeline
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -20,11 +24,12 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+          cache-dependency-path: office_production_pipeline/package-lock.json
 
-      - name: Install System FFmpeg
+      - name: Install System FFmpeg & Fonts
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg fonts-freefont-ttf
+          sudo apt-get install -y ffmpeg fonts-freefont-ttf fonts-dejavu-core
 
       - name: Install NPM Dependencies
         run: npm ci || npm install

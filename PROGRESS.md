@@ -33,6 +33,13 @@
 ---
 
 ## 📝 Office & Home Daily Log
+* **2026-09-20 (Home PC - Workflow & Dependencies Configuration):**
+  - Moved office 3x daily autonomous runner workflow to root `.github/workflows/daily_shorts.yml`.
+  - Configured Ubuntu 24/7 runner with Node.js 20, FFmpeg, ASS subtitles, and automated US schedule.
+  - Installed Node.js dependencies in `office_production_pipeline/`.
+  - Updated `.gitignore` to prevent bloat.
+  - Pushed updated structure to GitHub.
+
 * **2026-09-20 (Office PC - Sync & Production Backup):**
   - Configured Git & Git Credential Manager on Office PC.
   - Cloned and connected `lookiq/MY-office-and-home-pc-Sync` repository.

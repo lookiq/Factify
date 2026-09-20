@@ -21,6 +21,8 @@ credentials.json
 *.key
 
 # Environments & IDEs
+node_modules/
+**/node_modules/
 .venv/
 env/
 venv/
