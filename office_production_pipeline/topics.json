@@ -1,0 +1,189 @@
+{
+  "target_channel": {
+    "name": "Factify Shorts",
+    "handle": "@FactifyDailyShorts",
+    "tagline": "Feed Your Curiosity | Mind-Blowing Facts & Mysteries",
+    "target_audience": "USA & Global English (Tier 1)",
+    "language": "English (US)"
+  },
+  "channel_reference": {
+    "name": "Factition",
+    "handle": "@Factitionn",
+    "url": "https://www.youtube.com/@Factitionn",
+    "subscribers": "428K",
+    "format": "YouTube Shorts (9:16 Vertical, 40-55s)"
+  },
+  "niche": "Curiosity, Science Mysteries, Extreme Phenomena, Weird Technology & Engineering Marvels",
+  "golden_rules_for_topics": {
+    "enforcement_mode": "flexible",
+    "description": "Flexible rule system: not all videos need to satisfy all 3 rules. Rules apply dynamically based on video category.",
+    "categories_and_modes": {
+      "extreme_viral": {
+        "description": "High-danger, lethal workplace, shock phenomena",
+        "required_rules": ["rule_1_curiosity_gap", "rule_2_visual_motion_appeal", "rule_3_universal_global_appeal"],
+        "min_score": 3
+      },
+      "curiosity_mystery": {
+        "description": "Space, biology quirks, weird science, what-if hypotheses",
+        "required_rules": ["rule_1_curiosity_gap", "rule_3_universal_global_appeal"],
+        "visual_requirement": "Smooth ambient/space/macro footage (does not require violent action)",
+        "min_score": 2
+      },
+      "odd_tech_engineering": {
+        "description": "Crazy machines, walking buildings, satisfying tools, construction secrets",
+        "required_rules": ["rule_2_visual_motion_appeal", "rule_3_universal_global_appeal"],
+        "hook_requirement": "Fascinating/satisfying hook (does not need extreme life-or-death shock)",
+        "min_score": 2
+      }
+    },
+    "rules": {
+      "rule_1_curiosity_gap": {
+        "name": "The 3-Second Psychological Curiosity Gap",
+        "requirement": "Creates an immediate open loop or shock statement. Applied strictly to Extreme Viral shorts; applied as intriguing curiosity to Science/Tech shorts."
+      },
+      "rule_2_visual_motion_appeal": {
+        "name": "High-Motion Real Footage Feasibility",
+        "requirement": "Requires dynamic video footage. For extreme topics: violent motion/action. For space/science: smooth cinematic macro/space visuals."
+      },
+      "rule_3_universal_global_appeal": {
+        "name": "Universal Curiosity (Tier-1 USA & Global)",
+        "requirement": "Subject matter must be globally fascinating and avoid hyper-local trivia."
+      }
+    }
+  },
+  "hook_formulas": [
+    "Watch this weird {object} 🚿🔥",
+    "This is one of the most dangerous {place/job} on Earth 💀👋🏻",
+    "One snap... and it can {extreme consequence}! 💀⛴️",
+    "He let {danger} happen {number} times... Here's why 🐍🧠🤯",
+    "Why every {common object/building} needs this secret {element}? 🤯⭐",
+    "If {event} happened right now, THIS is what would happen 🧠💀",
+    "What {extreme quantity} looks like up close! 🤯💀"
+  ],
+  "voice_configs": {
+    "recommended_english": {
+      "provider": "edge-tts",
+      "voice": "en-US-ChristopherNeural",
+      "rate": "+5%",
+      "pitch": "-2Hz",
+      "tone": "Deep, energetic, suspenseful documentary narrator"
+    },
+    "recommended_hindi": {
+      "provider": "edge-tts",
+      "voice": "hi-IN-MadhurNeural",
+      "rate": "+5%",
+      "pitch": "-1Hz",
+      "tone": "Fast-paced, dramatic, viral Hindi creator style (Factition original)"
+    },
+    "recommended_bengali": {
+      "provider": "edge-tts",
+      "voice": "bn-BD-PradeepNeural",
+      "rate": "+4%",
+      "pitch": "-1Hz",
+      "tone": "Clear, engaging Bangladeshi narrator"
+    }
+  },
+  "video_generation_rules": {
+    "resolution": "1080x1920",
+    "aspect_ratio": "9:16",
+    "duration_target_seconds": 45,
+    "cuts_per_video": "Every 2-3 seconds new clip/zoom",
+    "caption_style": {
+      "type": "word_by_word_highlight",
+      "colors": {
+        "primary": "#FFFFFF",
+        "highlight": "#FFE600",
+        "stroke": "#000000"
+      },
+      "font": "Montserrat-Black / Impact",
+      "position": "center"
+    },
+    "audio": {
+      "bgm_volume": 0.12,
+      "voice_volume": 1.0,
+      "sound_effects": ["whoosh.mp3", "sub_bass_drop.mp3", "pop.mp3"]
+    }
+  },
+  "topics": [
+    {
+      "id": 1,
+      "category": "Extreme Phenomenon & Danger",
+      "title": "One Snap Can Cut a Ship in Half: The Mooring Snapback Danger",
+      "hook": "This ordinary looking ship rope is actually one of the deadliest weapons on water.",
+      "core_fact": "When a ship's high-tension mooring line snaps, it whips back at over 700 km/h with enough kinetic force to cut clean through human bone and steel railings.",
+      "broll_keywords": ["cargo ship harbor", "thick rope tension", "ocean waves dock", "ship mooring"]
+    },
+    {
+      "id": 2,
+      "category": "Medical & Biological Extreme",
+      "title": "The Man Who Injected Snake Venom 200 Times",
+      "hook": "This man willingly let the world's deadliest snakes bite him over 200 times.",
+      "core_fact": "Tim Friede gradually immunized his body against lethal black mamba and cobra venom. His antibodies are now being used by scientists to formulate a universal antivenom.",
+      "broll_keywords": ["venomous snake close up", "laboratory syringe", "biology microscope", "dna animation"]
+    },
+    {
+      "id": 3,
+      "category": "Odd Technology & Engineering",
+      "title": "Why Buildings in China Literally Walk Across Streets",
+      "hook": "Engineers in China did not demolish this 7,600-ton historical building... they made it walk.",
+      "core_fact": "Using 198 robotic walking legs powered by computer hydraulics, the 85-year-old primary school moved 62 meters in 18 days to clear space for a modern development.",
+      "broll_keywords": ["giant construction crane", "building hydraulics", "shanghai architecture", "heavy machinery"]
+    },
+    {
+      "id": 4,
+      "category": "High Voltage & Energy",
+      "title": "What 500,000 Volts Looks Like Up Close",
+      "hook": "Never touch a powerline, unless you're wearing a suit made entirely of stainless steel mesh.",
+      "core_fact": "Linemen work on live 500kV power lines from helicopters wearing Faraday cage suits. Electricity flows around their body without shocking their internal organs.",
+      "broll_keywords": ["high voltage sparks", "power line worker helicopter", "electricity tesla coil", "lightning arc"]
+    },
+    {
+      "id": 5,
+      "category": "Construction & Material Science",
+      "title": "The Secret Chemical Injected Into Sinking Roads",
+      "hook": "Why are workers injecting this strange white foam under highway concrete?",
+      "core_fact": "It is high-density polyurethane foam. When injected into tiny drill holes, it expands with thousands of pounds of pressure, leveling sunk concrete slabs in under 15 minutes.",
+      "broll_keywords": ["construction worker drilling", "expanding foam reaction", "highway concrete repair", "heavy roller"]
+    },
+    {
+      "id": 6,
+      "category": "Space & Cosmic Hypotheses",
+      "title": "What If Earth Stopped Spinning for Just 5 Seconds?",
+      "hook": "If the Earth stopped spinning for just five seconds, almost nothing on the surface would survive.",
+      "core_fact": "At the equator, everything is moving at 1,670 km/h. If Earth suddenly stopped, the atmosphere, oceans, and buildings would keep moving eastward at supersonic speed.",
+      "broll_keywords": ["planet earth rotating space", "tsunami mega wave", "supersonic jet shockwave", "debris explosion"]
+    },
+    {
+      "id": 7,
+      "category": "Agriculture & AI Robotics",
+      "title": "The AI Robot That Kills 200,000 Weeds Per Hour With Lasers",
+      "hook": "Farmers are no longer spraying chemicals on crops. Instead, they unleash laser-firing killer robots.",
+      "core_fact": "Equipped with 12 high-powered CO2 lasers and computer vision, this autonomous tractor identifies and vaporizes 200,000 weeds per hour without damaging a single crop.",
+      "broll_keywords": ["laser beam burning", "farming tractor field", "artificial intelligence robot", "green plant sprouts"]
+    },
+    {
+      "id": 8,
+      "category": "Marine & Ocean Mysteries",
+      "title": "The Floating Stone Island You Can't Find on Any Map",
+      "hook": "Sailors in the South Pacific suddenly sailed into what looked like solid land floating on water.",
+      "core_fact": "Underwater volcanic eruptions spew millions of tons of frothy pumice stone. Trapped gas bubbles make stone lighter than water, creating floating stone islands as big as Manhattan.",
+      "broll_keywords": ["ocean ship sailing", "volcanic eruption smoke", "floating rocks water", "underwater volcano"]
+    },
+    {
+      "id": 9,
+      "category": "Animal Quirks & Biology",
+      "title": "Why Bats Can Never Stand Up or Walk",
+      "hook": "Have you ever wondered why you have never seen a bat walk like a bird?",
+      "core_fact": "Bat leg bones are so light and underdeveloped to facilitate flight that they cannot support their body weight. Their claws lock into place mechanically when hanging upside down, requiring zero muscle energy.",
+      "broll_keywords": ["bat hanging cave", "bat flying night", "slow motion animal wings", "dark forest cave"]
+    },
+    {
+      "id": 10,
+      "category": "Dangerous Professions",
+      "title": "Inside the Most Dangerous Job in the World: Saturation Diving",
+      "hook": "These workers live in a metal can for 30 days and breathe helium just to weld underwater pipes.",
+      "core_fact": "Saturation divers live in pressurized chambers at hundreds of meters depth. If they depressurize too fast, nitrogen bubbles in their blood would boil instantly.",
+      "broll_keywords": ["deep sea diver underwater", "oil rig stormy ocean", "welding torch sparks", "subsea pressure chamber"]
+    }
+  ]
+}

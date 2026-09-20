@@ -1,4 +1,6 @@
 @echo off
+set "PATH=%LOCALAPPDATA%\Programs\Git\cmd;%LOCALAPPDATA%\Programs\Git\mingw64\bin;%PATH%"
+title Factify Shorts - Pull from GitHub
 echo ==========================================
 echo   Syncing from GitHub (Pulling latest)...
 echo ==========================================

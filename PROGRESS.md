@@ -33,8 +33,16 @@
 ---
 
 ## 📝 Office & Home Daily Log
+* **2026-09-20 (Office PC - Sync & Production Backup):**
+  - Configured Git & Git Credential Manager on Office PC.
+  - Cloned and connected `lookiq/MY-office-and-home-pc-Sync` repository.
+  - Synced all Office PC work into `office_production_pipeline/` (all JS rendering scripts, 3x daily Cloud runner workflow, YouTube publishers, topic validation, and Factify branding graphics).
+  - Configured resilient 1-click `push_to_github.bat` and `pull_from_github.bat`.
+  - All office work is now completely preserved and accessible from Home PC.
+
 * **2026-09-19 (Home PC - Main):**
   - Initialized sync repository and configured `.gitignore` & guidelines.
   - Built Factify Shorts automation pipeline and verified first render.
   - Pushed all automation scripts to GitHub repository.
+
 

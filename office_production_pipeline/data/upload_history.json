@@ -1,0 +1,84 @@
+[
+  {
+    "batch_date": "2026-09-19T09:06:54.437Z",
+    "videos": [
+      {
+        "slot": "Slot 1 (8:00 AM ET)",
+        "publishAtUTC": "2026-09-19T12:00:00.000Z",
+        "title": "Scientists Discovered a Creature That Literally Lives Forever! 🌊🪼 #shorts",
+        "videoPath": "C:\\Users\\E-laerning & Earning\\Desktop\\jewelituse 1 yt channel auto m\\output\\batch_short_1_1789808664946.mp4",
+        "uploadStatus": "mock_saved",
+        "videoId": "LOCAL_ONLY"
+      },
+      {
+        "slot": "Slot 2 (12:30 PM ET)",
+        "publishAtUTC": "2026-09-19T16:30:00.000Z",
+        "title": "The Most Terrifyingly Empty Place in the Entire Universe! 🌌😨 #shorts",
+        "videoPath": "C:\\Users\\E-laerning & Earning\\Desktop\\jewelituse 1 yt channel auto m\\output\\batch_short_2_1789808723787.mp4",
+        "uploadStatus": "mock_saved",
+        "videoId": "LOCAL_ONLY"
+      },
+      {
+        "slot": "Slot 3 (7:30 PM ET)",
+        "publishAtUTC": "2026-09-19T23:30:00.000Z",
+        "title": "The Terrifying Planet Where It Rains Glass Sideways! 🌧️🪐 #shorts",
+        "videoPath": "C:\\Users\\E-laerning & Earning\\Desktop\\jewelituse 1 yt channel auto m\\output\\batch_short_3_1789808769799.mp4",
+        "uploadStatus": "mock_saved",
+        "videoId": "LOCAL_ONLY"
+      }
+    ]
+  },
+  {
+    "batch_date": "2026-09-19T09:30:18.527Z",
+    "videos": [
+      {
+        "slot": "Slot 1 (8:00 AM ET)",
+        "publishAtUTC": "2026-09-19T12:00:00.000Z",
+        "title": "The Terrifying Planet Where It Rains Glass Sideways! 🌧️🪐 #shorts",
+        "videoPath": "C:\\Users\\E-laerning & Earning\\Desktop\\jewelituse 1 yt channel auto m\\output\\batch_short_1_1789810084930.mp4",
+        "uploadStatus": {
+          "uploadStatus": "uploaded",
+          "privacyStatus": "private",
+          "publishAt": "2026-09-19T12:00:00Z",
+          "license": "youtube",
+          "embeddable": true,
+          "publicStatsViewable": true,
+          "selfDeclaredMadeForKids": false
+        },
+        "videoId": "k5Z1RscY-X0"
+      },
+      {
+        "slot": "Slot 2 (12:30 PM ET)",
+        "publishAtUTC": "2026-09-19T16:30:00.000Z",
+        "title": "The Terrifying Planet Where It Rains Glass Sideways! 🌧️🪐 #shorts",
+        "videoPath": "C:\\Users\\E-laerning & Earning\\Desktop\\jewelituse 1 yt channel auto m\\output\\batch_short_2_1789810123642.mp4",
+        "uploadStatus": {
+          "uploadStatus": "uploaded",
+          "privacyStatus": "private",
+          "publishAt": "2026-09-19T16:30:00Z",
+          "license": "youtube",
+          "embeddable": true,
+          "publicStatsViewable": true,
+          "selfDeclaredMadeForKids": false
+        },
+        "videoId": "6tHmz7j2B7w"
+      },
+      {
+        "slot": "Slot 3 (7:30 PM ET)",
+        "publishAtUTC": "2026-09-19T23:30:00.000Z",
+        "title": "The Terrifying Planet Where It Rains Glass Sideways! 🌧️🪐 #shorts",
+        "videoPath": "C:\\Users\\E-laerning & Earning\\Desktop\\jewelituse 1 yt channel auto m\\output\\batch_short_3_1789810172987.mp4",
+        "uploadStatus": {
+          "uploadStatus": "uploaded",
+          "privacyStatus": "private",
+          "publishAt": "2026-09-19T23:30:00Z",
+          "license": "youtube",
+          "embeddable": true,
+          "publicStatsViewable": true,
+          "selfDeclaredMadeForKids": false
+        },
+        "videoId": "l8qB3g5Md_U"
+      }
+    ]
+  }
+]
