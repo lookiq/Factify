@@ -9,6 +9,8 @@ on:
 jobs:
   build-and-upload:
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout Code
@@ -20,10 +22,10 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
 
-      - name: Install FFmpeg
+      - name: Install FFmpeg & Fonts
         run: |
           sudo apt update
-          sudo apt install -y ffmpeg
+          sudo apt install -y ffmpeg fonts-freefont-ttf fonts-dejavu-core fonts-liberation
 
       - name: Install Python Dependencies
         run: |
