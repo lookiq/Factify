@@ -1,9 +1,15 @@
-name: Daily Factify Shorts Generator & Uploader
+name: Daily 4x Factify Shorts Autonomous Cloud Runner
 
 on:
   schedule:
-    # 21:30 UTC = 3:30 AM Bangladesh (BST) / 4:30 PM US Eastern
-    - cron: '30 21 * * *'
+    # Slot 1: 11:30 UTC = 5:30 PM BST / 7:30 AM US Eastern (Morning Commute)
+    - cron: '30 11 * * *'
+    # Slot 2: 15:30 UTC = 9:30 PM BST / 11:30 AM US Eastern (Lunch Break)
+    - cron: '30 15 * * *'
+    # Slot 3: 22:30 UTC = 4:30 AM BST / 6:30 PM US Eastern (Prime Evening - Peak)
+    - cron: '30 22 * * *'
+    # Slot 4: 02:00 UTC = 8:00 AM BST / 10:00 PM US Eastern (Late Night Bedtime)
+    - cron: '0 2 * * *'
   workflow_dispatch: # Allows manual 1-click execution anytime
 
 jobs:
@@ -49,6 +55,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main || true
           git add pipeline/topics_database.json upload_history.log || true
           git commit -m "chore(bot): update topic database after daily Factify upload [skip ci]" || echo "No changes to commit"
           git push origin main || echo "Nothing to push"
+

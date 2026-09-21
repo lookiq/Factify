@@ -14,7 +14,7 @@ if hasattr(sys.stderr, 'reconfigure'):
 DATABASE_FILE = 'pipeline/topics_database.json'
 OUTPUT_DIR = 'output'
 VOICE = 'en-US-ChristopherNeural'
-BGM_FILE = 'temp/bgm.mp3'
+BGM_FILE = 'pipeline/assets/bgm.mp3'
 
 def format_ass_time(seconds):
     h = int(seconds // 3600)
@@ -39,14 +39,38 @@ def download_footage(url, dest_path):
     if os.path.exists(dest_path) and os.path.getsize(dest_path) > 100000:
         print(f"Footage already exists at: {dest_path}")
         return
-    print(f'Downloading footage from: {url}')
-    res = requests.get(url, stream=True, timeout=60)
-    res.raise_for_status()
-    with open(dest_path, 'wb') as f:
-        for chunk in res.iter_content(chunk_size=1024*1024):
-            if chunk:
-                f.write(chunk)
-    print(f'Footage saved to: {dest_path}')
+
+    candidate_urls = [
+        url,
+        "https://assets.mixkit.co/videos/15209/15209-720.mp4",
+        "https://images-assets.nasa.gov/video/GSFC_20190925_BlackHole_m13442/GSFC_20190925_BlackHole_m13442~medium.mp4"
+    ]
+
+    for c_url in candidate_urls:
+        if not c_url:
+            continue
+        try:
+            print(f'Attempting download footage from: {c_url}')
+            res = requests.get(c_url, stream=True, timeout=40, headers={'User-Agent': 'Mozilla/5.0'})
+            res.raise_for_status()
+            with open(dest_path, 'wb') as f:
+                for chunk in res.iter_content(chunk_size=1024*1024):
+                    if chunk:
+                        f.write(chunk)
+            if os.path.exists(dest_path) and os.path.getsize(dest_path) > 50000:
+                print(f'Footage saved successfully to: {dest_path}')
+                return
+        except Exception as e:
+            print(f"Warning: Could not fetch {c_url} ({e}), trying next fallback...")
+            continue
+
+    print("Generating fallback high-res cinematic background via FFmpeg...")
+    fallback_cmd = (
+        f'ffmpeg -y -f lavfi -i "mandelbrot=size=1080x1920:rate=30" '
+        f'-t 60 -c:v libx264 -pix_fmt yuv420p "{dest_path}"'
+    )
+    subprocess.run(fallback_cmd, shell=True, check=True)
+    print(f"Procedural fallback footage created at {dest_path}")
 
 async def generate_voice(text, dest_path):
     print('Generating natural neural voiceover...')

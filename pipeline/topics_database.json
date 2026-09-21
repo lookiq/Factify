@@ -1,7 +1,7 @@
 [
   {
     "id": "odd_facts_1",
-    "title": "3 Mind-Blowing Odd Facts That Sound 100% Fake! \ud83e\udd2f #Shorts",
+    "title": "3 Mind-Blowing Odd Facts That Sound 100% Fake! 🤯 #Shorts",
     "top_header": "MIND-BLOWING ODD FACTS",
     "sub_header": "SOUND FAKE BUT 100 PERCENT REAL!",
     "script": "Here are 3 bizarre facts that sound completely fake, but are 100% real! Number one: A single cloud weighs more than 1.1 million pounds! That is about 100 elephants floating right above your head. Number two: Sharks are actually older than trees! Sharks have existed for over 400 million years, while trees only appeared 350 million years ago. And number three: Honey never ever spoils! Archaeologists found 3,000-year-old honey in Egyptian tombs that is still completely edible today! Which of these odd facts shocked you the most? Subscribe to Factify for your daily dose of mind-blowing facts!",
@@ -10,64 +10,55 @@
         "start": 0.0,
         "end": 5.5,
         "text": "SOUNDS FAKE BUT 100 PERCENT REAL!",
-        "color": "#FFFF00",
-        "boxcolor": "black@0.9"
+        "color": "#FFFF00"
       },
       {
         "start": 5.5,
         "end": 10.5,
         "text": "1. A CLOUD WEIGHS 1.1M LBS!",
-        "color": "#00FFFF",
-        "boxcolor": "black@0.9"
+        "color": "#00FFFF"
       },
       {
         "start": 10.5,
         "end": 14.5,
         "text": "LIKE 100 ELEPHANTS FLOATING!",
-        "color": "#FFFFFF",
-        "boxcolor": "black@0.9"
+        "color": "#FFFFFF"
       },
       {
         "start": 14.5,
         "end": 18.5,
         "text": "2. SHARKS ARE OLDER THAN TREES!",
-        "color": "#FF3366",
-        "boxcolor": "black@0.9"
+        "color": "#FF3366"
       },
       {
         "start": 18.5,
         "end": 25.4,
-        "text": "SHARKS - 400M YRS - TREES - 350M YRS",
-        "color": "#FFFF00",
-        "boxcolor": "black@0.9"
+        "text": "SHARKS 400M YRS TREES 350M YRS",
+        "color": "#FFFF00"
       },
       {
         "start": 25.4,
         "end": 29.0,
         "text": "3. HONEY NEVER EVER SPOILS!",
-        "color": "#FF9900",
-        "boxcolor": "black@0.9"
+        "color": "#FF9900"
       },
       {
         "start": 29.0,
         "end": 35.4,
         "text": "3,000-YR OLD EDIBLE HONEY!",
-        "color": "#FFFFFF",
-        "boxcolor": "black@0.9"
+        "color": "#FFFFFF"
       },
       {
         "start": 35.4,
         "end": 38.5,
         "text": "WHICH FACT SHOCKED YOU MOST?",
-        "color": "#FF0055",
-        "boxcolor": "black@0.9"
+        "color": "#FF0055"
       },
       {
         "start": 38.5,
         "end": 99.0,
         "text": "SUBSCRIBE TO FACTIFY!",
-        "color": "#00FF66",
-        "boxcolor": "black@0.9"
+        "color": "#00FF66"
       }
     ],
     "footage_url": "https://assets.mixkit.co/videos/15209/15209-720.mp4",
@@ -76,16 +67,7 @@
       "odd facts",
       "weird facts",
       "crazy facts",
-      "facts you didnt know",
-      "3 facts that sound fake",
-      "did you know facts",
-      "interesting facts",
-      "random facts",
-      "fun facts",
-      "science facts",
       "Factify",
-      "factify shorts",
-      "factify daily shorts",
       "shorts"
     ],
     "category_id": "27",
@@ -150,15 +132,375 @@
     "footage_url": "https://assets.mixkit.co/videos/15209/15209-720.mp4",
     "tags": [
       "psychology facts",
-      "psychological facts",
-      "facts about human mind",
-      "human psychology",
+      "human mind",
+      "psychological truths",
       "mind blowing facts",
-      "crazy facts",
-      "facts you didnt know",
-      "interesting facts",
       "Factify",
-      "factify shorts",
+      "shorts"
+    ],
+    "category_id": "27",
+    "used": false
+  },
+  {
+    "id": "mariana_trench_depth",
+    "title": "The Terrifying Mystery of The Mariana Trench! 🌊 #Shorts",
+    "top_header": "DEEP OCEAN MYSTERY",
+    "sub_header": "THE DEEPEST PLACE ON EARTH!",
+    "script": "The bottom of the Mariana Trench is over thirty-six thousand feet deep. If you dropped Mount Everest inside, its peak would still be covered by two miles of water. The crushing pressure down there equals the weight of one hundred adult elephants standing on your head. Down in total pitch-black darkness, creatures survive with transparent bodies, glowing bioluminescence, and toxic antifreeze in their blood. Subscribe to Factify for more insane ocean facts!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "DEEPEST PLACE ON PLANET EARTH!",
+        "color": "#00FFFF"
+      },
+      {
+        "start": 4.5,
+        "end": 9.5,
+        "text": "MOUNT EVEREST DROWNS UNDERWATER!",
+        "color": "#FFFF00"
+      },
+      {
+        "start": 9.5,
+        "end": 14.5,
+        "text": "CRUSHING PRESSURE OF 100 ELEPHANTS!",
+        "color": "#FF3366"
+      },
+      {
+        "start": 14.5,
+        "end": 20.0,
+        "text": "PITCH-BLACK ALIEN LIFEFORMS!",
+        "color": "#00FF66"
+      },
+      {
+        "start": 20.0,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#FFCC00"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/15209/15209-720.mp4",
+    "tags": [
+      "mariana trench",
+      "deep ocean mystery",
+      "ocean facts",
+      "underwater",
+      "scary ocean",
+      "Factify",
+      "shorts"
+    ],
+    "category_id": "27",
+    "used": false
+  },
+  {
+    "id": "immortal_creatures",
+    "title": "3 Animals With Literal Superpowers! 🪼 #Shorts",
+    "top_header": "ANIMAL SUPERPOWERS",
+    "sub_header": "CREATURES THAT DEFY SCIENCE!",
+    "script": "Here are 3 animals that possess real-life superpowers! Number one: The immortal jellyfish! When injured or sick, it reverses its aging process back to a polyp and starts life all over again. Number two: The Tardigrade! Also known as the water bear, it can survive boiling heat, absolute zero freeze, radiation, and even the vacuum of outer space! And number three: The Pistol Shrimp! It snaps its claw so fast it creates a bubble hotter than the surface of the Sun! Which superpower is the craziest? Subscribe to Factify for more!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "3 ANIMALS WITH SUPERPOWERS!",
+        "color": "#FFFF00"
+      },
+      {
+        "start": 4.5,
+        "end": 10.0,
+        "text": "1. THE IMMORTAL JELLYFISH!",
+        "color": "#00FFFF"
+      },
+      {
+        "start": 10.0,
+        "end": 14.5,
+        "text": "REVERSES AGE BACK TO YOUTH!",
+        "color": "#FFFFFF"
+      },
+      {
+        "start": 14.5,
+        "end": 19.5,
+        "text": "2. INDESTRUCTIBLE TARDIGRADE!",
+        "color": "#FF3366"
+      },
+      {
+        "start": 19.5,
+        "end": 24.5,
+        "text": "SURVIVES OUTER SPACE & RADIATION!",
+        "color": "#00FF66"
+      },
+      {
+        "start": 24.5,
+        "end": 29.5,
+        "text": "3. DEADLY PISTOL SHRIMP!",
+        "color": "#FF9900"
+      },
+      {
+        "start": 29.5,
+        "end": 34.5,
+        "text": "BUBBLE HOTTER THAN THE SUN!",
+        "color": "#FFFFFF"
+      },
+      {
+        "start": 34.5,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#FFCC00"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/15209/15209-720.mp4",
+    "tags": [
+      "animal superpowers",
+      "immortal jellyfish",
+      "tardigrade",
+      "pistol shrimp",
+      "animal facts",
+      "Factify",
+      "shorts"
+    ],
+    "category_id": "27",
+    "used": false
+  },
+  {
+    "id": "human_body_insane",
+    "title": "3 Insane Facts About Your Own Body! 🫀 #Shorts",
+    "top_header": "HUMAN BODY SECRETS",
+    "sub_header": "THINGS YOU NEVER KNEW!",
+    "script": "Here are 3 jaw-dropping facts about your own body! Number one: Your stomach acid is strong enough to dissolve razor blades and stainless steel, but your stomach produces a new mucus lining every three days to protect itself. Number two: If you stretched out all the blood vessels in an adult body end to end, they would wrap around the Earth more than two times! And number three: Every single minute, your body sheds over thirty thousand dead skin cells! Which fact surprised you most? Subscribe to Factify for daily facts!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "3 INSANE HUMAN BODY FACTS!",
+        "color": "#FFFF00"
+      },
+      {
+        "start": 4.5,
+        "end": 10.0,
+        "text": "1. ACID DISSOLVES RAZOR BLADES!",
+        "color": "#FF3366"
+      },
+      {
+        "start": 10.0,
+        "end": 15.0,
+        "text": "STOMACH RELINES EVERY 3 DAYS!",
+        "color": "#FFFFFF"
+      },
+      {
+        "start": 15.0,
+        "end": 20.0,
+        "text": "2. BLOOD VESSELS WRAP EARTH TWICE!",
+        "color": "#00FFFF"
+      },
+      {
+        "start": 20.0,
+        "end": 25.5,
+        "text": "OVER 60,000 MILES OF VEINS!",
+        "color": "#00FF66"
+      },
+      {
+        "start": 25.5,
+        "end": 30.5,
+        "text": "3. SHED 30,000 CELLS A MINUTE!",
+        "color": "#FF9900"
+      },
+      {
+        "start": 30.5,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#FFCC00"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/15209/15209-720.mp4",
+    "tags": [
+      "human body facts",
+      "anatomy facts",
+      "science facts",
+      "did you know",
+      "Factify",
+      "shorts"
+    ],
+    "category_id": "27",
+    "used": false
+  },
+  {
+    "id": "diamond_planet",
+    "title": "The Planet Made Entirely of Diamonds! 💎 #Shorts",
+    "top_header": "COSMIC WEALTH",
+    "sub_header": "A PLANET OF PURE DIAMOND!",
+    "script": "Scientists discovered an alien planet named 55 Cancri e that is twice the size of Earth and made largely of pure diamond and graphite. Because of extreme temperatures and crushing internal pressure, the planet core converted into trillions of carats of sparkling diamond. It is worth twenty-six point nine nonillion dollars, which is billions of times more than all the money on Earth combined! Would you travel there? Subscribe to Factify for more incredible discoveries!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "A PLANET MADE OF PURE DIAMONDS!",
+        "color": "#00FFFF"
+      },
+      {
+        "start": 4.5,
+        "end": 10.0,
+        "text": "ALIEN WORLD 55 CANCRI E!",
+        "color": "#FFFF00"
+      },
+      {
+        "start": 10.0,
+        "end": 15.5,
+        "text": "CRUSHING CORE TURNS TO DIAMOND!",
+        "color": "#FFFFFF"
+      },
+      {
+        "start": 15.5,
+        "end": 21.0,
+        "text": "WORTH 26.9 NONILLION DOLLARS!",
+        "color": "#00FF66"
+      },
+      {
+        "start": 21.0,
+        "end": 26.5,
+        "text": "MORE WEALTH THAN ALL OF EARTH!",
+        "color": "#FF3366"
+      },
+      {
+        "start": 26.5,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#FFCC00"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/15209/15209-720.mp4",
+    "tags": [
+      "diamond planet",
+      "space facts",
+      "55 cancri e",
+      "astronomy",
+      "universe wealth",
+      "Factify",
+      "shorts"
+    ],
+    "category_id": "27",
+    "used": false
+  },
+  {
+    "id": "weird_animal_facts",
+    "title": "3 Bizarre Animal Facts You Won't Believe! 🐙 #Shorts",
+    "top_header": "BIZARRE NATURE",
+    "sub_header": "WEIRD ANIMAL TRUTHS!",
+    "script": "Here are 3 weird animal facts that sound completely made up! Number one: An octopus has three hearts, nine brains, and completely blue blood! Two hearts pump blood to the gills, while the third pumps to the body. Number two: Flamingos drink near-boiling toxic water! They can survive water that would burn human skin off. And number three: Cows have best friends! Research shows cows get physically stressed and their heart rates spike when separated from their best companion. Which of these surprised you most? Subscribe to Factify for more!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "3 BIZARRE ANIMAL FACTS!",
+        "color": "#FFFF00"
+      },
+      {
+        "start": 4.5,
+        "end": 10.0,
+        "text": "1. OCTOPUS: 3 HEARTS, 9 BRAINS!",
+        "color": "#00FFFF"
+      },
+      {
+        "start": 10.0,
+        "end": 15.0,
+        "text": "AND PURE BLUE BLOOD!",
+        "color": "#FFFFFF"
+      },
+      {
+        "start": 15.0,
+        "end": 20.0,
+        "text": "2. FLAMINGOS DRINK BOILING WATER!",
+        "color": "#FF3366"
+      },
+      {
+        "start": 20.0,
+        "end": 25.0,
+        "text": "SURVIVES TOXIC HOT SPRINGS!",
+        "color": "#00FF66"
+      },
+      {
+        "start": 25.0,
+        "end": 30.5,
+        "text": "3. COWS HAVE BEST FRIENDS!",
+        "color": "#FF9900"
+      },
+      {
+        "start": 30.5,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#FFCC00"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/15209/15209-720.mp4",
+    "tags": [
+      "weird animal facts",
+      "octopus facts",
+      "flamingos",
+      "cow facts",
+      "crazy nature",
+      "Factify",
+      "shorts"
+    ],
+    "category_id": "27",
+    "used": false
+  },
+  {
+    "id": "time_warping_history",
+    "title": "History Facts That Will Warp Your Brain! ⏳ #Shorts",
+    "top_header": "TIME WARPING FACTS",
+    "sub_header": "HISTORY IS CLOSER THAN YOU THINK!",
+    "script": "Here are 3 historical timeline facts that will mess up your perception of time! Number one: Cleopatra lived closer in time to the release of the first iPhone than she did to the building of the Great Pyramid of Giza! Number two: Oxford University is older than the entire Aztec Empire! Oxford was teaching classes three hundred years before the Aztecs built Tenochtitlan. And number three: Woolly mammoths were still walking the Earth while the Egyptian pyramids were being constructed! History is wild. Subscribe to Factify for more!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "TIME-WARPING HISTORY FACTS!",
+        "color": "#FFFF00"
+      },
+      {
+        "start": 4.5,
+        "end": 10.0,
+        "text": "1. CLEOPATRA CLOSER TO IPHONE!",
+        "color": "#00FFFF"
+      },
+      {
+        "start": 10.0,
+        "end": 15.0,
+        "text": "THAN TO THE PYRAMIDS!",
+        "color": "#FFFFFF"
+      },
+      {
+        "start": 15.0,
+        "end": 20.0,
+        "text": "2. OXFORD OLDER THAN AZTECS!",
+        "color": "#FF3366"
+      },
+      {
+        "start": 20.0,
+        "end": 25.0,
+        "text": "FOUNDED 300 YEARS BEFORE!",
+        "color": "#00FF66"
+      },
+      {
+        "start": 25.0,
+        "end": 30.5,
+        "text": "3. MAMMOTHS DURING PYRAMIDS!",
+        "color": "#FF9900"
+      },
+      {
+        "start": 30.5,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#FFCC00"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/15209/15209-720.mp4",
+    "tags": [
+      "history facts",
+      "cleopatra",
+      "oxford university",
+      "woolly mammoth",
+      "timeline facts",
+      "Factify",
       "shorts"
     ],
     "category_id": "27",
@@ -175,49 +517,44 @@
         "start": 0.0,
         "end": 4.2,
         "text": "ONE TEASPOON = 6 BILLION TONS!",
-        "color": "#FFFFFF",
-        "boxcolor": "red@0.9"
+        "color": "#FFFFFF"
       },
       {
         "start": 4.2,
         "end": 9.0,
         "text": "HEAVIER THAN MOUNT EVEREST!",
-        "color": "#FFFF00",
-        "boxcolor": "black@0.9"
+        "color": "#FFFF00"
       },
       {
         "start": 9.0,
         "end": 14.5,
         "text": "PROTONS CRUSHED INTO NEUTRONS!",
-        "color": "#FF3366",
-        "boxcolor": "black@0.9"
+        "color": "#FF3366"
       },
       {
         "start": 14.5,
         "end": 19.5,
         "text": "WOULD SLICE EARTH IN HALF!",
-        "color": "#00FFFF",
-        "boxcolor": "black@0.9"
+        "color": "#00FFFF"
       },
       {
         "start": 19.5,
         "end": 99.0,
         "text": "SUBSCRIBE TO FACTIFY!",
-        "color": "#00FF66",
-        "boxcolor": "black@0.9"
+        "color": "#00FF66"
       }
     ],
-    "footage_url": "https://images-assets.nasa.gov/video/GSFC_20171016_GravitationalWaves_m12740_GravitationalWaves/GSFC_20171016_GravitationalWaves_m12740_GravitationalWaves~medium.mp4",
+    "footage_url": "https://assets.mixkit.co/videos/15209/15209-720.mp4",
     "tags": [
       "neutron star",
       "space facts",
       "physics",
       "astronomy",
       "heaviest object",
-      "science",
       "Factify",
       "shorts"
     ],
+    "category_id": "27",
     "used": false
   },
   {
@@ -231,49 +568,44 @@
         "start": 0.0,
         "end": 4.5,
         "text": "STRETCHED INTO NOODLES!",
-        "color": "#FFFFFF",
-        "boxcolor": "red@0.9"
+        "color": "#FFFFFF"
       },
       {
         "start": 4.5,
         "end": 9.5,
         "text": "THE SPAGHETTIFICATION EFFECT!",
-        "color": "#FFFF00",
-        "boxcolor": "black@0.9"
+        "color": "#FFFF00"
       },
       {
         "start": 9.5,
         "end": 15.0,
         "text": "GRAVITY BENDS TIME ITSELF!",
-        "color": "#FF3366",
-        "boxcolor": "black@0.9"
+        "color": "#FF3366"
       },
       {
         "start": 15.0,
         "end": 20.0,
         "text": "NOT EVEN LIGHT ESCAPES!",
-        "color": "#00FFFF",
-        "boxcolor": "black@0.9"
+        "color": "#00FFFF"
       },
       {
         "start": 20.0,
         "end": 99.0,
         "text": "SUBSCRIBE TO FACTIFY!",
-        "color": "#00FF66",
-        "boxcolor": "black@0.9"
+        "color": "#00FF66"
       }
     ],
-    "footage_url": "https://images-assets.nasa.gov/video/GSFC_20190925_BlackHole_m13442/GSFC_20190925_BlackHole_m13442~medium.mp4",
+    "footage_url": "https://assets.mixkit.co/videos/15209/15209-720.mp4",
     "tags": [
       "black hole",
       "spaghettification",
       "space mystery",
       "physics",
       "astronomy",
-      "mind blowing facts",
       "Factify",
       "shorts"
     ],
+    "category_id": "27",
     "used": false
   },
   {
@@ -287,49 +619,44 @@
         "start": 0.0,
         "end": 4.5,
         "text": "MASSIVE SOLAR SUPERSTORM!",
-        "color": "#FFFFFF",
-        "boxcolor": "red@0.9"
+        "color": "#FFFFFF"
       },
       {
         "start": 4.5,
         "end": 9.8,
         "text": "TELEGRAPH WIRES BURST IN FLAMES!",
-        "color": "#FFFF00",
-        "boxcolor": "black@0.9"
+        "color": "#FFFF00"
       },
       {
         "start": 9.8,
         "end": 15.0,
         "text": "COULD FRY GLOBAL INTERNET!",
-        "color": "#FF3366",
-        "boxcolor": "black@0.9"
+        "color": "#FF3366"
       },
       {
         "start": 15.0,
         "end": 20.5,
         "text": "WORLDWIDE BLACKOUT FOR MONTHS!",
-        "color": "#00FFFF",
-        "boxcolor": "black@0.9"
+        "color": "#00FFFF"
       },
       {
         "start": 20.5,
         "end": 99.0,
         "text": "SUBSCRIBE TO FACTIFY!",
-        "color": "#00FF66",
-        "boxcolor": "black@0.9"
+        "color": "#00FF66"
       }
     ],
-    "footage_url": "https://images-assets.nasa.gov/video/GSFC_20150917_Shorter_Flares_SolarDynamics/GSFC_20150917_Shorter_Flares_SolarDynamics~medium.mp4",
+    "footage_url": "https://assets.mixkit.co/videos/15209/15209-720.mp4",
     "tags": [
       "solar storm",
       "sun flare",
       "carrington event",
       "internet blackout",
       "science facts",
-      "space mystery",
       "Factify",
       "shorts"
     ],
+    "category_id": "27",
     "used": false
   }
 ]

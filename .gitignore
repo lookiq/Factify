@@ -12,6 +12,7 @@ temp/
 *.mov
 *.wav
 *.mp3
+!pipeline/assets/**
 
 # Credentials & Sensitive Secrets
 .env
