@@ -30,3 +30,4 @@ venv/
 .idea/
 .vscode/
 *.log
+!upload_history.log
