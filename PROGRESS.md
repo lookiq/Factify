@@ -33,7 +33,13 @@
    - Render Quality: CRF 17 studio grade, 1080x1920 9:16 vertical full bleed, 256k neural audio.
    - SEO: 100% VidIQ / TubeBuddy optimized title, rich description with timestamps, chapters, voice transcript, search queries, and 16 targeted tags.
 
-6. **Autonomous 4x Daily Cloud Schedule & Niche Hardening (2026-09-21):**
+6. **Second Live Short Published - Psychology Facts (2026-09-21):**
+   - Topic: **3 Psychological Facts That Will Mess With Your Mind! 🧠 #Shorts**
+   - **Video URL:** [https://www.youtube.com/shorts/SRqiMzkiZEA](https://www.youtube.com/shorts/SRqiMzkiZEA) (ID: `SRqiMzkiZEA`)
+   - Features: 1080x1920 9:16, CRF 17 studio master, animated pop-up subtitles, BGM mixed, 100% VidIQ SEO.
+   - Channel: Factify Shorts (@factifydailyshorts)
+
+7. **Autonomous 4x Daily Cloud Schedule & Niche Hardening (2026-09-21):**
    - Configured `.github/workflows/daily_factify_short.yml` with 4 daily US peak engagement slots (5:30 PM, 9:30 PM, 4:30 AM, 8:00 AM BST).
    - Bundled permanent suspenseful cinematic BGM in `pipeline/assets/bgm.mp3` with git tracking.
    - Hardened `pipeline/build_short.py` with multi-source fallback & procedural video rendering so cloud jobs never crash.
