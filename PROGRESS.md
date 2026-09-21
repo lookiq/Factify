@@ -1,6 +1,6 @@
 # 📊 Live Work Progress & Task Tracker
 **Channel:** Factify Shorts ([@FactifyDailyShorts](https://www.youtube.com/@FactifyDailyShorts))  
-**Last Updated:** 2026-09-19 (Home PC)
+**Last Updated:** 2026-09-21 (Home PC)
 
 ---
 
@@ -18,21 +18,40 @@
    - Dynamic 9:16 vertical FFmpeg rendering with Factify branding & color-coded subtitles.
    - 1-Click script `make_factify_short.bat` tested & working.
    - 1st test video rendered: `output/factify_short_latest.mp4` (What Happens If You Jump Into Jupiter?).
+4. **YouTube Data API & Channel Connection (Completed 2026-09-21):**
+   - Google Cloud Console OAuth Client `Factify Youtube Automation` configured.
+   - Authenticated Channel: **Factify Shorts (@factifydailyshorts)** (ID: `UCNqd7FIhKEy1uZoU8rr4RbA`).
+   - Refresh Token securely generated and saved to local `.env` and `office_production_pipeline/data/token.json`.
+5. **First Live Short Published & Subtitle Overhaul (2026-09-21):**
+   - Topic: **3 Mind-Blowing Odd Facts That Sound 100% Fake! 🤯 #Shorts**
+   - **Latest Redesigned Video URL:** [https://www.youtube.com/shorts/h78feSAkVF0](https://www.youtube.com/shorts/h78feSAkVF0) (ID: `h78feSAkVF0`)
+   - **Visual & Typography Improvements:**
+     - ❌ **বক্স সরানো হয়েছে:** পূর্বের কালো চারকোনা ব্যাকগ্রাউন্ড বক্স সম্পূর্ণ বাদ দিয়ে ক্লিন আউটলাইন (`\bord7`) ও সফট ড্রপ-শ্যাডো (`\shad4`) যুক্ত করা হয়েছে।
+     - ✨ **অ্যানিমেটেড পপ-আপ ইফেক্ট:** প্রতিটি বাক্যাংশে ডাইনামিক বাউন্স/পপ-আপ অ্যানিমেশন (`\fscx122\t(0,110,\fscx100)`) সক্রিয়।
+     - 🎨 **হাইলাইটেড ভাইব্রেন্ট কালার:** গোল্ড হেডার, নিয়ন ইয়েলো, সাইয়ান ব্লু, কোরাল অরেঞ্জ এবং লাইম গ্রিনের নিখুঁত কালার প্যালেট।
+     - 🎵 **সিনেমেটিক ব্যাকগ্রাউন্ড মিউজিক:** ডায়লগের পেছনে রহস্যময় ও আকর্ষণীয় ব্যাকগ্রাউন্ড মিউজিক (BGM) যুক্ত করা হয়েছে।
+   - Render Quality: CRF 17 studio grade, 1080x1920 9:16 vertical full bleed, 256k neural audio.
+   - SEO: 100% VidIQ / TubeBuddy optimized title, rich description with timestamps, chapters, voice transcript, search queries, and 16 targeted tags.
 
 ---
 
 ## ⏳ In Progress / Next Steps (বর্তমানে যা করতে হবে)
-1. **YouTube Data API Integration:**
-   - Google Cloud Console OAuth Client ID & Secret সংগ্রহ করা।
-   - `python get_youtube_token.py` চালিয়ে Refresh Token তৈরি করা।
-2. **Auto-Upload Testing:**
-   - তৈরি হওয়া শর্টটি সরাসরি @FactifyDailyShorts চ্যানেলে আপলোড করা।
-3. **24/7 Cloud Pipeline Activation (Optional):**
+1. **24/7 Cloud Pipeline Activation (Optional):**
    - GitHub Secrets-এ টোকেন যুক্ত করে ক্লাউড শিডিউল অন করা।
 
 ---
 
 ## 📝 Office & Home Daily Log
+* **2026-09-21 (Home PC - First Live Factify Short Uploaded):**
+  - Connected Factify Shorts YouTube channel (@factifydailyshorts) with Google OAuth (ID: UCNqd7FIhKEy1uZoU8rr4RbA).
+  - Generated and published first official Factify short: "3 Mind-Blowing Odd Facts That Sound 100% Fake! 🤯" (URL: https://www.youtube.com/shorts/2Pdr4gguSQg).
+  - Verified complete pipeline from topic selection, neural audio, studio rendering, to YouTube upload.
+
+* **2026-09-21 (Home PC - Channel Authorization Success):**
+  - Connected Factify Shorts YouTube channel (@factifydailyshorts) with Google OAuth.
+  - Verified Channel Name & ID (UCNqd7FIhKEy1uZoU8rr4RbA).
+  - Created 1-click channel connector script and synchronized tokens.
+
 * **2026-09-20 (Home PC - Workflow & Dependencies Configuration):**
   - Moved office 3x daily autonomous runner workflow to root `.github/workflows/daily_shorts.yml`.
   - Configured Ubuntu 24/7 runner with Node.js 20, FFmpeg, ASS subtitles, and automated US schedule.

@@ -7,6 +7,11 @@ from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace', line_buffering=True)
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace', line_buffering=True)
+
 METADATA_FILE = 'output/metadata.json'
 VIDEO_FILE = 'output/factify_short_latest.mp4'
 DATABASE_FILE = 'pipeline/topics_database.json'

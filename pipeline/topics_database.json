@@ -1,5 +1,97 @@
 [
   {
+    "id": "odd_facts_1",
+    "title": "3 Mind-Blowing Odd Facts That Sound 100% Fake! \ud83e\udd2f #Shorts",
+    "top_header": "MIND-BLOWING ODD FACTS",
+    "sub_header": "SOUND FAKE BUT 100 PERCENT REAL!",
+    "script": "Here are 3 bizarre facts that sound completely fake, but are 100% real! Number one: A single cloud weighs more than 1.1 million pounds! That is about 100 elephants floating right above your head. Number two: Sharks are actually older than trees! Sharks have existed for over 400 million years, while trees only appeared 350 million years ago. And number three: Honey never ever spoils! Archaeologists found 3,000-year-old honey in Egyptian tombs that is still completely edible today! Which of these odd facts shocked you the most? Subscribe to Factify for your daily dose of mind-blowing facts!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 5.5,
+        "text": "SOUNDS FAKE BUT 100 PERCENT REAL!",
+        "color": "#FFFF00",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 5.5,
+        "end": 10.5,
+        "text": "1. A CLOUD WEIGHS 1.1M LBS!",
+        "color": "#00FFFF",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 10.5,
+        "end": 14.5,
+        "text": "LIKE 100 ELEPHANTS FLOATING!",
+        "color": "#FFFFFF",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 14.5,
+        "end": 18.5,
+        "text": "2. SHARKS ARE OLDER THAN TREES!",
+        "color": "#FF3366",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 18.5,
+        "end": 25.4,
+        "text": "SHARKS - 400M YRS - TREES - 350M YRS",
+        "color": "#FFFF00",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 25.4,
+        "end": 29.0,
+        "text": "3. HONEY NEVER EVER SPOILS!",
+        "color": "#FF9900",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 29.0,
+        "end": 35.4,
+        "text": "3,000-YR OLD EDIBLE HONEY!",
+        "color": "#FFFFFF",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 35.4,
+        "end": 38.5,
+        "text": "WHICH FACT SHOCKED YOU MOST?",
+        "color": "#FF0055",
+        "boxcolor": "black@0.9"
+      },
+      {
+        "start": 38.5,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#00FF66",
+        "boxcolor": "black@0.9"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/15209/15209-720.mp4",
+    "tags": [
+      "mind blowing facts",
+      "odd facts",
+      "weird facts",
+      "crazy facts",
+      "facts you didnt know",
+      "3 facts that sound fake",
+      "did you know facts",
+      "interesting facts",
+      "random facts",
+      "fun facts",
+      "science facts",
+      "Factify",
+      "factify shorts",
+      "factify daily shorts",
+      "shorts"
+    ],
+    "category_id": "27",
+    "used": true
+  },
+  {
     "id": "jupiter_dive",
     "title": "What Happens If You Jump Into Jupiter? #Shorts",
     "top_header": "WHAT HAPPENS IF YOU",
