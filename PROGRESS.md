@@ -33,11 +33,18 @@
    - Render Quality: CRF 17 studio grade, 1080x1920 9:16 vertical full bleed, 256k neural audio.
    - SEO: 100% VidIQ / TubeBuddy optimized title, rich description with timestamps, chapters, voice transcript, search queries, and 16 targeted tags.
 
+6. **Autonomous 4x Daily Cloud Schedule & Niche Hardening (2026-09-21):**
+   - Configured `.github/workflows/daily_factify_short.yml` with 4 daily US peak engagement slots (5:30 PM, 9:30 PM, 4:30 AM, 8:00 AM BST).
+   - Bundled permanent suspenseful cinematic BGM in `pipeline/assets/bgm.mp3` with git tracking.
+   - Hardened `pipeline/build_short.py` with multi-source fallback & procedural video rendering so cloud jobs never crash.
+   - Seeded 11 high-hook curated Factify topics (Psychology, Deep Ocean, Immortal Animals, Human Anatomy, Diamond Planets, Time-warping History, Neutron Stars, Black Holes, Solar Storms).
+   - Removed all irrelevant non-Factify topics (e.g. Jupiter dive).
+
 ---
 
-## ⏳ In Progress / Next Steps (বর্তমানে যা করতে হবে)
-1. **24/7 Cloud Pipeline Activation (Optional):**
-   - GitHub Secrets-এ টোকেন যুক্ত করে ক্লাউড শিডিউল অন করা।
+## ⏳ Active Status & Cloud Readiness
+- **Local Pipeline:** 100% ready and operational anytime.
+- **24/7 Cloud Runner:** Ready to run autonomously on schedule as soon as user saves the 3 GitHub Secrets.
 
 ---
 
