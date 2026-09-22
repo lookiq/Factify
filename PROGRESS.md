@@ -5,8 +5,9 @@
 ---
 
 ## ✅ Completed Tasks (যা যা সম্পন্ন হয়েছে)
-1. **GitHub Sync Repository Setup:**
-   - Private GitHub repository created: `https://github.com/lookiq/MY-office-and-home-pc-Sync.git`
+1. **GitHub Repository Setup (Dedicated Factify Repo):**
+   - Official GitHub repository: `https://github.com/lookiq/jewelituse-1-Factify-YT-automation.git`
+   - Old repository (`MY-office-and-home-pc-Sync`) has been completely cleared and emptied to prevent duplicates.
    - Office & Home dual PC sync protocol configured with 1-click batch scripts.
 2. **Channel Branding & SEO:**
    - Channel Name: Factify Shorts
