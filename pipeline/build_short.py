@@ -87,15 +87,18 @@ def create_ass_subtitles(topic, duration, ass_path):
     top_header = topic.get('top_header', 'MIND-BLOWING ODD FACTS')
     sub_header = topic.get('sub_header', 'SOUND FAKE BUT 100% REAL!')
 
-    # Color map for ASS (BGR format: &HAABBGGRR)
-    # Yellow: &H0000FFFF, Cyan: &H00FFFF00, Coral/Pink: &H005040FF, Orange: &H0000A5FF, Green: &H0033FF33, White: &H00FFFFFF
+    # Radium & Neon luminescent color map (BGR format: &HAABBGGRR)
+    # Radium Green: #39FF14 -> &H0014FF39, Radium Lime: #CCFF00 -> &H0000FFCC
+    # Radium Cyan: #00FFFF -> &H00FFFF00, Radium Coral: #FF3366 -> &H006633FF
     style_colors = {
-        '#FFFF00': '&H0000FFFF&', # Vibrant Yellow
-        '#00FFFF': '&H00FFFF00&', # Electric Cyan
-        '#FF3366': '&H005040FF&', # Coral Red
-        '#FF9900': '&H0000A5FF&', # Warm Amber
-        '#00FF66': '&H0033FF33&', # Lime Green
-        '#FFFFFF': '&H00FFFFFF&'  # Pure White
+        '#39FF14': '&H0014FF39&', # Pure Radium Electric Green
+        '#CCFF00': '&H0000FFCC&', # Radioactive Radium Lime
+        '#00FFFF': '&H00FFFF00&', # Luminescent Cyan
+        '#FFFF00': '&H0000FFFF&', # Vibrant Neon Yellow
+        '#FF3366': '&H006633FF&', # Radium Coral Pink
+        '#FF9900': '&H0000A5FF&', # Glowing Amber
+        '#00FF66': '&H0014FF39&', # Radium Lime
+        '#FFFFFF': '&H00FFFFFF&'  # Crisp White
     }
 
     ass_lines = [
@@ -107,10 +110,12 @@ def create_ass_subtitles(topic, duration, ass_path):
         "",
         "[V4+ Styles]",
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
-        "Style: SubDefault,Arial Black,70,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,1,0,1,4.5,3,2,50,50,620,1",
+        "Style: RadiumSub,Arial Black,70,&H0014FF39,&H00000000,&H00000000,&H80000000,-1,0,0,0,100,100,1.5,0,1,4.5,3.5,2,50,50,620,1",
+        "Style: Watermark,Arial,28,&HA0FFFFFF,&H00000000,&H70000000,&H00000000,-1,0,0,0,100,100,3,0,1,1.5,1,2,40,40,160,1",
         "",
         "[Events]",
-        "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"
+        "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
+        f"Dialogue: 0,0:00:00.00,{format_ass_time(duration)},Watermark,,0,0,0,,@FactifyDailyShorts"
     ]
 
     for sub in topic.get('subtitles', []):
@@ -122,8 +127,8 @@ def create_ass_subtitles(topic, duration, ass_path):
         start_str = format_ass_time(start_t)
         end_str = format_ass_time(end_t)
         
-        hex_col = sub.get('color', '#FFFFFF')
-        ass_color = style_colors.get(hex_col, '&H00FFFFFF&')
+        hex_col = sub.get('color', '#39FF14')
+        ass_color = style_colors.get(hex_col, '&H0014FF39&')
 
         raw_text = sub['text']
         # Format text to 2 lines if longer than 20 chars
@@ -134,9 +139,9 @@ def create_ass_subtitles(topic, duration, ass_path):
         else:
             formatted_text = raw_text
 
-        # Modern subtle pop-in: starts at 114% and settles to 100% in 90ms
-        anim_tag = f"{{\\c{ass_color}\\3c&H00000000&\\bord4.5\\shad3\\fscx114\\fscy114\\t(0,90,\\fscx100\\fscy100)}}"
-        dialogue_line = f"Dialogue: 1,{start_str},{end_str},SubDefault,,0,0,0,,{anim_tag}{formatted_text}"
+        # Radium Glow animation: Pop-in scale with 1.0 blur glow filter
+        anim_tag = f"{{\\c{ass_color}\\3c&H00000000&\\bord4.5\\shad3.5\\blur1.0\\fscx112\\fscy112\\t(0,90,\\fscx100\\fscy100)}}"
+        dialogue_line = f"Dialogue: 1,{start_str},{end_str},RadiumSub,,0,0,0,,{anim_tag}{formatted_text}"
         ass_lines.append(dialogue_line)
 
     with open(ass_path, 'w', encoding='utf-8') as f:

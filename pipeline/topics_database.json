@@ -152,31 +152,31 @@
         "start": 0.0,
         "end": 4.5,
         "text": "DEEPEST PLACE ON PLANET EARTH!",
-        "color": "#00FFFF"
+        "color": "#39FF14"
       },
       {
         "start": 4.5,
         "end": 9.5,
         "text": "MOUNT EVEREST DROWNS UNDERWATER!",
-        "color": "#FFFF00"
+        "color": "#CCFF00"
       },
       {
         "start": 9.5,
         "end": 14.5,
         "text": "CRUSHING PRESSURE OF 100 ELEPHANTS!",
-        "color": "#FF3366"
+        "color": "#39FF14"
       },
       {
         "start": 14.5,
         "end": 20.0,
         "text": "PITCH-BLACK ALIEN LIFEFORMS!",
-        "color": "#00FF66"
+        "color": "#00FFFF"
       },
       {
         "start": 20.0,
         "end": 99.0,
         "text": "SUBSCRIBE TO FACTIFY!",
-        "color": "#FFCC00"
+        "color": "#CCFF00"
       }
     ],
     "footage_url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Jellyfish-_2016_Deepwater_Exploration_of_the_Marianas.webm",
