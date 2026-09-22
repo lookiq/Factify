@@ -101,6 +101,10 @@ def create_ass_subtitles(topic, duration, ass_path):
         '#FFFFFF': '&H00FFFFFF&'  # Crisp White
     }
 
+    watermark_text = topic.get('watermark_text', '@FactifyDailyShorts')
+    wm_size = 34 if len(watermark_text) > 10 else 44
+    wm_spacing = 2 if len(watermark_text) > 10 else 4
+
     ass_lines = [
         "[Script Info]",
         "ScriptType: v4.00+",
@@ -111,11 +115,11 @@ def create_ass_subtitles(topic, duration, ass_path):
         "[V4+ Styles]",
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
         "Style: RadiumSub,Arial Black,66,&H0000FF16,&H00000000,&H00003005,&H00000000,-1,0,0,0,100,100,1,0,1,2.8,4.5,2,50,50,620,1",
-        "Style: Watermark,Arial,28,&HA0FFFFFF,&H00000000,&H70000000,&H00000000,-1,0,0,0,100,100,3,0,1,1.5,1,2,40,40,160,1",
+        f"Style: Watermark,Arial Black,{wm_size},&H80FFFFFF,&H00000000,&H60000000,&H90000000,-1,0,0,0,100,100,{wm_spacing},0,1,1.5,2.0,2,40,40,170,1",
         "",
         "[Events]",
         "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
-        f"Dialogue: 0,0:00:00.00,{format_ass_time(duration)},Watermark,,0,0,0,,@FactifyDailyShorts"
+        f"Dialogue: 0,0:00:00.00,{format_ass_time(duration)},Watermark,,0,0,0,,{watermark_text}"
     ]
 
     for sub in topic.get('subtitles', []):
