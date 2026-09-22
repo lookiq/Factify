@@ -107,14 +107,10 @@ def create_ass_subtitles(topic, duration, ass_path):
         "",
         "[V4+ Styles]",
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
-        "Style: Badge,Arial Black,42,&H0000FFFF,&H000000FF,&H00000000,&H90000000,-1,0,0,0,100,100,2,0,1,5,3,8,40,40,160,1",
-        "Style: Title,Arial Black,50,&H00FFFFFF,&H000000FF,&H00000000,&H90000000,-1,0,0,0,100,100,1,0,1,6,4,8,40,40,230,1",
-        "Style: SubDefault,Arial Black,74,&H0000FFFF,&H000000FF,&H00000000,&H90000000,-1,0,0,0,100,100,1,0,1,7,4,2,40,40,420,1",
+        "Style: SubDefault,Arial Black,70,&H0000FFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,1,0,1,4.5,3,2,50,50,620,1",
         "",
         "[Events]",
-        "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
-        f"Dialogue: 0,0:00:00.00,{format_ass_time(duration)},Badge,,0,0,0,,★ FACTIFY SHORTS ★",
-        f"Dialogue: 0,0:00:00.00,{format_ass_time(duration)},Title,,0,0,0,,{top_header}"
+        "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"
     ]
 
     for sub in topic.get('subtitles', []):
@@ -134,12 +130,12 @@ def create_ass_subtitles(topic, duration, ass_path):
         words = raw_text.split()
         if len(words) > 3 and len(raw_text) > 20:
             mid = len(words) // 2
-            formatted_text = " ".join(words[:mid]) + "\\N" + " ".join(words[mid:])
+            formatted_text = " ".join(words[:mid]) + r"\N" + " ".join(words[mid:])
         else:
             formatted_text = raw_text
 
-        # Bouncy pop-in animation: begins at 122% scale, snaps smoothly to 100% in 110ms
-        anim_tag = f"{{\\c{ass_color}\\3c&H00000000&\\bord7\\shad4\\fscx122\\fscy122\\t(0,110,\\fscx100\\fscy100)}}"
+        # Modern subtle pop-in: starts at 114% and settles to 100% in 90ms
+        anim_tag = f"{{\\c{ass_color}\\3c&H00000000&\\bord4.5\\shad3\\fscx114\\fscy114\\t(0,90,\\fscx100\\fscy100)}}"
         dialogue_line = f"Dialogue: 1,{start_str},{end_str},SubDefault,,0,0,0,,{anim_tag}{formatted_text}"
         ass_lines.append(dialogue_line)
 
@@ -156,13 +152,16 @@ def render_short(topic, footage_path, audio_path, output_path):
 
     has_bgm = os.path.exists(BGM_FILE)
     
+    footage_args = []
+    if topic.get('footage_start_sec'):
+        footage_args = ['-ss', str(topic['footage_start_sec'])]
+
     # Filter Complex:
-    # 1. Full-screen 9:16 vertical crop with slight contrast & saturation boost
-    # 2. Burn in animated ASS subtitles
-    # 3. Audio mix: Voice (1.0) + Subtle BGM (0.12)
-    
+    # 1. Full-screen 9:16 vertical crop with contrast & saturation enhancement
+    # 2. Burn in clean modern animated ASS subtitles
+    # 3. Balanced audio mix: Voice (1.0) + Subtle BGM (0.12)
     filter_complex = (
-        f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,eq=contrast=1.05:saturation=1.15,ass={ass_path}[outv]; "
+        f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,eq=contrast=1.08:saturation=1.15,ass={ass_path}[outv]; "
     )
     
     if has_bgm:
@@ -173,6 +172,7 @@ def render_short(topic, footage_path, audio_path, output_path):
         )
         ffmpeg_cmd = [
             'ffmpeg', '-y',
+            *footage_args,
             '-stream_loop', '-1', '-i', footage_path,
             '-i', audio_path,
             '-stream_loop', '-1', '-i', BGM_FILE,
@@ -191,6 +191,7 @@ def render_short(topic, footage_path, audio_path, output_path):
         filter_complex += "[1:a]volume=1.0[outa]"
         ffmpeg_cmd = [
             'ffmpeg', '-y',
+            *footage_args,
             '-stream_loop', '-1', '-i', footage_path,
             '-i', audio_path,
             '-filter_complex', filter_complex,
