@@ -184,7 +184,7 @@ def render_short(topic, footage_path, audio_path, output_path):
             '-crf', '17',
             '-c:a', 'aac',
             '-b:a', '256k',
-            '-shortest',
+            '-t', f"{duration:.2f}",
             output_path
         ]
     else:
@@ -201,12 +201,12 @@ def render_short(topic, footage_path, audio_path, output_path):
             '-crf', '17',
             '-c:a', 'aac',
             '-b:a', '256k',
-            '-shortest',
+            '-t', f"{duration:.2f}",
             output_path
         ]
 
-    print('Rendering studio-quality vertical 9:16 Short with animated pop-in subtitles...')
-    subprocess.run(ffmpeg_cmd, check=True)
+    print(f'Rendering studio-quality vertical 9:16 Short (exact duration: {duration:.2f}s)...')
+    subprocess.run(ffmpeg_cmd, check=True, timeout=300)
     print(f'Short rendered successfully: {output_path}')
 
 def generate_metadata(topic):

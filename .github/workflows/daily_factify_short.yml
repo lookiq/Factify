@@ -15,6 +15,7 @@ on:
 jobs:
   build-and-upload:
     runs-on: ubuntu-24.04
+    timeout-minutes: 15
     permissions:
       contents: write
 
@@ -30,8 +31,8 @@ jobs:
 
       - name: Install FFmpeg & Fonts
         run: |
-          sudo apt update
-          sudo apt install -y ffmpeg fonts-freefont-ttf fonts-dejavu-core fonts-liberation
+          sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ffmpeg fonts-freefont-ttf fonts-dejavu-core fonts-liberation
 
       - name: Install Python Dependencies
         run: |
