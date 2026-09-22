@@ -214,22 +214,19 @@ def generate_metadata(topic):
     tags = topic.get('tags', [])
     tags_str = ' '.join(['#' + t.replace(' ', '') for t in tags[:8]])
 
+    top_header = topic.get('top_header', 'MIND-BLOWING FACTS')
+    sub_header = topic.get('sub_header', '')
+
     description = (
         f"{title}\n\n"
-        f"Discover 3 mind-blowing odd facts that sound 100% fake, but are completely real! "
-        f"From the unbelievable weight of clouds to prehistoric sharks and immortal honey, "
-        f"these bizarre truths from nature and science will leave you amazed.\n\n"
-        f"📌 Facts in this Short:\n"
-        f"• Fact 1: How much does a single fluffy cloud weigh? (100 elephants floating!)\n"
-        f"• Fact 2: Why sharks are older than trees on planet Earth (400M vs 350M years)\n"
-        f"• Fact 3: Why 3,000-year-old honey in Egyptian tombs never ever spoils\n\n"
+        f"🔥 {top_header}: {sub_header}\n"
+        f"Discover mind-blowing facts that will completely change how you see the world!\n\n"
         f"🗣️ Video Transcript:\n"
         f"\"{topic['script']}\"\n\n"
-        f"🔔 Subscribe to @FactifyDailyShorts for your daily dose of mind-blowing facts, odd mysteries, and psychology truths!\n"
+        f"🔔 Subscribe to @FactifyDailyShorts for your daily dose of mind-blowing facts, odd mysteries, and science truths!\n"
         f"👍 If you learned something new today, leave a like and share with a friend!\n\n"
         f"🔍 Related Search Queries:\n"
-        f"mind blowing facts, odd facts, weird facts that sound fake, did you know facts, crazy facts you didnt know, "
-        f"facts about the world, science facts, random facts, interesting facts, Factify Shorts, shorts\n\n"
+        f"{', '.join(tags)}, mind blowing facts, odd facts, weird facts that sound fake, did you know facts, crazy facts you didnt know, science facts, Factify Shorts, shorts\n\n"
         f"{tags_str}\n\n"
         f"Notice: This educational video is made for learning, informational, and curiosity purposes under fair use."
     )
