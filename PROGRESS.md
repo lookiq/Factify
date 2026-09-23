@@ -62,6 +62,15 @@
 ---
 
 ## 📝 Office & Home Daily Log
+* **2026-09-23 (Home PC - USA Prime Time Schedule & 15-Minute Shift):**
+  - Configured USA Prime Time schedule delayed by 15 minutes:
+    - US Morning Commute: 08:15 AM EDT (12:15 UTC / 06:15 PM BST)
+    - US Lunch Peak: 12:45 PM EDT (16:45 UTC / 10:45 PM BST)
+    - US Evening Prime: 06:45 PM EDT (22:45 UTC / 04:45 AM BST next day)
+    - US Night Owl / West Coast: 10:15 PM EDT (02:15 UTC / 08:15 AM BST next day)
+  - Synced both local runner (`pipeline/run_prime_time_automation.py`) and cloud workflow (`.github/workflows/daily_factify_short.yml`).
+  - Successfully scheduled 1080p studio short (`ERC2EnWFJgI`) with Radium subtitles and `@FactifyDailyShorts` watermark.
+
 * **2026-09-21 (Home PC - First Live Factify Short Uploaded):**
   - Connected Factify Shorts YouTube channel (@factifydailyshorts) with Google OAuth (ID: UCNqd7FIhKEy1uZoU8rr4RbA).
   - Generated and published first official Factify short: "3 Mind-Blowing Odd Facts That Sound 100% Fake! 🤯" (URL: https://www.youtube.com/shorts/2Pdr4gguSQg).

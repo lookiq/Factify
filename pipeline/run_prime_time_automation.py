@@ -9,16 +9,16 @@ if hasattr(sys.stdout, 'reconfigure'):
 if hasattr(sys.stderr, 'reconfigure'):
     sys.stderr.reconfigure(encoding='utf-8', errors='replace', line_buffering=True)
 
-# USA Prime Time Targets in UTC (EDT is UTC-4 in September):
-# 1. US Lunch Break: 12:30 PM EDT -> 16:30 UTC (10:30 PM BST)
-# 2. US Evening Peak: 06:30 PM EDT -> 22:30 UTC (04:30 AM BST next day)
-# 3. US Late Night / West Coast: 10:00 PM EDT -> 02:00 UTC (08:00 AM BST next day)
-# 4. US Morning Commute: 08:00 AM EDT -> 12:00 UTC (06:00 PM BST)
+# USA Prime Time Targets in UTC (EDT is UTC-4 in September, delayed by 15 mins):
+# 1. US Morning Commute: 08:15 AM EDT -> 12:15 UTC (06:15 PM BST)
+# 2. US Lunch Break: 12:45 PM EDT -> 16:45 UTC (10:45 PM BST)
+# 3. US Evening Peak: 06:45 PM EDT -> 22:45 UTC (04:45 AM BST next day)
+# 4. US Late Night / West Coast: 10:15 PM EDT -> 02:15 UTC (08:15 AM BST next day)
 PRIME_SLOTS_UTC = [
-    {"name": "US Morning Commute (8:00 AM EDT)", "hour": 12, "minute": 0},
-    {"name": "US Lunch Peak (12:30 PM EDT)", "hour": 16, "minute": 30},
-    {"name": "US Evening Peak (6:30 PM EDT)", "hour": 22, "minute": 30},
-    {"name": "US Night Owl / West Coast (10:00 PM EDT)", "hour": 2, "minute": 0},
+    {"name": "US Morning Commute (8:15 AM EDT)", "hour": 12, "minute": 15},
+    {"name": "US Lunch Peak (12:45 PM EDT)", "hour": 16, "minute": 45},
+    {"name": "US Evening Peak (6:45 PM EDT)", "hour": 22, "minute": 45},
+    {"name": "US Night Owl / West Coast (10:15 PM EDT)", "hour": 2, "minute": 15},
 ]
 
 def get_next_prime_time_slot():

@@ -2,14 +2,14 @@ name: Daily Factify Shorts (USA Prime Time 24/7)
 
 on:
   schedule:
-    # 1. US Morning Commute: 8:00 AM EDT (12:00 UTC / 6:00 PM BST)
-    - cron: '0 12 * * *'
-    # 2. US Lunch Peak: 12:30 PM EDT (16:30 UTC / 10:30 PM BST)
-    - cron: '30 16 * * *'
-    # 3. US Evening Prime Time: 6:30 PM EDT (22:30 UTC / 4:30 AM BST)
-    - cron: '30 22 * * *'
-    # 4. US West Coast / Night Owl: 10:00 PM EDT (02:00 UTC / 8:00 AM BST)
-    - cron: '0 2 * * *'
+    # 1. US Morning Commute: 8:15 AM EDT (12:15 UTC / 6:15 PM BST)
+    - cron: '15 12 * * *'
+    # 2. US Lunch Peak: 12:45 PM EDT (16:45 UTC / 10:45 PM BST)
+    - cron: '45 16 * * *'
+    # 3. US Evening Prime Time: 6:45 PM EDT (22:45 UTC / 4:45 AM BST)
+    - cron: '45 22 * * *'
+    # 4. US West Coast / Night Owl: 10:15 PM EDT (02:15 UTC / 8:15 AM BST)
+    - cron: '15 2 * * *'
   workflow_dispatch:
 
 jobs:
