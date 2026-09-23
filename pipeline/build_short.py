@@ -98,9 +98,13 @@ def prepare_footage(topic, total_duration, dest_path):
 
     for idx, sc in enumerate(scenes):
         sc_dur = scene_durations[idx]
-        sc_url = sc.get('clip_url')
         sc_type = sc.get('type', 'video')
-        sc_raw = f"temp/{topic['id']}_sc_{idx}_raw.mp4" if sc_type == 'video' else f"temp/{topic['id']}_sc_{idx}.jpg"
+        sc_url = sc.get('clip_url')
+        sc_local = sc.get('local_path')
+        if sc_local and os.path.exists(sc_local):
+            sc_raw = sc_local
+        else:
+            sc_raw = f"temp/{topic['id']}_sc_{idx}_raw.mp4" if sc_type == 'video' else f"temp/{topic['id']}_sc_{idx}.jpg"
         sc_norm = f"temp/{topic['id']}_sc_{idx}_norm.mp4"
 
         print(f"  [Scene {idx+1}/{len(scenes)}] {sc.get('label', 'Visual')} ({sc_dur:.2f}s)...")

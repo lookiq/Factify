@@ -320,22 +320,22 @@
         "type": "video"
       },
       {
-        "label": "Fact 1 - Stomach Acid Dissolving Metal",
+        "label": "Fact 1 - Stomach Acid Dissolving Razor Blade",
         "duration": 10.5,
-        "clip_url": "https://assets.mixkit.co/videos/42491/42491-1080.mp4",
-        "type": "video"
+        "local_path": "pipeline/assets/scenes/human_body_sc_1.jpg",
+        "type": "image"
       },
       {
-        "label": "Fact 2 - Blood Vessels & Circulatory Flow",
+        "label": "Fact 2 - Blood Vessels Wrapped Around Earth",
         "duration": 10.5,
-        "clip_url": "https://assets.mixkit.co/videos/42557/42557-1080.mp4",
-        "type": "video"
+        "local_path": "pipeline/assets/scenes/human_body_sc_2.jpg",
+        "type": "image"
       },
       {
-        "label": "Fact 3 - Microscopic Human Skin Cells",
+        "label": "Fact 3 - Microscopic Shedding Skin Cells",
         "duration": 5.5,
-        "clip_url": "https://assets.mixkit.co/videos/42485/42485-1080.mp4",
-        "type": "video"
+        "local_path": "pipeline/assets/scenes/human_body_sc_3.jpg",
+        "type": "image"
       },
       {
         "label": "Outro - Subscribe to Factify",
