@@ -76,6 +76,75 @@ def download_footage(url, dest_path):
     subprocess.run(fallback_cmd, shell=True, check=True)
     print(f"Procedural fallback footage created at {dest_path}")
 
+def prepare_footage(topic, total_duration, dest_path):
+    scenes = topic.get('scenes')
+    if not scenes:
+        download_footage(topic.get('footage_url'), dest_path)
+        return
+
+    print(f"Detected {len(scenes)} topic-specific visual scenes for: {topic['title']}")
+    scene_files = []
+    
+    # Calculate scene durations so they sum up to total_duration
+    scene_durations = []
+    total_assigned = sum(sc.get('duration', 0) for sc in scenes)
+    if total_assigned <= 0:
+        each_d = total_duration / len(scenes)
+        scene_durations = [each_d] * len(scenes)
+    else:
+        # Scale proportionally to exact total_duration
+        scale_factor = total_duration / total_assigned
+        scene_durations = [sc.get('duration', total_duration/len(scenes)) * scale_factor for sc in scenes]
+
+    for idx, sc in enumerate(scenes):
+        sc_dur = scene_durations[idx]
+        sc_url = sc.get('clip_url')
+        sc_type = sc.get('type', 'video')
+        sc_raw = f"temp/{topic['id']}_sc_{idx}_raw.mp4" if sc_type == 'video' else f"temp/{topic['id']}_sc_{idx}.jpg"
+        sc_norm = f"temp/{topic['id']}_sc_{idx}_norm.mp4"
+
+        print(f"  [Scene {idx+1}/{len(scenes)}] {sc.get('label', 'Visual')} ({sc_dur:.2f}s)...")
+        if sc_type == 'video':
+            download_footage(sc_url, sc_raw)
+            cmd = [
+                'ffmpeg', '-y', '-stream_loop', '-1', '-i', sc_raw,
+                '-t', f"{sc_dur:.2f}",
+                '-vf', 'scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30',
+                '-c:v', 'libx264', '-crf', '18', '-an', sc_norm
+            ]
+            subprocess.run(cmd, check=True)
+        else:
+            if not os.path.exists(sc_raw) and sc_url:
+                try:
+                    r = requests.get(sc_url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=20)
+                    with open(sc_raw, 'wb') as f:
+                        f.write(r.content)
+                except Exception as e:
+                    print(f"Warning: could not download scene visual {sc_url}: {e}")
+            frames = max(30, int(30 * sc_dur))
+            cmd = [
+                'ffmpeg', '-y', '-loop', '1', '-i', sc_raw,
+                '-t', f"{sc_dur:.2f}",
+                '-vf', f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,zoompan=z='min(zoom+0.001,1.15)':d={frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920,setsar=1,fps=30",
+                '-c:v', 'libx264', '-crf', '18', '-pix_fmt', 'yuv420p', '-an', sc_norm
+            ]
+            subprocess.run(cmd, check=True)
+
+        scene_files.append(sc_norm)
+
+    concat_txt = f"temp/{topic['id']}_concat.txt"
+    with open(concat_txt, 'w', encoding='utf-8') as f:
+        for sf in scene_files:
+            abs_p = os.path.abspath(sf).replace('\\', '/')
+            f.write(f"file '{abs_p}'\n")
+
+    concat_cmd = [
+        'ffmpeg', '-y', '-f', 'concat', '-safe', '0', '-i', concat_txt,
+        '-c', 'copy', dest_path
+    ]
+    subprocess.run(concat_cmd, check=True)
+    print(f"Multi-scene visual master assembled: {dest_path}")
+
 async def generate_voice(text, dest_path):
     print('Generating natural neural voiceover...')
     communicate = edge_tts.Communicate(text, VOICE, rate='+3%')
@@ -274,8 +343,9 @@ def main():
     audio_path = f"temp/{topic['id']}_voice.mp3"
     output_video_path = f"{OUTPUT_DIR}/factify_short_latest.mp4"
 
-    download_footage(topic['footage_url'], footage_path)
     asyncio.run(generate_voice(topic['script'], audio_path))
+    duration = get_media_duration(audio_path)
+    prepare_footage(topic, duration, footage_path)
     render_short(topic, footage_path, audio_path, output_video_path)
     generate_metadata(topic)
 

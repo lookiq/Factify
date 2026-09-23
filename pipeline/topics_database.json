@@ -312,7 +312,39 @@
         "color": "#FFCC00"
       }
     ],
-    "footage_url": "https://assets.mixkit.co/videos/31414/31414-720.mp4",
+    "scenes": [
+      {
+        "label": "Hook - Human Body Scan",
+        "duration": 4.5,
+        "clip_url": "https://assets.mixkit.co/videos/31414/31414-1080.mp4",
+        "type": "video"
+      },
+      {
+        "label": "Fact 1 - Stomach Acid Dissolving Metal",
+        "duration": 10.5,
+        "clip_url": "https://assets.mixkit.co/videos/42491/42491-1080.mp4",
+        "type": "video"
+      },
+      {
+        "label": "Fact 2 - Blood Vessels & Circulatory Flow",
+        "duration": 10.5,
+        "clip_url": "https://assets.mixkit.co/videos/42557/42557-1080.mp4",
+        "type": "video"
+      },
+      {
+        "label": "Fact 3 - Microscopic Human Skin Cells",
+        "duration": 5.5,
+        "clip_url": "https://assets.mixkit.co/videos/42485/42485-1080.mp4",
+        "type": "video"
+      },
+      {
+        "label": "Outro - Subscribe to Factify",
+        "duration": 4.0,
+        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
+        "type": "video"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/31414/31414-1080.mp4",
     "tags": [
       "human body facts",
       "anatomy facts",
