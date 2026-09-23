@@ -36,14 +36,18 @@ def get_next_topic():
     return topics[0]
 
 def download_footage(url, dest_path):
-    if os.path.exists(dest_path) and os.path.getsize(dest_path) > 100000:
-        print(f"Footage already exists at: {dest_path}")
+    if os.path.exists(dest_path) and os.path.getsize(dest_path) > 1000000:
+        print(f"High-quality footage already exists at: {dest_path}")
         return
 
+    # Auto-upgrade any 720p URL to 1080p master quality
+    url_1080 = url.replace('-720.mp4', '-1080.mp4') if url else ''
+
     candidate_urls = [
+        url_1080,
         url,
-        "https://assets.mixkit.co/videos/15209/15209-720.mp4",
-        "https://images-assets.nasa.gov/video/GSFC_20190925_BlackHole_m13442/GSFC_20190925_BlackHole_m13442~medium.mp4"
+        "https://images-assets.nasa.gov/video/GSFC_20190925_BlackHole_m13442/GSFC_20190925_BlackHole_m13442~medium.mp4",
+        "https://assets.mixkit.co/videos/1195/1195-1080.mp4"
     ]
 
     for c_url in candidate_urls:

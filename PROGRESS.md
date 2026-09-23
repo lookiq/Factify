@@ -49,6 +49,12 @@
 
 ---
 
+## 💎 Video Asset Quality Rule (Strict Mandate)
+- **উচ্চমান ফুটেজ বাধ্যতামূলক:** পরবর্তী সব ভিডিওর জন্য ব্যাকগ্রাউন্ড ক্লিপ ও ভিজ্যুয়াল ফুটেজ অবশ্যই প্রিমিয়াম কোয়ালিটির (1080p/4K আল্ট্রা-শার্প, হাই-বিটরেট, সিনেমাটিক ও নান্দনিক) হতে হবে।
+- কোনো ঝাপসা, লো-রেজোলিউশন বা সাধারণ ক্লিপ ব্যবহার করা যাবে না। প্রতিটি দৃশ্যের কালার গ্রেডিং এবং ভিজ্যুয়াল ক্ল্যারিটি স্টুডিও মানের হতে হবে।
+
+---
+
 ## ⏳ Active Status & Cloud Readiness
 - **Local Pipeline:** 100% ready and operational anytime.
 - **24/7 Cloud Runner:** Ready to run autonomously on schedule as soon as user saves the 3 GitHub Secrets.

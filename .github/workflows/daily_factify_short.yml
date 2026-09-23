@@ -1,63 +1,55 @@
-name: Daily 4x Factify Shorts Autonomous Cloud Runner
+name: Daily Factify Shorts (USA Prime Time 24/7)
 
 on:
   schedule:
-    # Slot 1: 11:30 UTC = 5:30 PM BST / 7:30 AM US Eastern (Morning Commute)
-    - cron: '30 11 * * *'
-    # Slot 2: 15:30 UTC = 9:30 PM BST / 11:30 AM US Eastern (Lunch Break)
-    - cron: '30 15 * * *'
-    # Slot 3: 22:30 UTC = 4:30 AM BST / 6:30 PM US Eastern (Prime Evening - Peak)
+    # 1. US Morning Commute: 8:00 AM EDT (12:00 UTC / 6:00 PM BST)
+    - cron: '0 12 * * *'
+    # 2. US Lunch Peak: 12:30 PM EDT (16:30 UTC / 10:30 PM BST)
+    - cron: '30 16 * * *'
+    # 3. US Evening Prime Time: 6:30 PM EDT (22:30 UTC / 4:30 AM BST)
     - cron: '30 22 * * *'
-    # Slot 4: 02:00 UTC = 8:00 AM BST / 10:00 PM US Eastern (Late Night Bedtime)
+    # 4. US West Coast / Night Owl: 10:00 PM EDT (02:00 UTC / 8:00 AM BST)
     - cron: '0 2 * * *'
-  workflow_dispatch: # Allows manual 1-click execution anytime
+  workflow_dispatch:
 
 jobs:
-  build-and-upload:
-    runs-on: ubuntu-24.04
-    timeout-minutes: 15
+  build-and-publish:
+    runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Python 3.12
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          cache: 'pip'
 
-      - name: Install FFmpeg & Fonts
+      - name: Install FFmpeg
         run: |
-          sudo DEBIAN_FRONTEND=noninteractive apt-get update -y
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ffmpeg fonts-freefont-ttf fonts-dejavu-core fonts-liberation
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libass-dev
 
       - name: Install Python Dependencies
         run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install requests edge-tts pillow numpy google-api-python-client google-auth-oauthlib
 
-      - name: Build Factify Short (Voice + Footage + Subtitles)
-        run: |
-          python pipeline/build_short.py
-
-      - name: Upload to Factify Shorts Channel
+      - name: Run USA Prime Time Automation Engine
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-          YOUTUBE_PRIVACY_STATUS: 'public'
         run: |
-          python pipeline/upload_to_youtube.py
+          python pipeline/run_prime_time_automation.py
 
-      - name: Commit Updated Topic Database & Upload History
+      - name: Commit & Push Progress
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main || true
-          git add pipeline/topics_database.json upload_history.log || true
-          git commit -m "chore(bot): update topic database after daily Factify upload [skip ci]" || echo "No changes to commit"
-          git push origin main || echo "Nothing to push"
-
+          git config --global user.name "Factify Automation Bot"
+          git config --global user.email "bot@factify.local"
+          git add pipeline/topics_database.json upload_history.log PROGRESS.md || true
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore(auto): update topic database and upload history [skip ci]"
+          git push origin main || true

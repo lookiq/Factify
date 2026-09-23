@@ -71,8 +71,7 @@ def upload_video():
         metadata = json.load(f)
 
     privacy_status = os.environ.get('YOUTUBE_PRIVACY_STATUS', 'public')
-
-    youtube = get_authenticated_service()
+    publish_at = metadata.get('publish_at')
 
     body = {
         'snippet': {
@@ -82,12 +81,17 @@ def upload_video():
             'categoryId': metadata.get('category_id', '28')
         },
         'status': {
-            'privacyStatus': privacy_status,
+            'privacyStatus': 'private' if publish_at else privacy_status,
             'selfDeclaredMadeForKids': False
         }
     }
 
+    if publish_at:
+        body['status']['publishAt'] = publish_at
+        print(f"🕒 Scheduled Publish Time (USA Prime Time / UTC): {publish_at}")
+
     print(f"Uploading '{metadata['title']}' to Factify Shorts channel...")
+    youtube = get_authenticated_service()
     media = MediaFileUpload(VIDEO_FILE, mimetype='video/mp4', resumable=True)
 
     request = youtube.videos().insert(
