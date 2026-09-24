@@ -526,7 +526,39 @@
         "color": "#FFCC00"
       }
     ],
-    "footage_url": "https://assets.mixkit.co/videos/1014/1014-720.mp4",
+    "scenes": [
+      {
+        "label": "Hook - Time Warping History",
+        "duration": 4.5,
+        "clip_url": "https://assets.mixkit.co/videos/1014/1014-1080.mp4",
+        "type": "video"
+      },
+      {
+        "label": "Fact 1 - Cleopatra Closer to iPhone than Pyramids",
+        "duration": 10.5,
+        "local_path": "pipeline/assets/scenes/history_sc_1.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 2 - Oxford Older than Aztec Empire",
+        "duration": 10.0,
+        "local_path": "pipeline/assets/scenes/history_sc_2.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 3 - Woolly Mammoths Alive During Pyramids",
+        "duration": 5.5,
+        "local_path": "pipeline/assets/scenes/history_sc_3.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Outro - Subscribe to Factify",
+        "duration": 4.0,
+        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
+        "type": "video"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/1014/1014-1080.mp4",
     "tags": [
       "history facts",
       "cleopatra",
