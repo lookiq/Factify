@@ -609,7 +609,33 @@
         "color": "#00FF66"
       }
     ],
-    "footage_url": "https://assets.mixkit.co/videos/1724/1724-720.mp4",
+    "scenes": [
+      {
+        "label": "Fact 1 - Teaspoon of Neutron Star vs Mount Everest",
+        "duration": 9.0,
+        "local_path": "pipeline/assets/scenes/neutron_sc_1.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 2 - Supergiant Core Collapses into Neutrons",
+        "duration": 6.5,
+        "local_path": "pipeline/assets/scenes/neutron_sc_2.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 3 - Slices Planet Earth Clean Through",
+        "duration": 6.0,
+        "local_path": "pipeline/assets/scenes/neutron_sc_3.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Outro - Subscribe to Factify",
+        "duration": 4.0,
+        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
+        "type": "video"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/1724/1724-1080.mp4",
     "tags": [
       "neutron star",
       "space facts",
@@ -660,7 +686,27 @@
         "color": "#00FF66"
       }
     ],
-    "footage_url": "https://assets.mixkit.co/videos/1726/1726-720.mp4",
+    "scenes": [
+      {
+        "label": "Fact 1 - Astronaut Spaghettification",
+        "duration": 9.5,
+        "local_path": "pipeline/assets/scenes/blackhole_sc_1.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 2 - Warped Spacetime & Event Horizon",
+        "duration": 10.5,
+        "local_path": "pipeline/assets/scenes/blackhole_sc_2.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Outro - Subscribe to Factify",
+        "duration": 4.0,
+        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
+        "type": "video"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/1726/1726-1080.mp4",
     "tags": [
       "black hole",
       "spaghettification",
