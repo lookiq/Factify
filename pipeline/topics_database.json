@@ -797,6 +797,88 @@
     "used": true
   },
   {
+    "id": "bulletproof_glass_mechanism",
+    "title": "How Bulletproof Glass ACTUALLY Stops a Bullet #Shorts",
+    "top_header": "ENGINEERING MYSTERY",
+    "sub_header": "STOPPING A .50 CALIBER!",
+    "script": "A fifty caliber sniper bullet hits with enough force to punch straight through solid steel. So why doesn't it shatter a sheet of bulletproof glass? Because it is not actually glass. It is a microscopic sandwich. The outer layer of brittle glass flattens the speeding copper tip like a pancake. But the real secret is in the middle: a flexible layer of transparent polycarbonate that stretches like a rubber spiderweb, trapping the bullet's kinetic energy and turning it into heat. The glass shatters on purpose so the bullet suffocates before ever reaching the other side. Subscribe to Factify for more insane engineering secrets!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "PUNCHES THROUGH SOLID STEEL!",
+        "color": "#FF3366"
+      },
+      {
+        "start": 4.5,
+        "end": 9.0,
+        "text": "SO WHY DOESN'T IT SHATTER GLASS?",
+        "color": "#FFFF00"
+      },
+      {
+        "start": 9.0,
+        "end": 13.5,
+        "text": "IT'S A MICROSCOPIC SANDWICH!",
+        "color": "#00FFFF"
+      },
+      {
+        "start": 13.5,
+        "end": 18.5,
+        "text": "POLYCARBONATE STRETCHES LIKE RUBBER!",
+        "color": "#39FF14"
+      },
+      {
+        "start": 18.5,
+        "end": 23.5,
+        "text": "TURNS KINETIC ENERGY INTO HEAT!",
+        "color": "#FF9900"
+      },
+      {
+        "start": 23.5,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#CCFF00"
+      }
+    ],
+    "scenes": [
+      {
+        "label": "Hook - 50 Caliber Frozen at Impact",
+        "duration": 7.0,
+        "local_path": "pipeline/assets/scenes/bulletproof_sc_1.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Mechanism - 3D Exploded Sandwich Diagram",
+        "duration": 9.5,
+        "local_path": "pipeline/assets/scenes/bulletproof_sc_2.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Climax - Flattened Bullet & Heat Dissipation",
+        "duration": 7.5,
+        "local_path": "pipeline/assets/scenes/bulletproof_sc_3.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Outro - 3D Cyber Subscribe",
+        "duration": 4.0,
+        "local_path": "pipeline/assets/scenes/factify_outro_premium.jpg",
+        "type": "image"
+      }
+    ],
+    "tags": [
+      "bulletproof glass",
+      "how it works",
+      "engineering",
+      "physics",
+      "sniper bullet",
+      "Factify",
+      "shorts"
+    ],
+    "category_id": "27",
+    "used": false
+  },
+  {
     "id": "coldest_place_universe",
     "title": "The Coldest Place in the Known Universe #Shorts",
     "top_header": "COSMIC FREEZE",
