@@ -226,18 +226,14 @@ def prepare_footage(topic, total_duration, dest_path):
                 except Exception as e:
                     print(f"Warning: could not download scene visual {sc_url}: {e}")
             
-            frames = max(30, int(30 * sc_dur))
-            # Alternate camera motion: Zoom In on even scenes, Zoom Out on odd scenes
-            if idx % 2 == 0:
-                zoom_expr = f"zoompan=z='min(zoom+0.0014,1.15)':d={frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920"
-            else:
-                zoom_expr = f"zoompan=z='if(lte(zoom,1.0),1.14,max(1.0,zoom-0.0014))':d={frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920"
+            # CapCut Smooth Transition: Buttery smooth 0.15s cinematic dip on transition
+            transition_filter = "fade=t=in:st=0:d=0.15:color=black" if idx > 0 else "null"
 
             cmd = [
                 'ffmpeg', '-y', '-loop', '1', '-i', sc_raw,
                 '-t', f"{sc_dur:.2f}",
-                '-vf', f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,{zoom_expr},{flash_filter},vignette=PI/5,eq=contrast=1.08:saturation=1.18,setsar=1,fps=30",
-                '-c:v', 'libx264', '-crf', '18', '-pix_fmt', 'yuv420p', '-an', sc_norm
+                '-vf', f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,{transition_filter},vignette=PI/5,eq=contrast=1.06:saturation=1.15,setsar=1,fps=30",
+                '-c:v', 'libx264', '-crf', '17', '-pix_fmt', 'yuv420p', '-an', sc_norm
             ]
             subprocess.run(cmd, check=True)
 
@@ -295,13 +291,9 @@ def create_ass_subtitles(topic, duration, ass_path):
         "[V4+ Styles]",
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
         "Style: RadiumSub,Arial Black,70,&H0000FF16,&H00000000,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,3.8,5.0,2,60,60,630,1",
-        "Style: TopBadge,Arial Black,38,&H0000FFFF,&H00000000,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,2.5,3.0,2,40,40,1730,1",
-        "Style: Watermark,Arial Black,34,&H90FFFFFF,&H00000000,&H60000000,&H90000000,-1,0,0,0,100,100,2,0,1,1.5,2.0,2,40,40,160,1",
         "",
         "[Events]",
-        "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
-        f"Dialogue: 0,0:00:00.00,{format_ass_time(duration)},Watermark,,0,0,0,,{watermark_text}",
-        f"Dialogue: 0,0:00:00.00,{format_ass_time(duration)},TopBadge,,0,0,0,,{{\\c&H0000FFFF&\\3c&H00000000&\\bord2.8\\shad3.0}}[ 🔥 {top_header.upper()} ]"
+        "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"
     ]
 
     # Split subtitles into snappy 2-3 word power beats
