@@ -340,8 +340,8 @@
       {
         "label": "Outro - Subscribe to Factify",
         "duration": 4.0,
-        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
-        "type": "video"
+        "type": "image",
+        "local_path": "pipeline/assets/scenes/factify_outro_premium.jpg"
       }
     ],
     "footage_url": "https://assets.mixkit.co/videos/31414/31414-1080.mp4",
@@ -554,8 +554,8 @@
       {
         "label": "Outro - Subscribe to Factify",
         "duration": 4.0,
-        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
-        "type": "video"
+        "type": "image",
+        "local_path": "pipeline/assets/scenes/factify_outro_premium.jpg"
       }
     ],
     "footage_url": "https://assets.mixkit.co/videos/1014/1014-1080.mp4",
@@ -631,8 +631,8 @@
       {
         "label": "Outro - Subscribe to Factify",
         "duration": 4.0,
-        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
-        "type": "video"
+        "type": "image",
+        "local_path": "pipeline/assets/scenes/factify_outro_premium.jpg"
       }
     ],
     "footage_url": "https://assets.mixkit.co/videos/1724/1724-1080.mp4",
@@ -702,8 +702,8 @@
       {
         "label": "Outro - Subscribe to Factify",
         "duration": 4.0,
-        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
-        "type": "video"
+        "type": "image",
+        "local_path": "pipeline/assets/scenes/factify_outro_premium.jpg"
       }
     ],
     "footage_url": "https://assets.mixkit.co/videos/1726/1726-1080.mp4",
@@ -779,8 +779,8 @@
       {
         "label": "Outro - Subscribe to Factify",
         "duration": 4.0,
-        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
-        "type": "video"
+        "type": "image",
+        "local_path": "pipeline/assets/scenes/factify_outro_premium.jpg"
       }
     ],
     "footage_url": "https://assets.mixkit.co/videos/1199/1199-720.mp4",
@@ -856,8 +856,8 @@
       {
         "label": "Outro - Subscribe to Factify",
         "duration": 4.0,
-        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
-        "type": "video"
+        "type": "image",
+        "local_path": "pipeline/assets/scenes/factify_outro_premium.jpg"
       }
     ],
     "footage_url": "https://assets.mixkit.co/videos/1724/1724-1080.mp4",
@@ -933,8 +933,8 @@
       {
         "label": "Outro - Subscribe to Factify",
         "duration": 4.0,
-        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
-        "type": "video"
+        "type": "image",
+        "local_path": "pipeline/assets/scenes/factify_outro_premium.jpg"
       }
     ],
     "footage_url": "https://assets.mixkit.co/videos/1195/1195-720.mp4",
@@ -1010,8 +1010,8 @@
       {
         "label": "Outro - Subscribe to Factify",
         "duration": 4.0,
-        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
-        "type": "video"
+        "type": "image",
+        "local_path": "pipeline/assets/scenes/factify_outro_premium.jpg"
       }
     ],
     "footage_url": "https://assets.mixkit.co/videos/4255/4255-720.mp4",
