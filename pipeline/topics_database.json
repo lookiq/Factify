@@ -794,7 +794,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": false
+    "used": true
   },
   {
     "id": "coldest_place_universe",
@@ -812,7 +812,7 @@
       {
         "start": 4.5,
         "end": 10.0,
-        "text": "BOOMERANG NEBULA: -458°F!",
+        "text": "BOOMERANG NEBULA: -458\u00b0F!",
         "color": "#FFFF00"
       },
       {
@@ -952,7 +952,7 @@
   },
   {
     "id": "raining_glass_planet",
-    "title": "The Planet Where It Rains Molten Glass! 💎 #Shorts",
+    "title": "The Planet Where It Rains Molten Glass! \ud83d\udc8e #Shorts",
     "top_header": "NIGHTMARE WEATHER",
     "sub_header": "RAINING GLASS SIDEWAYS!",
     "script": "Sixty-four light years from Earth orbits exoplanet HD 189733b, a world of pure atmospheric terror. Although it glows a tranquil cobalt blue, its atmosphere is whipped by screaming winds reaching five thousand four hundred miles per hour. That is seven times the speed of sound. Even worse, the clouds are laced with silicate particles, causing torrential rain of razor-sharp molten glass flying completely sideways. Subscribe to Factify for more cosmic mysteries!",
