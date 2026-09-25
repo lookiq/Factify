@@ -757,6 +757,32 @@
         "color": "#00FF66"
       }
     ],
+    "scenes": [
+      {
+        "label": "Fact 1 - Sun Unleashes Massive Coronal Mass Ejection",
+        "duration": 7.5,
+        "local_path": "pipeline/assets/scenes/solar_sc_1.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 2 - 1859 Carrington Event Telegraph Sparks Fire",
+        "duration": 7.5,
+        "local_path": "pipeline/assets/scenes/solar_sc_2.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 3 - Global Internet & Grid Blackout",
+        "duration": 6.0,
+        "local_path": "pipeline/assets/scenes/solar_sc_3.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Outro - Subscribe to Factify",
+        "duration": 4.0,
+        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
+        "type": "video"
+      }
+    ],
     "footage_url": "https://assets.mixkit.co/videos/1199/1199-720.mp4",
     "tags": [
       "solar storm",
@@ -764,6 +790,237 @@
       "carrington event",
       "internet blackout",
       "science facts",
+      "Factify",
+      "shorts"
+    ],
+    "category_id": "27",
+    "used": false
+  },
+  {
+    "id": "coldest_place_universe",
+    "title": "The Coldest Place in the Known Universe #Shorts",
+    "top_header": "COSMIC FREEZE",
+    "sub_header": "THE COLDEST SPOT IN SPACE!",
+    "script": "The coldest known place in the universe is not a frozen moon or a dark planet. It is the Boomerang Nebula, located five thousand light years away. Its temperature is minus four hundred and fifty-eight degrees Fahrenheit, just one degree above absolute zero! Expanding gases chill it so violently that it is actually colder than the lingering afterglow of the Big Bang itself. Subscribe to Factify for more insane cosmic facts!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "COLDEST PLACE IN THE UNIVERSE!",
+        "color": "#00FFFF"
+      },
+      {
+        "start": 4.5,
+        "end": 10.0,
+        "text": "BOOMERANG NEBULA: -458°F!",
+        "color": "#FFFF00"
+      },
+      {
+        "start": 10.0,
+        "end": 15.5,
+        "text": "JUST ONE DEGREE ABOVE ZERO!",
+        "color": "#FFFFFF"
+      },
+      {
+        "start": 15.5,
+        "end": 21.0,
+        "text": "COLDER THAN THE BIG BANG!",
+        "color": "#39FF14"
+      },
+      {
+        "start": 21.0,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#CCFF00"
+      }
+    ],
+    "scenes": [
+      {
+        "label": "Fact 1 - Boomerang Nebula in Deep Space",
+        "duration": 7.5,
+        "local_path": "pipeline/assets/scenes/coldest_sc_1.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 2 - Absolute Zero Minus 458 Fahrenheit",
+        "duration": 7.5,
+        "local_path": "pipeline/assets/scenes/coldest_sc_2.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 3 - Colder than Cosmic Microwave Background",
+        "duration": 6.0,
+        "local_path": "pipeline/assets/scenes/coldest_sc_3.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Outro - Subscribe to Factify",
+        "duration": 4.0,
+        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
+        "type": "video"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/1724/1724-1080.mp4",
+    "tags": [
+      "coldest place",
+      "boomerang nebula",
+      "absolute zero",
+      "space facts",
+      "astronomy",
+      "Factify",
+      "shorts"
+    ],
+    "category_id": "27",
+    "used": false
+  },
+  {
+    "id": "immortal_pando_tree",
+    "title": "The 80,000 Year Old Living Organism #Shorts",
+    "top_header": "LIVING SUPER-ORGANISM",
+    "sub_header": "OLDER THAN HUMAN HISTORY!",
+    "script": "Deep in the mountains of Utah stands Pando, a colossal forest of forty-seven thousand aspen trees that is actually one single living creature. Every single tree is genetically identical and connected by a massive underground root network weighing over thirteen million pounds. Scientists estimate this super-organism has been alive for over eighty thousand years, quietly growing before humans built their first cities. Subscribe to Factify for more incredible nature facts!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "AN 80,000-YEAR-OLD ORGANISM!",
+        "color": "#39FF14"
+      },
+      {
+        "start": 4.5,
+        "end": 10.0,
+        "text": "47,000 TREES = ONE CREATURE!",
+        "color": "#FFFF00"
+      },
+      {
+        "start": 10.0,
+        "end": 15.5,
+        "text": "WEIGHS OVER 13 MILLION POUNDS!",
+        "color": "#00FFFF"
+      },
+      {
+        "start": 15.5,
+        "end": 21.0,
+        "text": "OLDER THAN HUMAN CIVILIZATION!",
+        "color": "#FF3366"
+      },
+      {
+        "start": 21.0,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#CCFF00"
+      }
+    ],
+    "scenes": [
+      {
+        "label": "Fact 1 - Pando Aspen Forest Mountain Vista",
+        "duration": 7.0,
+        "local_path": "pipeline/assets/scenes/pando_sc_1.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 2 - Underground Bioluminescent Root Network",
+        "duration": 8.0,
+        "local_path": "pipeline/assets/scenes/pando_sc_2.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 3 - 80000 Year Ancient Civilizations Comparison",
+        "duration": 6.5,
+        "local_path": "pipeline/assets/scenes/pando_sc_3.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Outro - Subscribe to Factify",
+        "duration": 4.0,
+        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
+        "type": "video"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/1195/1195-720.mp4",
+    "tags": [
+      "pando",
+      "oldest tree",
+      "nature facts",
+      "biology",
+      "ancient organism",
+      "Factify",
+      "shorts"
+    ],
+    "category_id": "27",
+    "used": false
+  },
+  {
+    "id": "raining_glass_planet",
+    "title": "The Planet Where It Rains Molten Glass! 💎 #Shorts",
+    "top_header": "NIGHTMARE WEATHER",
+    "sub_header": "RAINING GLASS SIDEWAYS!",
+    "script": "Sixty-four light years from Earth orbits exoplanet HD 189733b, a world of pure atmospheric terror. Although it glows a tranquil cobalt blue, its atmosphere is whipped by screaming winds reaching five thousand four hundred miles per hour. That is seven times the speed of sound. Even worse, the clouds are laced with silicate particles, causing torrential rain of razor-sharp molten glass flying completely sideways. Subscribe to Factify for more cosmic mysteries!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 4.5,
+        "text": "RAINING MOLTEN GLASS SIDEWAYS!",
+        "color": "#00FFFF"
+      },
+      {
+        "start": 4.5,
+        "end": 10.0,
+        "text": "EXOPLANET HD 189733B!",
+        "color": "#39FF14"
+      },
+      {
+        "start": 10.0,
+        "end": 15.0,
+        "text": "WINDS AT 5,400 MILES PER HOUR!",
+        "color": "#FFFF00"
+      },
+      {
+        "start": 15.0,
+        "end": 20.5,
+        "text": "SHARDS OF GLASS CUTTING SKY!",
+        "color": "#FF3366"
+      },
+      {
+        "start": 20.5,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#CCFF00"
+      }
+    ],
+    "scenes": [
+      {
+        "label": "Fact 1 - Cobalt Blue Exoplanet HD 189733b",
+        "duration": 7.0,
+        "local_path": "pipeline/assets/scenes/glass_sc_1.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 2 - 5400 MPH Supersonic Glass Rain",
+        "duration": 8.0,
+        "local_path": "pipeline/assets/scenes/glass_sc_2.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Fact 3 - Silicate Crystallizing into Glass Needles",
+        "duration": 6.5,
+        "local_path": "pipeline/assets/scenes/glass_sc_3.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Outro - Subscribe to Factify",
+        "duration": 4.0,
+        "clip_url": "https://assets.mixkit.co/videos/4462/4462-1080.mp4",
+        "type": "video"
+      }
+    ],
+    "footage_url": "https://assets.mixkit.co/videos/4255/4255-720.mp4",
+    "tags": [
+      "raining glass",
+      "hd 189733b",
+      "exoplanet",
+      "extreme weather",
+      "space facts",
       "Factify",
       "shorts"
     ],
