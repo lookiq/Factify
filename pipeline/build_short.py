@@ -3,8 +3,10 @@ import sys
 import json
 import asyncio
 import subprocess
+import wave
 import requests
 import edge_tts
+import numpy as np
 
 if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace', line_buffering=True)
@@ -15,6 +17,98 @@ DATABASE_FILE = 'pipeline/topics_database.json'
 OUTPUT_DIR = 'output'
 VOICE = 'en-US-ChristopherNeural'
 BGM_FILE = 'pipeline/assets/bgm.mp3'
+SFX_DIR = 'pipeline/assets/sfx'
+WHOOSH_FILE = os.path.join(SFX_DIR, 'whoosh.wav')
+IMPACT_FILE = os.path.join(SFX_DIR, 'impact.wav')
+
+def ensure_sfx_assets():
+    os.makedirs(SFX_DIR, exist_ok=True)
+    sr = 44100
+    
+    if not os.path.exists(WHOOSH_FILE):
+        print("Synthesizing studio cinematic whoosh SFX...")
+        dur = 0.65
+        n_samples = int(sr * dur)
+        t = np.linspace(0, dur, n_samples, endpoint=False)
+        white = np.random.uniform(-1, 1, n_samples)
+        pink = np.convolve(white, [0.3, 0.4, 0.3], mode='same')
+        env = np.exp(-((t - 0.38) ** 2) / (2 * (0.11 ** 2)))
+        sweep_freq = 250 + 1800 * (t / dur) ** 2.2
+        phase = 2 * np.pi * np.cumsum(sweep_freq) / sr
+        whistle = np.sin(phase) * 0.4
+        sig = (pink * 0.8 + whistle) * env
+        sig = sig / (np.max(np.abs(sig)) + 1e-6) * 0.88
+        with wave.open(WHOOSH_FILE, 'wb') as wf:
+            wf.setnchannels(1)
+            wf.setsampwidth(2)
+            wf.setframerate(sr)
+            wf.writeframes((sig * 32767).astype(np.int16).tobytes())
+
+    if not os.path.exists(IMPACT_FILE):
+        print("Synthesizing studio cinematic impact SFX...")
+        dur = 1.6
+        n_samples = int(sr * dur)
+        t = np.linspace(0, dur, n_samples, endpoint=False)
+        freq = 140 * np.exp(-t * 4.0) + 32
+        phase = 2 * np.pi * np.cumsum(freq) / sr
+        env = np.exp(-t * 2.8)
+        sub = np.sin(phase) * env
+        grit = np.tanh(sub * 2.2) * 0.45
+        snap_env = np.exp(-t / 0.012)
+        snap = np.sin(2 * np.pi * 320 * t) * snap_env * 0.6
+        mix = (sub * 0.7 + grit + snap)
+        mix = mix / (np.max(np.abs(mix)) + 1e-6) * 0.95
+        with wave.open(IMPACT_FILE, 'wb') as wf:
+            wf.setnchannels(1)
+            wf.setsampwidth(2)
+            wf.setframerate(sr)
+            wf.writeframes((mix * 32767).astype(np.int16).tobytes())
+
+def generate_sfx_track(scene_cuts, total_duration, output_path):
+    ensure_sfx_assets()
+    sr = 44100
+    total_samples = int(sr * (total_duration + 1.0))
+    master_sfx = np.zeros(total_samples, dtype=np.float32)
+
+    def load_wav(path):
+        with wave.open(path, 'rb') as wf:
+            data = np.frombuffer(wf.readframes(wf.getnframes()), dtype=np.int16)
+            return data.astype(np.float32) / 32768.0
+
+    whoosh = load_wav(WHOOSH_FILE)
+    impact = load_wav(IMPACT_FILE)
+
+    # 1. Opening hook impact at 0.0s
+    n_imp = min(len(impact), total_samples)
+    master_sfx[0:n_imp] += impact[:n_imp] * 0.45
+
+    # 2. Synchronized whoosh & impact at each scene cut
+    for cut_t in scene_cuts:
+        if cut_t <= 0.1:
+            continue
+        # Whoosh peaks exactly at cut_t
+        whoosh_start = max(0, int(sr * (cut_t - 0.38)))
+        whoosh_end = min(total_samples, whoosh_start + len(whoosh))
+        dur_w = whoosh_end - whoosh_start
+        if dur_w > 0:
+            master_sfx[whoosh_start:whoosh_end] += whoosh[:dur_w] * 0.50
+
+        # Subtle sub-bass impact on scene transition
+        imp_start = int(sr * cut_t)
+        imp_end = min(total_samples, imp_start + len(impact))
+        dur_i = imp_end - imp_start
+        if dur_i > 0:
+            master_sfx[imp_start:imp_end] += impact[:dur_i] * 0.30
+
+    # Prevent clipping and export 16-bit WAV
+    master_sfx = np.clip(master_sfx, -1.0, 1.0)
+    i16 = (master_sfx * 32767).astype(np.int16)
+    with wave.open(output_path, 'wb') as wf:
+        wf.setnchannels(1)
+        wf.setsampwidth(2)
+        wf.setframerate(sr)
+        wf.writeframes(i16.tobytes())
+    print(f"Generated time-synchronized studio SFX track ({len(scene_cuts)} cuts) -> {output_path}")
 
 def format_ass_time(seconds):
     h = int(seconds // 3600)
@@ -40,9 +134,7 @@ def download_footage(url, dest_path):
         print(f"High-quality footage already exists at: {dest_path}")
         return
 
-    # Auto-upgrade any 720p URL to 1080p master quality
     url_1080 = url.replace('-720.mp4', '-1080.mp4') if url else ''
-
     candidate_urls = [
         url_1080,
         url,
@@ -68,7 +160,7 @@ def download_footage(url, dest_path):
             print(f"Warning: Could not fetch {c_url} ({e}), trying next fallback...")
             continue
 
-    print("Generating fallback high-res cinematic background via FFmpeg...")
+    print("Generating fallback procedural background via FFmpeg...")
     fallback_cmd = (
         f'ffmpeg -y -f lavfi -i "mandelbrot=size=1080x1920:rate=30" '
         f'-t 60 -c:v libx264 -pix_fmt yuv420p "{dest_path}"'
@@ -80,24 +172,28 @@ def prepare_footage(topic, total_duration, dest_path):
     scenes = topic.get('scenes')
     if not scenes:
         download_footage(topic.get('footage_url'), dest_path)
-        return
+        return dest_path, [0.0]
 
     print(f"Detected {len(scenes)} topic-specific visual scenes for: {topic['title']}")
     scene_files = []
     
     # Calculate scene durations so they sum up to total_duration
-    scene_durations = []
     total_assigned = sum(sc.get('duration', 0) for sc in scenes)
     if total_assigned <= 0:
         each_d = total_duration / len(scenes)
         scene_durations = [each_d] * len(scenes)
     else:
-        # Scale proportionally to exact total_duration
         scale_factor = total_duration / total_assigned
         scene_durations = [sc.get('duration', total_duration/len(scenes)) * scale_factor for sc in scenes]
 
+    scene_cut_times = []
+    running_t = 0.0
+
     for idx, sc in enumerate(scenes):
         sc_dur = scene_durations[idx]
+        scene_cut_times.append(running_t)
+        running_t += sc_dur
+
         sc_type = sc.get('type', 'video')
         sc_url = sc.get('clip_url')
         sc_local = sc.get('local_path')
@@ -107,13 +203,17 @@ def prepare_footage(topic, total_duration, dest_path):
             sc_raw = f"temp/{topic['id']}_sc_{idx}_raw.mp4" if sc_type == 'video' else f"temp/{topic['id']}_sc_{idx}.jpg"
         sc_norm = f"temp/{topic['id']}_sc_{idx}_norm.mp4"
 
-        print(f"  [Scene {idx+1}/{len(scenes)}] {sc.get('label', 'Visual')} ({sc_dur:.2f}s)...")
+        print(f"  [Scene {idx+1}/{len(scenes)}] {sc.get('label', 'Visual')} ({sc_dur:.2f}s, start: {scene_cut_times[-1]:.2f}s)...")
+        
+        # Subtle white flash on scene transition (100ms)
+        flash_filter = "fade=t=in:st=0:d=0.08:color=white" if idx > 0 else "null"
+
         if sc_type == 'video':
             download_footage(sc_url, sc_raw)
             cmd = [
                 'ffmpeg', '-y', '-stream_loop', '-1', '-i', sc_raw,
                 '-t', f"{sc_dur:.2f}",
-                '-vf', 'scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30',
+                '-vf', f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,{flash_filter},vignette=PI/5,eq=contrast=1.08:saturation=1.18,setsar=1,fps=30",
                 '-c:v', 'libx264', '-crf', '18', '-an', sc_norm
             ]
             subprocess.run(cmd, check=True)
@@ -125,11 +225,18 @@ def prepare_footage(topic, total_duration, dest_path):
                         f.write(r.content)
                 except Exception as e:
                     print(f"Warning: could not download scene visual {sc_url}: {e}")
+            
             frames = max(30, int(30 * sc_dur))
+            # Alternate camera motion: Zoom In on even scenes, Zoom Out on odd scenes
+            if idx % 2 == 0:
+                zoom_expr = f"zoompan=z='min(zoom+0.0014,1.15)':d={frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920"
+            else:
+                zoom_expr = f"zoompan=z='if(lte(zoom,1.0),1.14,max(1.0,zoom-0.0014))':d={frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920"
+
             cmd = [
                 'ffmpeg', '-y', '-loop', '1', '-i', sc_raw,
                 '-t', f"{sc_dur:.2f}",
-                '-vf', f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,zoompan=z='min(zoom+0.001,1.15)':d={frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920,setsar=1,fps=30",
+                '-vf', f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,{zoom_expr},{flash_filter},vignette=PI/5,eq=contrast=1.08:saturation=1.18,setsar=1,fps=30",
                 '-c:v', 'libx264', '-crf', '18', '-pix_fmt', 'yuv420p', '-an', sc_norm
             ]
             subprocess.run(cmd, check=True)
@@ -148,6 +255,7 @@ def prepare_footage(topic, total_duration, dest_path):
     ]
     subprocess.run(concat_cmd, check=True)
     print(f"Multi-scene visual master assembled: {dest_path}")
+    return dest_path, scene_cut_times
 
 async def generate_voice(text, dest_path):
     print('Generating natural neural voiceover...')
@@ -161,12 +269,9 @@ def get_media_duration(file_path):
     return float(out)
 
 def create_ass_subtitles(topic, duration, ass_path):
-    top_header = topic.get('top_header', 'MIND-BLOWING ODD FACTS')
-    sub_header = topic.get('sub_header', 'SOUND FAKE BUT 100% REAL!')
+    top_header = topic.get('top_header', 'MIND-BLOWING FACTS')
+    sub_header = topic.get('sub_header', '')
 
-    # Radium & Neon luminescent color map (BGR format: &HAABBGGRR)
-    # Radium Green: #39FF14 -> &H0014FF39, Radium Lime: #CCFF00 -> &H0000FFCC
-    # Radium Cyan: #00FFFF -> &H00FFFF00, Radium Coral: #FF3366 -> &H006633FF
     style_colors = {
         '#39FF14': '&H0014FF39&', # Pure Radium Electric Green
         '#CCFF00': '&H0000FFCC&', # Radioactive Radium Lime
@@ -179,8 +284,6 @@ def create_ass_subtitles(topic, duration, ass_path):
     }
 
     watermark_text = topic.get('watermark_text', '@FactifyDailyShorts')
-    wm_size = 34 if len(watermark_text) > 10 else 44
-    wm_spacing = 2 if len(watermark_text) > 10 else 4
 
     ass_lines = [
         "[Script Info]",
@@ -191,48 +294,69 @@ def create_ass_subtitles(topic, duration, ass_path):
         "",
         "[V4+ Styles]",
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
-        "Style: RadiumSub,Arial Black,66,&H0000FF16,&H00000000,&H00003005,&H00000000,-1,0,0,0,100,100,1,0,1,2.8,4.5,2,50,50,620,1",
-        f"Style: Watermark,Arial Black,{wm_size},&H80FFFFFF,&H00000000,&H60000000,&H90000000,-1,0,0,0,100,100,{wm_spacing},0,1,1.5,2.0,2,40,40,170,1",
+        "Style: RadiumSub,Arial Black,70,&H0000FF16,&H00000000,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,3.8,5.0,2,60,60,630,1",
+        "Style: TopBadge,Arial Black,38,&H0000FFFF,&H00000000,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,2.5,3.0,2,40,40,1730,1",
+        "Style: Watermark,Arial Black,34,&H90FFFFFF,&H00000000,&H60000000,&H90000000,-1,0,0,0,100,100,2,0,1,1.5,2.0,2,40,40,160,1",
         "",
         "[Events]",
         "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
-        f"Dialogue: 0,0:00:00.00,{format_ass_time(duration)},Watermark,,0,0,0,,{watermark_text}"
+        f"Dialogue: 0,0:00:00.00,{format_ass_time(duration)},Watermark,,0,0,0,,{watermark_text}",
+        f"Dialogue: 0,0:00:00.00,{format_ass_time(duration)},TopBadge,,0,0,0,,{{\\c&H0000FFFF&\\3c&H00000000&\\bord2.8\\shad3.0}}[ 🔥 {top_header.upper()} ]"
     ]
 
-    for sub in topic.get('subtitles', []):
-        start_t = sub['start']
-        end_t = min(sub['end'], duration)
-        if start_t >= duration:
+    # Split subtitles into snappy 2-3 word power beats
+    raw_subtitles = topic.get('subtitles', [])
+    snappy_beats = []
+
+    for sub in raw_subtitles:
+        st = sub['start']
+        et = min(sub['end'], duration)
+        if st >= duration:
             continue
-        
-        start_str = format_ass_time(start_t)
-        end_str = format_ass_time(end_t)
-        
-        hex_col = sub.get('color', '#39FF14')
-        ass_color = style_colors.get(hex_col, '&H0000FF16&')
+        text = sub['text'].strip()
+        words = text.split()
+        dur = et - st
 
-        raw_text = sub['text']
-        # Format text to 2 lines if longer than 20 chars
-        words = raw_text.split()
-        if len(words) > 3 and len(raw_text) > 20:
+        if len(words) >= 4 and dur >= 1.6:
             mid = len(words) // 2
-            formatted_text = " ".join(words[:mid]) + r"\N" + " ".join(words[mid:])
+            half_dur = dur / 2
+            snappy_beats.append({
+                'start': st,
+                'end': st + half_dur,
+                'text': ' '.join(words[:mid]),
+                'color': sub.get('color', '#39FF14')
+            })
+            snappy_beats.append({
+                'start': st + half_dur,
+                'end': et,
+                'text': ' '.join(words[mid:]),
+                'color': sub.get('color', '#39FF14')
+            })
         else:
-            formatted_text = raw_text
+            snappy_beats.append({
+                'start': st,
+                'end': et,
+                'text': text,
+                'color': sub.get('color', '#39FF14')
+            })
 
-        # Add stylish quotes around text matching user reference
-        quoted_text = f'"{formatted_text}"'
+    for beat in snappy_beats:
+        start_str = format_ass_time(beat['start'])
+        end_str = format_ass_time(beat['end'])
+        hex_col = beat.get('color', '#39FF14')
+        ass_color = style_colors.get(hex_col, '&H0000FF16&')
+        raw_text = beat['text'].upper()
 
-        # Radium 3D Drop-Shadow Animation: 2.8 outline + 4.5 solid shadow
-        anim_tag = f"{{\\c{ass_color}\\3c&H00002000&\\bord2.8\\shad4.5\\fscx108\\fscy108\\t(0,80,\\fscx100\\fscy100)}}"
-        dialogue_line = f"Dialogue: 1,{start_str},{end_str},RadiumSub,,0,0,0,,{anim_tag}{quoted_text}"
+        # Dynamic MrBeast/Zach D style elastic punch animation on beat hit
+        anim_tag = f"{{\\c{ass_color}\\3c&H00000000&\\bord4.0\\shad5.2\\fscx112\\fscy112\\t(0,75,\\fscx100\\fscy100)}}"
+        dialogue_line = f"Dialogue: 1,{start_str},{end_str},RadiumSub,,0,0,0,,{anim_tag}{raw_text}"
         ass_lines.append(dialogue_line)
 
     with open(ass_path, 'w', encoding='utf-8') as f:
         f.write("\n".join(ass_lines))
-    print(f"Generated animated ASS subtitles: {ass_path}")
+    print(f"Generated snappy animated ASS subtitles: {ass_path}")
 
-def render_short(topic, footage_path, audio_path, output_path):
+def render_short(topic, footage_path, audio_path, sfx_path, output_path):
     duration = get_media_duration(audio_path)
     print(f'Voice duration: {duration:.2f}s')
 
@@ -240,23 +364,48 @@ def render_short(topic, footage_path, audio_path, output_path):
     create_ass_subtitles(topic, duration, ass_path)
 
     has_bgm = os.path.exists(BGM_FILE)
+    has_sfx = os.path.exists(sfx_path)
     
     footage_args = []
     if topic.get('footage_start_sec'):
         footage_args = ['-ss', str(topic['footage_start_sec'])]
 
     # Filter Complex:
-    # 1. Full-screen 9:16 vertical crop with contrast & saturation enhancement
-    # 2. Burn in clean modern animated ASS subtitles
-    # 3. Balanced audio mix: Voice (1.0) + Subtle BGM (0.12)
+    # 1. 9:16 vertical crop with burn-in ASS subtitles
+    # 2. Studio radio broadcast voice EQ (punchy low end, crisp presence)
+    # 3. Ducked subtle BGM + studio time-synced SFX
     filter_complex = (
-        f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,eq=contrast=1.08:saturation=1.15,ass={ass_path}[outv]; "
+        f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,ass={ass_path}[outv]; "
+        f"[1:a]equalizer=f=120:width_type=o:width=1.5:g=3.2,equalizer=f=3400:width_type=o:width=1.5:g=2.2,volume=1.06[voice]; "
     )
-    
-    if has_bgm:
+
+    if has_bgm and has_sfx:
         filter_complex += (
-            f"[1:a]volume=1.0[voice]; "
-            f"[2:a]volume=0.12[bgm]; "
+            f"[2:a]volume=0.08[bgm]; "
+            f"[3:a]volume=0.55[sfx]; "
+            f"[voice][bgm][sfx]amix=inputs=3:duration=first:dropout_transition=2[outa]"
+        )
+        ffmpeg_cmd = [
+            'ffmpeg', '-y',
+            *footage_args,
+            '-stream_loop', '-1', '-i', footage_path,
+            '-i', audio_path,
+            '-stream_loop', '-1', '-i', BGM_FILE,
+            '-i', sfx_path,
+            '-filter_complex', filter_complex,
+            '-map', '[outv]',
+            '-map', '[outa]',
+            '-c:v', 'libx264',
+            '-preset', 'medium',
+            '-crf', '17',
+            '-c:a', 'aac',
+            '-b:a', '256k',
+            '-t', f"{duration:.2f}",
+            output_path
+        ]
+    elif has_bgm:
+        filter_complex += (
+            f"[2:a]volume=0.08[bgm]; "
             f"[voice][bgm]amix=inputs=2:duration=first:dropout_transition=2[outa]"
         )
         ffmpeg_cmd = [
@@ -277,7 +426,7 @@ def render_short(topic, footage_path, audio_path, output_path):
             output_path
         ]
     else:
-        filter_complex += "[1:a]volume=1.0[outa]"
+        filter_complex += "[voice]volume=1.0[outa]"
         ffmpeg_cmd = [
             'ffmpeg', '-y',
             *footage_args,
@@ -295,7 +444,7 @@ def render_short(topic, footage_path, audio_path, output_path):
             output_path
         ]
 
-    print(f'Rendering studio-quality vertical 9:16 Short (exact duration: {duration:.2f}s)...')
+    print(f'Rendering studio-mastered vertical 9:16 Short (exact duration: {duration:.2f}s)...')
     subprocess.run(ffmpeg_cmd, check=True, timeout=300)
     print(f'Short rendered successfully: {output_path}')
 
@@ -345,16 +494,19 @@ def main():
 
     footage_path = f"temp/{topic['id']}_raw.mp4"
     audio_path = f"temp/{topic['id']}_voice.mp3"
+    sfx_path = f"temp/{topic['id']}_sfx.wav"
     output_video_path = f"{OUTPUT_DIR}/factify_short_latest.mp4"
 
     asyncio.run(generate_voice(topic['script'], audio_path))
     duration = get_media_duration(audio_path)
-    prepare_footage(topic, duration, footage_path)
-    render_short(topic, footage_path, audio_path, output_video_path)
+    
+    footage_path, scene_cuts = prepare_footage(topic, duration, footage_path)
+    generate_sfx_track(scene_cuts, duration, sfx_path)
+    render_short(topic, footage_path, audio_path, sfx_path, output_video_path)
     generate_metadata(topic)
 
     print("\n" + "=" * 60)
-    print("FACTIFY SHORT GENERATED SUCCESSFULLY!")
+    print("FACTIFY STUDIO SHORT GENERATED SUCCESSFULLY!")
     print(f"Video Path: {os.path.abspath(output_video_path)}")
     print("=" * 60)
 
