@@ -139,7 +139,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "mariana_trench_depth",
@@ -191,7 +191,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "immortal_creatures",
@@ -260,7 +260,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "human_body_insane",
@@ -354,7 +354,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "diamond_planet",
@@ -411,7 +411,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "weird_animal_facts",
@@ -474,7 +474,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "time_warping_history",
@@ -569,7 +569,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "neutron_star_density",
@@ -646,7 +646,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "black_hole_spaghettification",
@@ -717,7 +717,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "solar_storm_superflare",
@@ -794,7 +794,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "planarian_immortal_regeneration",
@@ -919,7 +919,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "bulletproof_glass_mechanism",
@@ -1001,7 +1001,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "coldest_place_universe",
@@ -1078,7 +1078,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "immortal_pando_tree",
@@ -1155,7 +1155,7 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   },
   {
     "id": "raining_glass_planet",
@@ -1232,6 +1232,6 @@
       "shorts"
     ],
     "category_id": "27",
-    "used": true
+    "used": false
   }
 ]
