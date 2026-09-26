@@ -82,25 +82,8 @@ def generate_sfx_track(scene_cuts, total_duration, output_path):
     n_imp = min(len(impact), total_samples)
     master_sfx[0:n_imp] += impact[:n_imp] * 0.45
 
-    # 2. Synchronized whoosh & impact at each scene cut
-    for cut_t in scene_cuts:
-        if cut_t <= 0.1:
-            continue
-        # Whoosh peaks exactly at cut_t
-        whoosh_start = max(0, int(sr * (cut_t - 0.38)))
-        whoosh_end = min(total_samples, whoosh_start + len(whoosh))
-        dur_w = whoosh_end - whoosh_start
-        if dur_w > 0:
-            master_sfx[whoosh_start:whoosh_end] += whoosh[:dur_w] * 0.50
-
-        # Subtle sub-bass impact on scene transition
-        imp_start = int(sr * cut_t)
-        imp_end = min(total_samples, imp_start + len(impact))
-        dur_i = imp_end - imp_start
-        if dur_i > 0:
-            master_sfx[imp_start:imp_end] += impact[:dur_i] * 0.30
-
-    # Prevent clipping and export 16-bit WAV
+    # Transition whooshes on image change removed per user instruction.
+    # The audio track maintains clean voiceover and atmospheric background music without cut sound distractions.
     master_sfx = np.clip(master_sfx, -1.0, 1.0)
     i16 = (master_sfx * 32767).astype(np.int16)
     with wave.open(output_path, 'wb') as wf:
@@ -108,7 +91,7 @@ def generate_sfx_track(scene_cuts, total_duration, output_path):
         wf.setsampwidth(2)
         wf.setframerate(sr)
         wf.writeframes(i16.tobytes())
-    print(f"Generated time-synchronized studio SFX track ({len(scene_cuts)} cuts) -> {output_path}")
+    print(f"Clean audio track prepared without transition sounds -> {output_path}")
 
 def format_ass_time(seconds):
     h = int(seconds // 3600)
@@ -356,7 +339,7 @@ def render_short(topic, footage_path, audio_path, sfx_path, output_path):
     create_ass_subtitles(topic, duration, ass_path)
 
     has_bgm = os.path.exists(BGM_FILE)
-    has_sfx = os.path.exists(sfx_path)
+    has_sfx = False  # Image cut sounds and transition SFX removed per user instruction for pure audio clarity
     
     footage_args = []
     if topic.get('footage_start_sec'):
