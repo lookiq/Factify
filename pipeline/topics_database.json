@@ -797,6 +797,131 @@
     "used": true
   },
   {
+    "id": "planarian_immortal_regeneration",
+    "title": "The Immortal Creature That Grows Back From Nothing! \ud83e\uddec #Shorts",
+    "top_header": "IMMORTAL REGENERATION",
+    "sub_header": "THE BIOLOGICAL BLUEPRINT!",
+    "script": "Imagine cutting off your arm and growing it back in a few days. Sounds impossible? Humans can only heal scars. But for a tiny flatworm called the planarian, regrowing an entire body is completely normal! If you cut it into two hundred pieces, every single piece grows into a brand new living worm! Their secret? Immortal stem cells called neoblasts, capable of morphing into any organ, brain, or muscle. But cells alone are not enough. Without a blueprint, how do they know what to build? Planarians possess a hidden bioelectric blueprint. Electric signals in their tissue tell cells exactly where to make a head, eyes, and a tail. Humans carry stem cells too, but our bodies forgot the instructions. The question is not if human regeneration is possible, we just have not decoded the code yet! Subscribe to Factify for more mind-blowing science secrets!",
+    "subtitles": [
+      {
+        "start": 0.0,
+        "end": 3.8,
+        "text": "GROWING BACK A SEVERED ARM?",
+        "color": "#FF3366"
+      },
+      {
+        "start": 3.8,
+        "end": 7.5,
+        "text": "HUMANS CAN ONLY HEAL SCARS!",
+        "color": "#FFFF00"
+      },
+      {
+        "start": 7.5,
+        "end": 12.0,
+        "text": "MEET THE IMMORTAL PLANARIAN!",
+        "color": "#00FFFF"
+      },
+      {
+        "start": 12.0,
+        "end": 16.5,
+        "text": "CUT INTO 200 PIECES = 200 WORMS!",
+        "color": "#39FF14"
+      },
+      {
+        "start": 16.5,
+        "end": 21.0,
+        "text": "POWERED BY NEOBLAST STEM CELLS!",
+        "color": "#FFFF00"
+      },
+      {
+        "start": 21.0,
+        "end": 25.5,
+        "text": "A HIDDEN BIOELECTRIC BLUEPRINT!",
+        "color": "#00FFFF"
+      },
+      {
+        "start": 25.5,
+        "end": 30.0,
+        "text": "CAN HUMANS REGENERATE LIMBS?",
+        "color": "#39FF14"
+      },
+      {
+        "start": 30.0,
+        "end": 34.0,
+        "text": "WE JUST NEED THE CODE!",
+        "color": "#FF3366"
+      },
+      {
+        "start": 34.0,
+        "end": 99.0,
+        "text": "SUBSCRIBE TO FACTIFY!",
+        "color": "#CCFF00"
+      }
+    ],
+    "scenes": [
+      {
+        "label": "Scene 1 - Laser Sliced Planarian in Lab",
+        "duration": 4.0,
+        "local_path": "pipeline/assets/scenes/planarian_sc_1.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Scene 2 - Living Planarian Flatworm Macro",
+        "duration": 4.5,
+        "local_path": "pipeline/assets/scenes/planarian_sc_2.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Scene 3 - Neoblast Stem Cells Mitosis",
+        "duration": 4.5,
+        "local_path": "pipeline/assets/scenes/planarian_sc_3.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Scene 4 - Bioelectric Voltage Blueprint",
+        "duration": 5.0,
+        "local_path": "pipeline/assets/scenes/planarian_sc_4.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Scene 5 - Severed Piece Budding New Head",
+        "duration": 4.5,
+        "local_path": "pipeline/assets/scenes/planarian_sc_5.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Scene 6 - Future Human Limb Regeneration Pod",
+        "duration": 4.5,
+        "local_path": "pipeline/assets/scenes/planarian_sc_6.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Scene 7 - Unfolding DNA Bioelectric Light Code",
+        "duration": 4.5,
+        "local_path": "pipeline/assets/scenes/planarian_sc_7.jpg",
+        "type": "image"
+      },
+      {
+        "label": "Scene 8 - 3D Cyber Subscribe Outro",
+        "duration": 3.5,
+        "local_path": "pipeline/assets/scenes/factify_outro_premium.jpg",
+        "type": "image"
+      }
+    ],
+    "tags": [
+      "planarian",
+      "regeneration",
+      "stem cells",
+      "biology",
+      "science facts",
+      "neoblasts",
+      "Factify",
+      "shorts"
+    ],
+    "category_id": "27",
+    "used": false
+  },
+  {
     "id": "bulletproof_glass_mechanism",
     "title": "How Bulletproof Glass ACTUALLY Stops a Bullet #Shorts",
     "top_header": "ENGINEERING MYSTERY",
