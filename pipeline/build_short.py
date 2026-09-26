@@ -274,9 +274,11 @@ def create_ass_subtitles(topic, duration, ass_path):
         "[V4+ Styles]",
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
         "Style: RadiumSub,Arial Black,70,&H0000FF16,&H00000000,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,3.8,5.0,2,60,60,630,1",
+        "Style: ChannelWatermark,Arial,32,&H4DFFFFFF,&H00000000,&H70000000,&H90000000,-1,0,0,0,100,100,2.0,0,1,1.8,2.0,8,60,60,220,1",
         "",
         "[Events]",
-        "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"
+        "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
+        f"Dialogue: 0,{format_ass_time(0.0)},{format_ass_time(duration)},ChannelWatermark,,0,0,0,,{watermark_text}"
     ]
 
     # Split subtitles into snappy 2-3 word power beats
