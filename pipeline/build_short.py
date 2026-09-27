@@ -236,34 +236,32 @@ def prepare_footage(topic, total_duration, dest_path):
     print(f"Multi-scene visual master assembled: {dest_path}")
     return dest_path, scene_cut_times
 
-async def generate_voice(text, dest_path):
-    print('Generating natural neural voiceover...')
-    communicate = edge_tts.Communicate(text, VOICE, rate='+3%')
-    await communicate.save(dest_path)
-    print(f'Voice saved to: {dest_path}')
+async def generate_voice_and_words(text, dest_path):
+    print('Generating natural neural voiceover with word-level boundary tracking...')
+    communicate = edge_tts.Communicate(text, VOICE, rate='+3%', boundary='WordBoundary')
+    words = []
+    with open(dest_path, 'wb') as f:
+        async for chunk in communicate.stream():
+            if chunk['type'] == 'audio':
+                f.write(chunk['data'])
+            elif chunk['type'] == 'WordBoundary':
+                st = chunk['offset'] / 10000000.0
+                dur = chunk['duration'] / 10000000.0
+                words.append({
+                    'text': chunk['text'],
+                    'start': st,
+                    'end': st + dur
+                })
+    print(f'Voice saved to: {dest_path} ({len(words)} words tracked with millisecond precision)')
+    return words
 
 def get_media_duration(file_path):
     cmd = f'ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "{file_path}"'
     out = subprocess.check_output(cmd, shell=True, text=True).strip()
     return float(out)
 
-def create_ass_subtitles(topic, duration, ass_path):
-    top_header = topic.get('top_header', 'MIND-BLOWING FACTS')
-    sub_header = topic.get('sub_header', '')
-
-    style_colors = {
-        '#39FF14': '&H0014FF39&', # Pure Radium Electric Green
-        '#CCFF00': '&H0000FFCC&', # Radioactive Radium Lime
-        '#00FFFF': '&H00FFFF00&', # Luminescent Cyan
-        '#FFFF00': '&H0000FFFF&', # Vibrant Neon Yellow
-        '#FF3366': '&H006633FF&', # Radium Coral Pink
-        '#FF9900': '&H0000A5FF&', # Glowing Amber
-        '#00FF66': '&H0014FF39&', # Radium Lime
-        '#FFFFFF': '&H00FFFFFF&'  # Crisp White
-    }
-
-    watermark_text = topic.get('watermark_text', '@FactifyDailyShorts')
-
+def create_karaoke_ass_subtitles(words, duration, ass_path, watermark_text='@FactifyDailyShorts'):
+    import re
     ass_lines = [
         "[Script Info]",
         "ScriptType: v4.00+",
@@ -273,7 +271,7 @@ def create_ass_subtitles(topic, duration, ass_path):
         "",
         "[V4+ Styles]",
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
-        "Style: RadiumSub,Arial Black,70,&H0000FF16,&H00000000,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,3.8,5.0,2,60,60,630,1",
+        "Style: KaraokeSub,Arial Black,76,&H00FFFFFF,&H00000000,&H00000000,&H90000000,-1,0,0,0,100,100,1.2,0,1,5.5,5.5,2,50,50,640,1",
         "Style: ChannelWatermark,Arial,32,&H4DFFFFFF,&H00000000,&H70000000,&H90000000,-1,0,0,0,100,100,2.0,0,1,1.8,2.0,8,60,60,220,1",
         "",
         "[Events]",
@@ -281,64 +279,89 @@ def create_ass_subtitles(topic, duration, ass_path):
         f"Dialogue: 0,{format_ass_time(0.0)},{format_ass_time(duration)},ChannelWatermark,,0,0,0,,{watermark_text}"
     ]
 
-    # Split subtitles into snappy 2-3 word power beats
-    raw_subtitles = topic.get('subtitles', [])
-    snappy_beats = []
-
-    for sub in raw_subtitles:
-        st = sub['start']
-        et = min(sub['end'], duration)
-        if st >= duration:
-            continue
-        text = sub['text'].strip()
-        words = text.split()
-        dur = et - st
-
-        if len(words) >= 4 and dur >= 1.6:
-            mid = len(words) // 2
-            half_dur = dur / 2
-            snappy_beats.append({
-                'start': st,
-                'end': st + half_dur,
-                'text': ' '.join(words[:mid]),
-                'color': sub.get('color', '#39FF14')
-            })
-            snappy_beats.append({
-                'start': st + half_dur,
-                'end': et,
-                'text': ' '.join(words[mid:]),
-                'color': sub.get('color', '#39FF14')
-            })
-        else:
-            snappy_beats.append({
-                'start': st,
-                'end': et,
-                'text': text,
-                'color': sub.get('color', '#39FF14')
+    cleaned = []
+    for w in (words or []):
+        txt = re.sub(r"[^\w\'-]", "", w["text"]).upper()
+        if txt:
+            cleaned.append({
+                "raw": w["text"],
+                "text": txt,
+                "start": max(0.0, float(w["start"])),
+                "end": max(0.0, float(w["end"]))
             })
 
-    for beat in snappy_beats:
-        start_str = format_ass_time(beat['start'])
-        end_str = format_ass_time(beat['end'])
-        hex_col = beat.get('color', '#39FF14')
-        ass_color = style_colors.get(hex_col, '&H0000FF16&')
-        raw_text = beat['text'].upper()
+    if cleaned:
+        chunks = []
+        current_chunk = []
 
-        # Dynamic MrBeast/Zach D style elastic punch animation on beat hit
-        anim_tag = f"{{\\c{ass_color}\\3c&H00000000&\\bord4.0\\shad5.2\\fscx112\\fscy112\\t(0,75,\\fscx100\\fscy100)}}"
-        dialogue_line = f"Dialogue: 1,{start_str},{end_str},RadiumSub,,0,0,0,,{anim_tag}{raw_text}"
-        ass_lines.append(dialogue_line)
+        for i, w in enumerate(cleaned):
+            current_chunk.append(w)
+            ends_sentence = any(p in w["raw"] for p in [".", "!", "?"])
+            has_comma = "," in w["raw"]
+
+            gap = 0.0
+            if i + 1 < len(cleaned):
+                gap = cleaned[i + 1]["start"] - w["end"]
+
+            chunk_chars = sum(len(x["text"]) for x in current_chunk) + len(current_chunk) - 1
+
+            if len(current_chunk) >= 3 or chunk_chars >= 15 or ends_sentence or (has_comma and len(current_chunk) >= 2) or gap > 0.35:
+                chunks.append(current_chunk)
+                current_chunk = []
+
+        if current_chunk:
+            chunks.append(current_chunk)
+
+        prev_end = 0.0
+        for chunk_idx, chunk in enumerate(chunks):
+            c_start = max(prev_end, chunk[0]["start"])
+            if chunk_idx + 1 < len(chunks):
+                next_start = chunks[chunk_idx + 1][0]["start"]
+                if next_start - chunk[-1]["end"] <= 0.25:
+                    c_end = max(chunk[-1]["end"], next_start)
+                else:
+                    c_end = chunk[-1]["end"] + 0.10
+            else:
+                c_end = chunk[-1]["end"] + 0.15
+
+            for active_idx, target_word in enumerate(chunk):
+                if active_idx == 0:
+                    w_st = c_start
+                else:
+                    w_st = max(c_start, target_word["start"])
+
+                if active_idx + 1 < len(chunk):
+                    w_et = max(w_st + 0.05, chunk[active_idx + 1]["start"])
+                else:
+                    w_et = max(w_st + 0.05, c_end)
+
+                line_parts = []
+                for j, w in enumerate(chunk):
+                    if j == active_idx:
+                        # Neon Yellow active highlight with elastic pop
+                        line_parts.append(r"{\c&H0000E6FF&\fscx112\fscy112}" + w["text"] + r"{\fscx100\fscy100}")
+                    else:
+                        # Crisp White base text
+                        line_parts.append(r"{\c&H00FFFFFF&}" + w["text"])
+
+                dialogue_text = " ".join(line_parts)
+                start_str = format_ass_time(w_st)
+                end_str = format_ass_time(min(w_et, duration))
+                ass_lines.append(f"Dialogue: 1,{start_str},{end_str},KaraokeSub,,0,0,0,,{dialogue_text}")
+
+            prev_end = c_end
 
     with open(ass_path, 'w', encoding='utf-8') as f:
         f.write("\n".join(ass_lines))
-    print(f"Generated snappy animated ASS subtitles: {ass_path}")
+    print(f"Generated Karaoke Active-Word ASS subtitles: {ass_path} ({len(cleaned)} words)")
 
-def render_short(topic, footage_path, audio_path, sfx_path, output_path):
+def render_short(topic, footage_path, audio_path, sfx_path, output_path, words=None):
     duration = get_media_duration(audio_path)
     print(f'Voice duration: {duration:.2f}s')
 
     ass_path = 'temp/subtitles_animated.ass'
-    create_ass_subtitles(topic, duration, ass_path)
+    watermark_text = topic.get('watermark_text', '@FactifyDailyShorts')
+    create_karaoke_ass_subtitles(words, duration, ass_path, watermark_text=watermark_text)
 
     has_bgm = os.path.exists(BGM_FILE)
     has_sfx = False  # Image cut sounds and transition SFX removed per user instruction for pure audio clarity
@@ -474,12 +497,12 @@ def main():
     sfx_path = f"temp/{topic['id']}_sfx.wav"
     output_video_path = f"{OUTPUT_DIR}/factify_short_latest.mp4"
 
-    asyncio.run(generate_voice(topic['script'], audio_path))
+    words = asyncio.run(generate_voice_and_words(topic['script'], audio_path))
     duration = get_media_duration(audio_path)
     
     footage_path, scene_cuts = prepare_footage(topic, duration, footage_path)
     generate_sfx_track(scene_cuts, duration, sfx_path)
-    render_short(topic, footage_path, audio_path, sfx_path, output_video_path)
+    render_short(topic, footage_path, audio_path, sfx_path, output_video_path, words=words)
     generate_metadata(topic)
 
     print("\n" + "=" * 60)
