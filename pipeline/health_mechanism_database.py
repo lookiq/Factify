@@ -567,31 +567,31 @@ HEALTH_MECHANISM_TOPICS = [
         "script": "What actually happens inside your head during a stroke? Your brain demands twenty percent of all the oxygen you breathe! But when a wandering blood clot lodges inside a cerebral artery, blood flow stops dead in its tracks. Within thirty seconds, brain cells are completely starved of oxygen, and millions begin dying every single minute! Remember the vital FAST signs: Face drooping, Arm weakness, and Slurred speech. Acting fast can save a life! Subscribe to Factify for more human body truths!",
         "scenes": [
             {
-                "label": "Scene 1 - 3D Cerebral artery blood flow in brain",
-                "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
-                "start_sec": 0.0,
-                "duration": 5.0
+                "label": "Scene 1 - 3D Pulmonary oxygen intake and blood cellular respiration",
+                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
+                "start_sec": 130.0,
+                "duration": 4.5
             },
             {
-                "label": "Scene 2 - Blood clot lodging tightly inside artery",
+                "label": "Scene 2 - 3D Blood clot traveling & lodging inside cerebral artery",
                 "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
                 "start_sec": 5.5,
                 "duration": 5.5
             },
             {
-                "label": "Scene 3 - Brain cells starving of oxygen",
+                "label": "Scene 3 - 3D Cellular oxygen starvation & dying brain neurons",
                 "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
-                "start_sec": 12.0,
+                "start_sec": 18.5,
                 "duration": 5.5
             },
             {
-                "label": "Scene 4 - Ischemic penumbra cellular damage",
-                "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
-                "start_sec": 18.5,
-                "duration": 5.0
+                "label": "Scene 4 - 3D Heart pumping emergency systemic arterial rush",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
+                "start_sec": 21.0,
+                "duration": 4.5
             },
             {
-                "label": "Scene 5 - Emergency FAST signs and saving brain function",
+                "label": "Scene 5 - 3D Cerebral recovery, vital FAST signs & protection",
                 "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
                 "start_sec": 24.5,
                 "duration": 5.0
