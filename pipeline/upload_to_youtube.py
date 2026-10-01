@@ -23,8 +23,7 @@ def load_local_env():
                 line = line.strip()
                 if line and not line.startswith('#') and '=' in line:
                     k, v = line.split('=', 1)
-                    if k not in os.environ:
-                        os.environ[k.strip()] = v.strip()
+                    os.environ[k.strip()] = v.strip()
 
 def get_authenticated_service():
     load_local_env()
@@ -62,12 +61,17 @@ def mark_topic_used(topic_id):
         with open(DATABASE_FILE, 'w', encoding='utf-8') as f:
             json.dump(topics, f, indent=2)
 
-def upload_video():
-    if not os.path.exists(METADATA_FILE) or not os.path.exists(VIDEO_FILE):
-        print("ERROR: Video or metadata file not found. Run build_short.py first.")
+def upload_video(video_path=None, metadata_path=None):
+    if not video_path:
+        video_path = sys.argv[1] if len(sys.argv) > 1 else VIDEO_FILE
+    if not metadata_path:
+        metadata_path = sys.argv[2] if len(sys.argv) > 2 else METADATA_FILE
+
+    if not os.path.exists(metadata_path) or not os.path.exists(video_path):
+        print(f"ERROR: Video or metadata file not found.\n  Video: {video_path}\n  Metadata: {metadata_path}")
         sys.exit(1)
 
-    with open(METADATA_FILE, 'r', encoding='utf-8') as f:
+    with open(metadata_path, 'r', encoding='utf-8') as f:
         metadata = json.load(f)
 
     privacy_status = os.environ.get('YOUTUBE_PRIVACY_STATUS', 'public')
@@ -92,7 +96,7 @@ def upload_video():
 
     print(f"Uploading '{metadata['title']}' to Factify Shorts channel...")
     youtube = get_authenticated_service()
-    media = MediaFileUpload(VIDEO_FILE, mimetype='video/mp4', resumable=True)
+    media = MediaFileUpload(video_path, mimetype='video/mp4', resumable=True)
 
     request = youtube.videos().insert(
         part='snippet,status',

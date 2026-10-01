@@ -1,4 +1,4 @@
-name: Daily Factify Shorts (USA Prime Time 24/7)
+name: Daily Factify Shorts (Cloud Automation 24/7)
 
 on:
   schedule:
@@ -11,6 +11,11 @@ on:
     # 4. Prime Evening / West Coast: 8:15 PM EDT (00:15 UTC / 6:15 AM BST next day)
     - cron: '15 0 * * *'
   workflow_dispatch:
+    inputs:
+      topic_id:
+        description: 'Specific Topic ID to generate (optional)'
+        required: false
+        default: ''
 
 jobs:
   build-and-publish:
@@ -29,22 +34,28 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install FFmpeg
+      - name: Install System Dependencies (FFmpeg & Fonts)
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg libass-dev
+          sudo apt-get install -y ffmpeg libass-dev fontconfig
+          mkdir -p ~/.local/share/fonts
+          cp pipeline/assets/fonts/*.ttf ~/.local/share/fonts/ || true
+          fc-cache -f -v
 
       - name: Install Python Dependencies
         run: |
           pip install requests edge-tts pillow numpy google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
 
-      - name: Run USA Prime Time Automation Engine
+      - name: Run Master Cloud Pipeline with Telegram Approval
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          YOUTUBE_PRIVACY_STATUS: public
         run: |
-          python pipeline/run_prime_time_automation.py
+          python pipeline/run_cloud_pipeline.py "${{ github.event.inputs.topic_id }}"
 
       - name: Commit & Push Progress
         run: |

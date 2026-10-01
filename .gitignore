@@ -16,6 +16,7 @@ temp/
 
 # Credentials & Sensitive Secrets
 .env
+AUTH_URL.txt
 client_secret*.json
 token.json
 credentials.json

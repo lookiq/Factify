@@ -129,12 +129,24 @@ def main():
         except Exception as e:
             print(f"Could not fetch channel details: {e}", flush=True)
 
-        # Save to local .env file
+        # Save to local .env file preserving existing keys
+        env_vars = {}
+        if os.path.exists(".env"):
+            with open(".env", "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#') and '=' in line:
+                        k, v = line.split('=', 1)
+                        env_vars[k.strip()] = v.strip()
+
+        env_vars["YOUTUBE_CLIENT_ID"] = client_id
+        env_vars["YOUTUBE_CLIENT_SECRET"] = client_secret
+        env_vars["YOUTUBE_REFRESH_TOKEN"] = refresh_token
+        env_vars["YOUTUBE_PRIVACY_STATUS"] = "public"
+
         with open(".env", "w", encoding="utf-8") as f:
-            f.write(f"YOUTUBE_CLIENT_ID={client_id}\n")
-            f.write(f"YOUTUBE_CLIENT_SECRET={client_secret}\n")
-            f.write(f"YOUTUBE_REFRESH_TOKEN={refresh_token}\n")
-            f.write("YOUTUBE_PRIVACY_STATUS=public\n")
+            for k, v in env_vars.items():
+                f.write(f"{k}={v}\n")
         print("[OK] Saved credentials to local '.env' file!", flush=True)
 
         # Sync for office pipeline

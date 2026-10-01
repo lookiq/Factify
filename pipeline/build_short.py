@@ -184,6 +184,9 @@ def prepare_footage(topic, total_duration, dest_path):
             sc_raw = sc_local
         else:
             sc_raw = f"temp/{topic['id']}_sc_{idx}_raw.mp4" if sc_type == 'video' else f"temp/{topic['id']}_sc_{idx}.jpg"
+            if sc_type == 'video' and not os.path.exists(sc_raw):
+                download_footage(sc_url, sc_raw)
+
         sc_norm = f"temp/{topic['id']}_sc_{idx}_norm.mp4"
 
         print(f"  [Scene {idx+1}/{len(scenes)}] {sc.get('label', 'Visual')} ({sc_dur:.2f}s, start: {scene_cut_times[-1]:.2f}s)...")
@@ -192,7 +195,6 @@ def prepare_footage(topic, total_duration, dest_path):
         flash_filter = "fade=t=in:st=0:d=0.08:color=white" if idx > 0 else "null"
 
         if sc_type == 'video':
-            download_footage(sc_url, sc_raw)
             cmd = [
                 'ffmpeg', '-y', '-stream_loop', '-1', '-i', sc_raw,
                 '-t', f"{sc_dur:.2f}",
