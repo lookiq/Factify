@@ -44,7 +44,7 @@ jobs:
 
       - name: Install Python Dependencies
         run: |
-          pip install requests edge-tts pillow numpy google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+          pip install requests edge-tts pillow numpy yt-dlp google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
 
       - name: Run Master Cloud Pipeline with Telegram Approval
         env:
