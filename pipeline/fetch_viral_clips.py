@@ -68,13 +68,25 @@ def fetch_scene_clip(query, dest_path, start_sec=2.0, duration=5.0, source_video
 
     os.makedirs(os.path.dirname(dest_path) or 'temp', exist_ok=True)
 
-    # 1. Direct local source file support
-    if source_video and os.path.exists(source_video):
-        print(f"  [Processing] Local source '{source_video}' ({start_sec}s - {start_sec + duration}s)...")
+    # 1. Direct local source file support (checking relative path, assets/footage, and temp)
+    resolved_source = None
+    if source_video:
+        candidates = [
+            source_video,
+            os.path.join('pipeline', 'assets', 'footage', os.path.basename(source_video)),
+            os.path.join('temp', os.path.basename(source_video))
+        ]
+        for c in candidates:
+            if os.path.exists(c) and os.path.getsize(c) > 1000:
+                resolved_source = c
+                break
+
+    if resolved_source:
+        print(f"  [Processing] Found source footage '{resolved_source}' ({start_sec}s - {start_sec + duration}s)...")
         try:
-            return smart_normalize_clip(source_video, dest_path, start_sec=start_sec, duration=duration, custom_crop=custom_crop)
+            return smart_normalize_clip(resolved_source, dest_path, start_sec=start_sec, duration=duration, custom_crop=custom_crop)
         except Exception as e:
-            print(f"  [Warning] Local processing failed: {e}")
+            print(f"  [Warning] Source processing failed: {e}")
 
     # 2. Remote download via URL or search query
     target = source_video if (source_video and source_video.startswith('http')) else query
@@ -115,14 +127,14 @@ def fetch_scene_clip(query, dest_path, start_sec=2.0, duration=5.0, source_video
                 print(f"  [OK] Successfully transformed and saved: {dest_path}")
                 return True
     except Exception as e:
-        print(f"  [Warning] Could not fetch '{target}': {e}. Using procedural fallback.")
+        print(f"  [Warning] Could not fetch '{target}': {e}. Using cinematic dark canvas.")
 
-    # Fallback to high quality procedural graphic
+    # High quality dark cinematic procedural canvas (NEVER TV color bars)
     fallback_cmd = [
         'ffmpeg', '-y', '-f', 'lavfi',
-        '-i', f'testsrc=size=1080x1920:rate=30,boxblur=10:1',
+        '-i', f'color=c=#060d1a:s=1080x1920:d={duration},format=yuv420p',
         '-t', str(duration),
-        '-c:v', 'libx264', '-crf', '18', '-an', dest_path
+        '-c:v', 'libx264', '-crf', '18', '-preset', 'fast', '-an', dest_path
     ]
     subprocess.run(fallback_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     return os.path.exists(dest_path)
