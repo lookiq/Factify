@@ -19,46 +19,34 @@ HEALTH_MECHANISM_TOPICS = [
         "script": "There is a specific zone on your face where popping a pimple could actually be dangerous! Doctors call it the Danger Triangle, spanning from the bridge of your nose down to the corners of your mouth. Beneath this skin lies a unique network of veins called the facial vein, which has no valves. When you squeeze a deep pimple here, bacteria can be forced backwards directly into the cavernous sinus, a major blood cavity right beneath your brain! In rare cases, this causes severe infections or blood clots inside the skull. Dermatologists recommend using a warm compress or pimple patch instead of squeezing. Save your skin, and subscribe to Factify for more body secrets!",
         "scenes": [
             {
-                "label": "Scene 1 - Person looking in mirror about to squeeze pimple on nose",
-                "query": "ytsearch1:popping pimple mirror face close up",
-                "start_sec": 2.0,
-                "duration": 4.0
-            },
-            {
-                "label": "Scene 2 - 3D Animation of Danger Triangle on human face",
-                "query": "ytsearch1:danger triangle of face 3d animation",
-                "start_sec": 3.0,
+                "label": "Scene 1 - Microscopic skin layers epidermis and dermis anatomy",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 0.0,
                 "duration": 5.0
             },
             {
-                "label": "Scene 3 - 3D Vascular network showing facial veins without valves",
-                "query": "ytsearch1:facial veins anatomy 3d blood flow",
-                "start_sec": 4.0,
+                "label": "Scene 2 - Subcutaneous tissue and deep nerve endings beneath facial skin",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 5.0,
                 "duration": 5.5
             },
             {
-                "label": "Scene 4 - Microscopic bacteria pushed deep into blood vessel",
-                "query": "ytsearch1:bacteria entering blood vessel 3d animation",
-                "start_sec": 5.0,
-                "duration": 6.0
-            },
-            {
-                "label": "Scene 5 - 3D skull and brain cavernous sinus cavity",
-                "query": "ytsearch1:cavernous sinus thrombosis 3d animation medical",
-                "start_sec": 3.0,
-                "duration": 6.5
-            },
-            {
-                "label": "Scene 6 - Dermatologist hydrocolloid pimple patch application",
-                "query": "ytsearch1:pimple patch skin care application clean skin",
-                "start_sec": 2.0,
+                "label": "Scene 3 - Deep valve-less facial vein vascular network",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
+                "start_sec": 0.0,
                 "duration": 5.0
             },
             {
-                "label": "Scene 7 - Glowing healthy clean facial skin",
-                "query": "ytsearch1:healthy glowing clean skin face aesthetic",
-                "start_sec": 1.0,
-                "duration": 4.5
+                "label": "Scene 4 - Deep dermal sweat glands and sebaceous cellular structure",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 11.0,
+                "duration": 5.5
+            },
+            {
+                "label": "Scene 5 - Protecting skin barrier and safe facial treatments",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 20.0,
+                "duration": 5.0
             }
         ],
         "vidiq_seo": {
@@ -611,6 +599,126 @@ HEALTH_MECHANISM_TOPICS = [
                 "neurology animation",
                 "medical animation 3d",
                 "FAST stroke symptoms",
+                "zack d films",
+                "body mechanisms",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "kidney_stones_procedure",
+        "category": "nephrology_medical_3d",
+        "title": "How Doctors ACTUALLY Dissolve Kidney Stones! 🪨⚠️ #Shorts",
+        "top_header": "KIDNEY STONE SECRETS",
+        "sub_header": "HOW MODERN MEDICINE BREAKS THEM!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "How do doctors actually dissolve agonizing kidney stones? When minerals like calcium and oxalate crystallize in your kidneys, they form jagged, razor-sharp stones that block urine flow. In modern medicine, doctors use advanced sound wave lithotripsy or tiny microscopic lasers. High-energy shockwaves shatter the solid stones into fine, sand-like dust in seconds! The microscopic fragments are then painlessly flushed out through your urinary tract. Drinking plenty of water prevents them from ever forming! Subscribe to Factify for more human body secrets!",
+        "scenes": [
+            {
+                "label": "Scene 1 - 3D Jagged mineral kidney stone crystallization",
+                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
+                "start_sec": 0.0,
+                "duration": 4.5
+            },
+            {
+                "label": "Scene 2 - 3D Blockage inside delicate urinary tract",
+                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
+                "start_sec": 4.5,
+                "duration": 5.0
+            },
+            {
+                "label": "Scene 3 - 3D Systemic vascular blood flow and pain response",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
+                "start_sec": 21.0,
+                "duration": 5.0
+            },
+            {
+                "label": "Scene 4 - 3D High-energy shockwave micro-robot dissolution",
+                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
+                "start_sec": 12.0,
+                "duration": 4.5
+            },
+            {
+                "label": "Scene 5 - 3D Microscopic dust flushing smoothly out of kidney",
+                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
+                "start_sec": 17.5,
+                "duration": 4.5
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "how doctors dissolve kidney stones",
+            "search_volume": "Very High",
+            "competition": "Low",
+            "tags": [
+                "how kidney stones form",
+                "dissolving kidney stones",
+                "kidney stone treatment",
+                "kidney stone surgery",
+                "lithotripsy animation 3d",
+                "kidney anatomy 3d",
+                "medical animation 3d",
+                "urology secrets",
+                "zack d films",
+                "body mechanisms",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "lasik_eye_surgery",
+        "category": "ophthalmology_medical_3d",
+        "title": "What ACTUALLY Happens During LASIK Eye Surgery! 👁️⚠️ #Shorts",
+        "top_header": "LASIK SURGERY SECRETS",
+        "sub_header": "HOW LASERS FIX YOUR VISION!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "What actually happens to your eyes during LASIK surgery? If you have blurry vision, your cornea isn't bending light onto your retina correctly. During LASIK, a high-precision femtosecond laser cuts a microscopic circular flap on your cornea, thinner than a human hair! The flap is gently folded back, exposing the underlying corneal tissue. Then, a cool ultraviolet excimer laser vaporizes microscopic amounts of tissue to reshape the curvature with nanometer accuracy. The flap is smoothed back down, giving you perfect twenty-twenty vision! Subscribe to Factify for more 3D medical breakthroughs!",
+        "scenes": [
+            {
+                "label": "Scene 1 - 3D Blurry vision and corneal refraction error",
+                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
+                "start_sec": 0.0,
+                "duration": 5.0
+            },
+            {
+                "label": "Scene 2 - 3D Femtosecond laser creating microscopic corneal flap",
+                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
+                "start_sec": 5.0,
+                "duration": 5.5
+            },
+            {
+                "label": "Scene 3 - 3D Delicate cellular tissue layer under microscope",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 0.0,
+                "duration": 5.0
+            },
+            {
+                "label": "Scene 4 - 3D Excimer laser reshaping corneal curvature",
+                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
+                "start_sec": 12.0,
+                "duration": 5.5
+            },
+            {
+                "label": "Scene 5 - 3D Flap repositioned and perfect 20/20 vision restored",
+                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
+                "start_sec": 22.0,
+                "duration": 5.5
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "what actually happens during lasik surgery",
+            "search_volume": "Very High",
+            "competition": "Low",
+            "tags": [
+                "what happens during lasik",
+                "lasik eye surgery",
+                "how lasik works",
+                "laser eye surgery 3d",
+                "eye anatomy 3d",
+                "ophthalmology animation",
+                "medical animation 3d",
+                "perfect vision",
                 "zack d films",
                 "body mechanisms",
                 "Factify Shorts",
