@@ -46,7 +46,7 @@ jobs:
         run: |
           pip install requests edge-tts pillow numpy yt-dlp google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
 
-      - name: Run Master Cloud Pipeline with Telegram Approval
+      - name: Run 100% Autonomous Zero-Touch Cloud Pipeline
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
@@ -63,4 +63,5 @@ jobs:
           git config --global user.email "bot@factify.local"
           git add pipeline/topics_database.json upload_history.log PROGRESS.md || true
           git diff --quiet && git diff --staged --quiet || git commit -m "chore(auto): update topic database and upload history [skip ci]"
+          git pull --rebase origin main || true
           git push origin main || true

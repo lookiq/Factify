@@ -556,6 +556,68 @@ HEALTH_MECHANISM_TOPICS = [
                 "shorts"
             ]
         }
+    },
+    {
+        "id": "stroke_mechanism_3d",
+        "category": "neurology_medical_3d",
+        "title": "What ACTUALLY Happens During a Stroke? 🧠⚠️ #Shorts",
+        "top_header": "BRAIN STROKE SECRETS",
+        "sub_header": "WHAT HAPPENS INSIDE YOUR HEAD!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "What actually happens inside your head during a stroke? Your brain demands twenty percent of all the oxygen you breathe! But when a wandering blood clot lodges inside a cerebral artery, blood flow stops dead in its tracks. Within thirty seconds, brain cells are completely starved of oxygen, and millions begin dying every single minute! Remember the vital FAST signs: Face drooping, Arm weakness, and Slurred speech. Acting fast can save a life! Subscribe to Factify for more human body truths!",
+        "scenes": [
+            {
+                "label": "Scene 1 - 3D Cerebral artery blood flow in brain",
+                "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
+                "start_sec": 0.0,
+                "duration": 5.0
+            },
+            {
+                "label": "Scene 2 - Blood clot lodging tightly inside artery",
+                "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
+                "start_sec": 5.5,
+                "duration": 5.5
+            },
+            {
+                "label": "Scene 3 - Brain cells starving of oxygen",
+                "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
+                "start_sec": 12.0,
+                "duration": 5.5
+            },
+            {
+                "label": "Scene 4 - Ischemic penumbra cellular damage",
+                "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
+                "start_sec": 18.5,
+                "duration": 5.0
+            },
+            {
+                "label": "Scene 5 - Emergency FAST signs and saving brain function",
+                "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
+                "start_sec": 24.5,
+                "duration": 5.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "what actually happens during a stroke",
+            "search_volume": "Very High",
+            "competition": "Low",
+            "tags": [
+                "what happens during a stroke",
+                "stroke 3d animation",
+                "signs of a stroke",
+                "brain stroke symptoms",
+                "ischemic stroke explained",
+                "brain anatomy 3d",
+                "neurology animation",
+                "medical animation 3d",
+                "FAST stroke symptoms",
+                "zack d films",
+                "body mechanisms",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
     }
 ]
+
 

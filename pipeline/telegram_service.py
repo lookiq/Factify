@@ -137,6 +137,53 @@ def send_preview(video_path, metadata_path, topic_id=None):
         print(f"❌ Failed to parse response: {e}")
         return False
 
+def send_autopilot_notification(video_path, metadata_path, youtube_url):
+    token, chat_id = get_telegram_creds()
+    if not token or not chat_id:
+        print("❌ ERROR: TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set in .env")
+        return False
+
+    metadata = {}
+    if os.path.exists(metadata_path):
+        with open(metadata_path, 'r', encoding='utf-8') as f:
+            metadata = json.load(f)
+
+    title = metadata.get('title', Path(video_path).stem)
+    slot_name = metadata.get('slot_name', 'Prime Time Slot')
+
+    caption = (
+        f"🎉 FACTIFY AUTOPILOT: SHORT SCHEDULED! 🚀\n\n"
+        f"📌 Title:\n{title}\n\n"
+        f"🕒 Prime Time Slot:\n{slot_name}\n\n"
+        f"📺 YouTube Shorts Link:\n{youtube_url}\n\n"
+        f"✨ 100% Autopilot: Video generated & scheduled on YouTube! It will automatically go LIVE at the scheduled prime time!"
+    )
+
+    # Fast mobile preview
+    upload_target = make_fast_mobile_preview(video_path) if os.path.exists(video_path) else None
+
+    if upload_target and os.path.exists(upload_target):
+        url = f"https://api.telegram.org/bot{token}/sendVideo"
+        print(f"📤 Uploading scheduled video to Telegram ({os.path.getsize(upload_target)/(1024*1024):.1f} MB)...")
+        try:
+            with open(upload_target, 'rb') as vf:
+                files = {'video': vf}
+                data = {
+                    'chat_id': chat_id,
+                    'caption': caption,
+                    'supports_streaming': True
+                }
+                res = requests.post(url, data=data, files=files, timeout=90)
+                if res.status_code == 200 and res.json().get('ok'):
+                    print("✅ Telegram autopilot notification sent with video successfully!")
+                    return True
+        except Exception as e:
+            print(f"Note: Error sending video to Telegram: {e}")
+
+    # Fallback to plain text message
+    send_message(token, chat_id, caption)
+    return True
+
 def answer_callback(token, callback_query_id, text=None):
     url = f"https://api.telegram.org/bot{token}/answerCallbackQuery"
     payload = {"callback_query_id": callback_query_id}

@@ -22,7 +22,7 @@ from pipeline.health_mechanism_database import HEALTH_MECHANISM_TOPICS
 from pipeline.fetch_viral_clips import fetch_scene_clip
 from pipeline.factify_master_template import FactifyShortsTemplate
 
-def run_pipeline(topic_id="what_actually_happens_to_fat"):
+def run_pipeline(topic_id="what_actually_happens_to_fat", notify_telegram=True):
     print("=" * 70)
     print("🚀 FACTIFY SHORTS AUTOMATION PIPELINE")
     print(f"📌 Target Topic: {topic_id}")
@@ -96,6 +96,8 @@ def run_pipeline(topic_id="what_actually_happens_to_fat"):
         print(f"🕒 Next Scheduled Prime Time Slot: {slot_name} ({publish_at})")
 
     metadata = {
+        "id": topic['id'],
+        "topic_id": topic['id'],
         "title": topic['title'],
         "description": desc,
         "tags": tags_list,
@@ -125,22 +127,24 @@ def run_pipeline(topic_id="what_actually_happens_to_fat"):
     print(f"   📄 VidIQ SEO:    {master_path.replace('.mp4', '_seo.json')}")
     print("=" * 70)
 
-    # Launch Preview on Windows Desktop
-    try:
-        abs_master = os.path.abspath(master_path)
-        print(f"🎬 Opening local preview: {abs_master}")
-        subprocess.Popen(['powershell', '-Command', f'Start-Process "{abs_master}"'])
-    except Exception as e:
-        print(f"Note: Could not auto-launch player: {e}")
+    # Launch Preview on Windows Desktop if running locally
+    if sys.platform == 'win32' and os.environ.get('CI') != 'true':
+        try:
+            abs_master = os.path.abspath(master_path)
+            print(f"🎬 Opening local preview: {abs_master}")
+            subprocess.Popen(['powershell', '-Command', f'Start-Process "{abs_master}"'])
+        except Exception as e:
+            pass
 
-    # Dispatch to Telegram for Mobile Review & Approval
-    try:
-        from pipeline.telegram_service import send_preview
-        seo_path = master_path.replace('.mp4', '_seo.json')
-        print(f"📱 Dispatching preview to Telegram bot...")
-        send_preview(master_path, seo_path, topic_id=topic_id)
-    except Exception as e:
-        print(f"Note: Telegram dispatch error: {e}")
+    # Dispatch to Telegram for Mobile Review & Approval if requested
+    if notify_telegram:
+        try:
+            from pipeline.telegram_service import send_preview
+            seo_path = master_path.replace('.mp4', '_seo.json')
+            print(f"📱 Dispatching preview to Telegram bot...")
+            send_preview(master_path, seo_path, topic_id=topic_id)
+        except Exception as e:
+            print(f"Note: Telegram dispatch error: {e}")
 
     return master_path
 
