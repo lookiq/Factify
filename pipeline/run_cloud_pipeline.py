@@ -32,20 +32,20 @@ def run_cloud_pipeline(topic_id=None, wait_minutes=45):
     # 1. Select or pick next topic
     if not topic_id:
         from pipeline.health_mechanism_database import HEALTH_MECHANISM_TOPICS
-        # Look for unused topics
-        used_topics = []
+        used_topics = ""
         if os.path.exists("upload_history.log"):
             with open("upload_history.log", "r", encoding="utf-8") as f:
                 used_topics = f.read()
 
         chosen = None
-        for k, v in HEALTH_MECHANISM_TOPICS.items():
-            if k not in used_topics and v.get('ready_for_production', False):
-                chosen = k
+        for t in HEALTH_MECHANISM_TOPICS:
+            t_id = t['id']
+            if t_id not in used_topics:
+                chosen = t_id
                 break
-        topic_id = chosen or "what_actually_happens_to_fat"
+        topic_id = chosen or "danger_triangle_pimple"
 
-    print(f"🎬 Running production for topic: {topic_id}")
+    print(f"🎬 Selected topic for production: {topic_id}")
     master_path = run_pipeline(topic_id)
     seo_path = master_path.replace('.mp4', '_seo.json')
 
