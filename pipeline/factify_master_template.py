@@ -143,9 +143,25 @@ class FactifyShortsTemplate:
             cta_final = Image.alpha_composite(glow_layer, pill)
             cta_final.save(cta_path)
 
+        # 4. Sleek Frosted Caption Plate (Width 960, Height 250, masks source subtitles)
+        plate_path = os.path.join(BRANDING_DIR, 'caption_plate.png')
+        if not os.path.exists(plate_path):
+            plate = Image.new('RGBA', (960, 250), (0, 0, 0, 0))
+            draw_p = ImageDraw.Draw(plate)
+            # High-opacity dark container (#050B18, 90% opacity) with sleek cyan border
+            draw_p.rounded_rectangle(
+                [0, 0, 960, 250],
+                radius=28,
+                fill=(5, 11, 24, 230),
+                outline=(32, 217, 255, 130),
+                width=2
+            )
+            plate.save(plate_path)
+
         self.top_brand_path = top_brand_path
         self.cta_path = cta_path
         self.grad_path = grad_path
+        self.caption_plate_path = plate_path
 
     async def synthesize_voice_and_words(self, script_text, voice_path, voice='en-US-ChristopherNeural', rate='+3%'):
         """Generates EdgeTTS voiceover audio and returns word boundary timestamps."""
@@ -222,9 +238,14 @@ class FactifyShortsTemplate:
             cards.append(curr)
 
         formatted_cards = []
-        for c in cards:
+        for i, c in enumerate(cards):
             c_st = c[0]['start']
-            c_et = c[-1]['end'] + 0.15
+            # Strictly prevent overlap with subsequent card
+            if i + 1 < len(cards):
+                next_st = cards[i + 1][0]['start']
+                c_et = min(c[-1]['end'] + 0.05, max(c_st + 0.1, next_st - 0.02))
+            else:
+                c_et = c[-1]['end'] + 0.15
 
             # If card has > 2 words, split into 2 lines
             if len(c) > 2:
@@ -264,8 +285,8 @@ class FactifyShortsTemplate:
             "",
             "[V4+ Styles]",
             "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
-            # Fontsize=76 for maximum mobile phone readability, MarginV=480 positioned above SUBSCRIBE pill
-            "Style: FactifyCaption,Montserrat ExtraBold,76,&H00FFFFFF,&H00000000,&H00000000,&HA0000000,-1,0,0,0,100,100,0.5,0,1,6.0,4.0,2,40,40,480,1",
+            # Fontsize=68 with Montserrat ExtraBold, MarginV=415 perfectly centered inside frosted caption plate
+            "Style: FactifyCaption,Montserrat ExtraBold,68,&H00FFFFFF,&H00000000,&H00000000,&HA0000000,-1,0,0,0,100,100,0.5,0,1,5.0,2.0,2,40,40,415,1",
             "",
             "[Events]",
             "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"
@@ -369,17 +390,23 @@ class FactifyShortsTemplate:
             f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
             f"crop=1080:1920:(in_w-1080)/2:(in_h-1920)/2,"
             f"eq=contrast=1.05:saturation=1.12[layer1_video]; "
+            # Subtitle Zone Blur Band: dissolves underlying hardcoded subtitles in y=1325..1595
+            f"[layer1_video]split[v_base][v_sub_crop]; "
+            f"[v_sub_crop]crop=1000:270:40:1325,boxblur=24:4[v_blur_band]; "
+            f"[v_base][v_blur_band]overlay=40:1325[v_cleaned]; "
             # Layer 2: Subtle Cinematic Dark Gradient Overlay
-            f"[layer1_video][1:v]overlay=0:0[layer2_comp]; "
+            f"[v_cleaned][1:v]overlay=0:0[layer2_comp]; "
             # Layer 3: Top-Left Factify Branding Overlay
             f"[layer2_comp][2:v]overlay=48:55[layer3_comp]; "
+            # Layer 4: Sleek Frosted Caption Plate (masks 100% of underlying subtitles)
+            f"[layer3_comp][3:v]overlay=60:1335[layer4_comp]; "
             # Layer 6: CTA SUBSCRIBE Pill Overlay (Continuous presence from A to Z)
-            f"[layer3_comp][3:v]overlay=(W-w)/2:1610[layer_branded]; "
-            # Layer 4 & 5: Subtitles & Keyword Highlights (Mobile-Optimized 76pt)
+            f"[layer4_comp][4:v]overlay=(W-w)/2:1610[layer_branded]; "
+            # Layer 5: Subtitles & Keyword Highlights (Mobile-Optimized 70pt, centered in plate)
             f"[layer_branded]ass='{safe_ass}':fontsdir='{fonts_dir_safe}'[outv]; "
             # Audio: Broadcast EQ + Ducked BGM + Loudnorm -14 LUFS
-            f"[4:a]equalizer=f=120:width_type=o:width=1.5:g=3.2,equalizer=f=3400:width_type=o:width=1.5:g=2.2,volume=1.08[voice]; "
-            f"[5:a]volume=0.07[bgm]; "
+            f"[5:a]equalizer=f=120:width_type=o:width=1.5:g=3.2,equalizer=f=3400:width_type=o:width=1.5:g=2.2,volume=1.08[voice]; "
+            f"[6:a]volume=0.07[bgm]; "
             f"[voice][bgm]amix=inputs=2:duration=first:dropout_transition=2,loudnorm=I=-14:TP=-1.5:LRA=11[outa]"
         )
 
@@ -405,6 +432,7 @@ class FactifyShortsTemplate:
             '-stream_loop', '-1', '-i', video_source_path,
             '-loop', '1', '-i', self.grad_path,
             '-loop', '1', '-i', self.top_brand_path,
+            '-loop', '1', '-i', self.caption_plate_path,
             '-loop', '1', '-i', self.cta_path,
             '-i', voice_path,
             '-stream_loop', '-1', '-i', bgm_file,

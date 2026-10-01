@@ -31,9 +31,9 @@ HEALTH_MECHANISM_TOPICS = [
                 "duration": 5.5
             },
             {
-                "label": "Scene 3 - Deep valve-less facial vein vascular network",
-                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
-                "start_sec": 0.0,
+                "label": "Scene 3 - Dermal capillary bed and micro-vascular structures",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 15.0,
                 "duration": 5.0
             },
             {
@@ -359,7 +359,7 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
             {
                 "label": "Scene 1 - 3D Before vs After fat cells deflating and shrinking",
-                "source_video": "temp/source_fat_mechanism_3d.mp4.mkv",
+                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
                 "query": "https://www.youtube.com/watch?v=Hs0RCSNuGwY",
                 "start_sec": 162.0,
                 "duration": 6.0,
@@ -367,35 +367,35 @@ HEALTH_MECHANISM_TOPICS = [
             },
             {
                 "label": "Scene 2 - 3D microscopic golden adipocytes cluster inside tissue",
-                "source_video": "temp/source_fat_mechanism_3d.mp4.mkv",
+                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
                 "query": "https://www.youtube.com/watch?v=Hs0RCSNuGwY",
                 "start_sec": 7.0,
                 "duration": 7.0
             },
             {
                 "label": "Scene 3 - 3D enzymes and hormone receptors entering fat cell",
-                "source_video": "temp/source_fat_mechanism_3d.mp4.mkv",
+                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
                 "query": "https://www.youtube.com/watch?v=Hs0RCSNuGwY",
                 "start_sec": 38.0,
                 "duration": 8.0
             },
             {
                 "label": "Scene 4 - 3D Lipase enzyme splitting triglyceride hydrocarbon chain",
-                "source_video": "temp/source_fat_mechanism_3d.mp4.mkv",
+                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
                 "query": "https://www.youtube.com/watch?v=Hs0RCSNuGwY",
                 "start_sec": 68.0,
                 "duration": 7.0
             },
             {
                 "label": "Scene 5 - 3D Pulmonary alveoli exchanging and releasing CO2 in lungs",
-                "source_video": "temp/source_fat_mechanism_3d.mp4.mkv",
+                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
                 "query": "https://www.youtube.com/watch?v=Hs0RCSNuGwY",
                 "start_sec": 130.0,
                 "duration": 8.0
             },
             {
                 "label": "Scene 6 - 3D Mouth exhalation of CO2 and deflated fat cells reveal",
-                "source_video": "temp/source_fat_mechanism_3d.mp4.mkv",
+                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
                 "query": "https://www.youtube.com/watch?v=Hs0RCSNuGwY",
                 "start_sec": 148.0,
                 "duration": 8.0
@@ -436,31 +436,31 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
             {
                 "label": "Scene 1 - Decay reaching deep tooth pulp nerves",
-                "source_video": "temp/source_root_canal.mp4",
+                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
                 "start_sec": 0.0,
                 "duration": 5.0
             },
             {
                 "label": "Scene 2 - Drilling micro access hole through crown",
-                "source_video": "temp/source_root_canal.mp4",
+                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
                 "start_sec": 5.0,
                 "duration": 5.5
             },
             {
                 "label": "Scene 3 - Flexible micro-files cleaning canal",
-                "source_video": "temp/source_root_canal.mp4",
+                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
                 "start_sec": 10.5,
                 "duration": 5.5
             },
             {
                 "label": "Scene 4 - Biocompatible gutta-percha rubber sealant",
-                "source_video": "temp/source_root_canal.mp4",
+                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
                 "start_sec": 16.0,
                 "duration": 5.0
             },
             {
                 "label": "Scene 5 - Rebuilding tooth and porcelain crown installation",
-                "source_video": "temp/source_root_canal.mp4",
+                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
                 "start_sec": 21.0,
                 "duration": 7.0
             }
@@ -495,31 +495,31 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
             {
                 "label": "Scene 1 - Blocked coronary artery starving heart of oxygen",
-                "source_video": "temp/source_heart_stent.mp4",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
                 "start_sec": 0.0,
                 "duration": 5.0
             },
             {
                 "label": "Scene 2 - Catheter guided into clogged artery",
-                "source_video": "temp/source_heart_stent.mp4",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
                 "start_sec": 5.0,
                 "duration": 5.5
             },
             {
                 "label": "Scene 3 - Balloon inflating deploying metallic mesh stent",
-                "source_video": "temp/source_heart_stent.mp4",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
                 "start_sec": 10.5,
                 "duration": 5.5
             },
             {
                 "label": "Scene 4 - Plaque locked against arterial wall",
-                "source_video": "temp/source_heart_stent.mp4",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
                 "start_sec": 16.0,
                 "duration": 5.0
             },
             {
                 "label": "Scene 5 - Restored rush of blood flow saving heart muscle",
-                "source_video": "temp/source_heart_stent.mp4",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
                 "start_sec": 21.0,
                 "duration": 4.5
             }
@@ -555,10 +555,10 @@ HEALTH_MECHANISM_TOPICS = [
         "script": "What actually happens inside your head during a stroke? Your brain demands twenty percent of all the oxygen you breathe! But when a wandering blood clot lodges inside a cerebral artery, blood flow stops dead in its tracks. Within thirty seconds, brain cells are completely starved of oxygen, and millions begin dying every single minute! Remember the vital FAST signs: Face drooping, Arm weakness, and Slurred speech. Acting fast can save a life! Subscribe to Factify for more human body truths!",
         "scenes": [
             {
-                "label": "Scene 1 - 3D Pulmonary oxygen intake and blood cellular respiration",
-                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
-                "start_sec": 130.0,
-                "duration": 4.5
+                "label": "Scene 1 - 3D Cerebral arterial blood flow and vascular anatomy",
+                "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
+                "start_sec": 0.0,
+                "duration": 5.0
             },
             {
                 "label": "Scene 2 - 3D Blood clot traveling & lodging inside cerebral artery",
@@ -569,20 +569,20 @@ HEALTH_MECHANISM_TOPICS = [
             {
                 "label": "Scene 3 - 3D Cellular oxygen starvation & dying brain neurons",
                 "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
+                "start_sec": 12.0,
+                "duration": 6.0
+            },
+            {
+                "label": "Scene 4 - 3D Acute ischemic damage spreading in brain tissue",
+                "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
                 "start_sec": 18.5,
                 "duration": 5.5
             },
             {
-                "label": "Scene 4 - 3D Heart pumping emergency systemic arterial rush",
-                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
-                "start_sec": 21.0,
-                "duration": 4.5
-            },
-            {
-                "label": "Scene 5 - 3D Cerebral recovery, vital FAST signs & protection",
+                "label": "Scene 5 - 3D Emergency response, vital FAST signs & recovery",
                 "source_video": "pipeline/assets/footage/source_stroke_3d.mp4",
                 "start_sec": 24.5,
-                "duration": 5.0
+                "duration": 5.5
             }
         ],
         "vidiq_seo": {
@@ -628,21 +628,21 @@ HEALTH_MECHANISM_TOPICS = [
                 "duration": 5.0
             },
             {
-                "label": "Scene 3 - 3D Systemic vascular blood flow and pain response",
-                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
-                "start_sec": 21.0,
-                "duration": 5.0
+                "label": "Scene 3 - 3D High-energy shockwave pulse targeting stone",
+                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
+                "start_sec": 9.5,
+                "duration": 4.5
             },
             {
-                "label": "Scene 4 - 3D High-energy shockwave micro-robot dissolution",
+                "label": "Scene 4 - 3D Microscopic laser shattering stone into dust",
                 "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
-                "start_sec": 12.0,
+                "start_sec": 14.0,
                 "duration": 4.5
             },
             {
                 "label": "Scene 5 - 3D Microscopic dust flushing smoothly out of kidney",
                 "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
-                "start_sec": 17.5,
+                "start_sec": 18.5,
                 "duration": 4.5
             }
         ],
@@ -688,9 +688,9 @@ HEALTH_MECHANISM_TOPICS = [
                 "duration": 5.5
             },
             {
-                "label": "Scene 3 - 3D Delicate cellular tissue layer under microscope",
-                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
-                "start_sec": 0.0,
+                "label": "Scene 3 - 3D Corneal stroma layer exposed for laser precision",
+                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
+                "start_sec": 10.5,
                 "duration": 5.0
             },
             {
