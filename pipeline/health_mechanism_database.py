@@ -731,6 +731,245 @@ HEALTH_MECHANISM_TOPICS = [
                 "shorts"
             ]
         }
+    },
+    {
+        "id": "sleeping_with_headphones",
+        "category": "ear_daily_habits",
+        "title": "What REALLY Happens If You Sleep With Headphones? 🎧⚠️ #Shorts",
+        "top_header": "SLEEPING WITH HEADPHONES",
+        "sub_header": "WHAT HAPPENS TO YOUR EARS!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "Do you fall asleep every night wearing headphones or earbuds? When earbuds seal your ear canal overnight, they trap moisture and body heat, creating the perfect greenhouse for bacterial growth and ear infections. Worse yet, continuous sound waves bombard your eardrum for hours without rest. Deep inside your cochlea, thousands of microscopic stereocilia hair cells bend under the constant acoustic vibration. Unlike skin cells, once these delicate auditory hair cells get damaged or snapped, they can never regrow, leading to irreversible high-frequency hearing loss and permanent tinnitus! Doctor Guide: Never sleep with in-ear headphones. If you need sound to fall asleep, use an external speaker on a thirty-minute sleep timer. Do you sleep with headphones on at night? Tell us in the comments, and subscribe to Factify for more incredible body secrets!",
+        "scenes": [
+            {
+                "label": "Scene 1 - Person wearing headphones falling asleep in bed",
+                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
+                "start_sec": 0.0,
+                "duration": 5.5
+            },
+            {
+                "label": "Scene 2 - 3D Ear canal cutaway showing acoustic soundwaves hitting eardrum",
+                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
+                "start_sec": 7.0,
+                "duration": 6.5
+            },
+            {
+                "label": "Scene 3 - Headphone speaker drivers vibrating opposite phase waves",
+                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
+                "start_sec": 14.0,
+                "duration": 6.0
+            },
+            {
+                "label": "Scene 4 - Deep cochlea acoustic pressure and internal ear canal tension",
+                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
+                "start_sec": 20.0,
+                "duration": 6.5
+            },
+            {
+                "label": "Scene 5 - Ear canal airflow and safe sound levels",
+                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
+                "start_sec": 26.0,
+                "duration": 6.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "sleeping with headphones danger",
+            "search_volume": "Very High",
+            "competition": "Low",
+            "tags": [
+                "sleeping with headphones",
+                "is it bad to sleep with headphones",
+                "earbuds while sleeping",
+                "tinnitus cause",
+                "hearing loss prevention",
+                "ear infection causes",
+                "human ear anatomy 3d",
+                "cochlea hair cells",
+                "zack d films",
+                "medical animation 3d",
+                "body secrets",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "how_bones_make_blood",
+        "category": "blood_bone_mechanism",
+        "title": "How Your Bones ACTUALLY Make Blood! 🦴🩸 #Shorts",
+        "top_header": "HUMAN BONE MARROW",
+        "sub_header": "WHERE BLOOD IS ACTUALLY BORN!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "Did you know that your hard, solid bones are actually producing millions of living cells every single second? Inside your largest bones lies a spongy, vascular tissue called bone marrow. This tissue is packed with miraculous master cells called hematopoietic stem cells. Whenever oxygen drops in your body, your kidneys release a chemical hormone called erythropoietin. In response, these bone marrow stem cells rapidly divide and transform, manufacturing over two million fresh red blood cells every single second! These new cells pack with hemoglobin and squeeze through microscopic sinusoids directly into your bloodstream to power your body with oxygen. Doctor Guide: Keep your bone marrow healthy by eating plenty of iron, vitamin B12, and dark leafy greens. Did you know your bones create your blood? Tell us in the comments, and subscribe to Factify for more human body secrets!",
+        "scenes": [
+            {
+                "label": "Scene 1 - Human skeleton and dense femur bone structure",
+                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
+                "start_sec": 0.0,
+                "duration": 5.5
+            },
+            {
+                "label": "Scene 2 - 3D internal cross section showing porous bone marrow tissue",
+                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
+                "start_sec": 6.0,
+                "duration": 6.5
+            },
+            {
+                "label": "Scene 3 - Hematopoietic stem cells dividing and maturing inside marrow",
+                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
+                "start_sec": 13.0,
+                "duration": 6.0
+            },
+            {
+                "label": "Scene 4 - Red blood cells passing into capillary sinusoidal walls",
+                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
+                "start_sec": 19.0,
+                "duration": 6.0
+            },
+            {
+                "label": "Scene 5 - Oxygenated blood circulating throughout the human body",
+                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
+                "start_sec": 24.0,
+                "duration": 6.5
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "how bones make red blood cells",
+            "search_volume": "Very High",
+            "competition": "Low",
+            "tags": [
+                "how bones make blood",
+                "bone marrow 3d",
+                "hematopoiesis",
+                "stem cells",
+                "red blood cell production",
+                "human anatomy 3d",
+                "blood circulation",
+                "medical animation 3d",
+                "zack d style",
+                "did you know body facts",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "what_caffeine_does_to_brain",
+        "category": "neuroscience_brain",
+        "title": "What Coffee ACTUALLY Does To Your Brain! ☕🧠 #Shorts",
+        "top_header": "CAFFEINE & YOUR BRAIN",
+        "sub_header": "HOW IT TRICKS YOUR NEURONS!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "Ever wonder why a single cup of coffee makes you feel instantly awake and energized? Throughout your day, your brain neurons burn energy and release a natural chemical called adenosine. As adenosine docks onto your brain receptors, it gradually slows down nerve activity, making you feel drowsy. But caffeine molecules look almost identical to adenosine! When you drink coffee, caffeine rushes through your blood-brain barrier and physically plugs into those sleep receptors. It blocks real adenosine without slowing down the neuron. Your brain thinks emergency alertness is needed, triggering a surge of adrenaline and dopamine that keeps you laser-focused! Doctor Guide: Avoid caffeine after two in the afternoon so your brain can naturally clear adenosine for deep, restorative sleep. How many cups of coffee do you drink every day? Tell us in the comments, and subscribe to Factify for more mind secrets!",
+        "scenes": [
+            {
+                "label": "Scene 1 - Person drinking hot coffee feeling instant wakefulness",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 0.0,
+                "duration": 5.5
+            },
+            {
+                "label": "Scene 2 - 3D Brain neural network firing electrical impulses",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 8.0,
+                "duration": 7.0
+            },
+            {
+                "label": "Scene 3 - Adenosine molecules docking onto neural cell receptors",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 17.0,
+                "duration": 7.0
+            },
+            {
+                "label": "Scene 4 - Caffeine molecules blocking the sleep receptor sites",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 26.0,
+                "duration": 7.0
+            },
+            {
+                "label": "Scene 5 - Burst of dopamine and alertness across cerebral cortex",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 35.0,
+                "duration": 7.5
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "what caffeine does to your brain",
+            "search_volume": "Very High",
+            "competition": "Low",
+            "tags": [
+                "what coffee does to your brain",
+                "caffeine effect on brain",
+                "adenosine receptors",
+                "why coffee wakes you up",
+                "neuroscience 3d",
+                "brain chemistry",
+                "medical animation 3d",
+                "zack d films",
+                "coffee health benefits",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "how_eyes_merge_vision",
+        "category": "vision_neuroscience",
+        "title": "How Your Eyes ACTUALLY Create What You See! 👁️🧠 #Shorts",
+        "top_header": "HUMAN VISION SECRETS",
+        "sub_header": "HOW YOUR BRAIN SEES THE WORLD!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "Did you know that your eyes don't actually see what is directly in front of you? Each of your eyes captures a completely separate flat image from a slightly different perspective. Light enters the pupil and hits the photoreceptor rods and cones on your retina upside down! These cells convert photons into electrical pulses that race along the optic nerves straight to the visual cortex at the back of your brain. Here, your visual cortex instantly flips the image right side up and fuses the two distinct angles into a single three-dimensional picture with realistic depth perception! Doctor Guide: Protect your vision with the twenty-twenty-twenty rule. Every twenty minutes, look twenty feet away for twenty seconds. Did you know your brain flips images right side up? Tell us in the comments, and subscribe to Factify for more body secrets!",
+        "scenes": [
+            {
+                "label": "Scene 1 - Two eyes focusing on a target creating distinct angles",
+                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
+                "start_sec": 0.0,
+                "duration": 5.5
+            },
+            {
+                "label": "Scene 2 - 3D light rays entering pupil and projecting inverted onto retina",
+                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
+                "start_sec": 7.0,
+                "duration": 6.5
+            },
+            {
+                "label": "Scene 3 - Optic nerve fibers transmitting electrical impulses to occipital lobe",
+                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
+                "start_sec": 15.0,
+                "duration": 6.5
+            },
+            {
+                "label": "Scene 4 - Visual cortex merging dual inputs into 3D binocular vision",
+                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
+                "start_sec": 23.0,
+                "duration": 6.5
+            },
+            {
+                "label": "Scene 5 - Crystal clear human perception and depth field restoration",
+                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
+                "start_sec": 30.0,
+                "duration": 7.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "how eyes merge different views",
+            "search_volume": "High",
+            "competition": "Low",
+            "tags": [
+                "how eyes work 3d",
+                "binocular vision",
+                "optic nerve",
+                "visual cortex brain",
+                "why do we have two eyes",
+                "retina inverted image",
+                "human anatomy 3d",
+                "medical animation 3d",
+                "zack d style",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
     }
 ]
 
