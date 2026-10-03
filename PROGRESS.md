@@ -83,6 +83,15 @@
 ---
 
 ## 📝 Office & Home Daily Log
+* **2026-10-03 (Home PC - 4 New Verified 3D Medical Topics Deployed):**
+  - **টেলিগ্রাম অ্যালার্ট সমাধান:** পূর্ববর্তী সকল ভেরিফায়েড ৩ডি টপিক আপলোড হয়ে যাওয়ায় পাইপলাইন নিরাপদভাবে পজ হয়েছিল। সাথে সাথে ৪টি নতুন ভেরিফায়েড ১০৮০x১৯২০ ৩ডি ফুটেজ ও ডাটাবেজ যুক্ত করা হয়েছে:
+    1. `sleeping_with_headphones`: কানে হেডফোন দিয়ে ঘুমালে কানের ভেতরে কী ঘটে (Cochlea stereocilia damage & permanent tinnitus)
+    2. `how_bones_make_blood`: শক্ত হাড় কীভাবে রক্ত তৈরি করে (Bone marrow hematopoiesis & stem cells)
+    3. `what_caffeine_does_to_brain`: কফি মস্তিষ্কের নিউরনে কী পরিবর্তন ঘটায় (Adenosine receptor blockage & dopamine spike)
+    4. `how_eyes_merge_vision`: চোখ কীভাবে উল্টো ছবিকে সোজা ও ৩ডি ডেপথ তৈরি করে (Retina photoreceptors & visual cortex)
+  - প্রতিটি টপিক বাধ্যতামূলক **৪-স্তম্ভ আর্কিটেকচার (Hook -> 3D Mechanism -> Doctor Guide -> Interactive Question & CTA)** মেনে কনফিগার করা হয়েছে।
+  - টেস্ট রেন্ডার সফল এবং সমস্ত ফুটেজ ও ডাটাবেজ গিটহাব `main`-এ লাইভ পুশ করা হয়েছে।
+
 * **2026-10-03 (Home PC - Black Screen Fix & 1080x1920 3D Holding Pee Integration):**
   - **ব্ল্যাক স্ক্রিনের মূল কারণ সনাক্ত ও স্থায়ী সমাধান:** গিটহাব অ্যাকশন ক্লাউড আইপি থেকে অনলাইন ডাউনলোডের ফলব্যাক হিসেবে ডার্ক ক্যানভাস তৈরি হয়েছিল। ফলব্যাক কোড সম্পূর্ণ ডিলিট করে রিয়েল ফুটেজ ছাড়া বিল্ড স্বয়ংক্রিয়ভাবে স্থগিত (Abort) হওয়ার সেফটি গার্ড যুক্ত করা হয়েছে।
   - **১০৮০x১৯২০ নেটিভ ৯:১৬ ৩ডি ফুটেজ যুক্ত:** প্রস্রাব আটকে রাখার ৩ডি মেডিকেল অ্যানিমেশন (`source_holding_pee_3d.mp4`) সংগ্রহ ও পাইপলাইনে যুক্ত করা হয়েছে।
