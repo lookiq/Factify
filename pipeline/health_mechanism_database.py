@@ -84,43 +84,49 @@ HEALTH_MECHANISM_TOPICS = [
         "top_header": "HUMAN BLADDER SECRETS",
         "sub_header": "WHAT ACTUALLY HAPPENS INSIDE!",
         "watermark_text": "@FactifyDailyShorts",
-        "script": "What actually happens inside your body when you hold your pee for hours? Your bladder is like a muscular balloon that normally holds up to two cups of liquid. Tiny nerve receptors signal your brain when it is halfway full. But if you ignore that urge, your pelvic sphincter muscles have to clamp down with extreme force. As urine keeps building up, your bladder walls stretch beyond their safety limit. Worse yet, stagnant urine allows bacteria to multiply rapidly, drastically raising your risk of urinary tract infections. In extreme cases, urine can even back up through the ureters into your kidneys, causing kidney swelling. Don't hold it in! Subscribe to Factify for more human body truths!",
+        "script": "Have you ever desperately held in your pee for hours just because you couldn't find a clean bathroom? Inside your body, your bladder is an elastic muscular balloon that normally holds up to two cups of liquid. As it fills, tiny nerve receptors constantly signal your brain that it is time to go. When you ignore that urge, your pelvic sphincter muscles must clamp shut under extreme tension. As pressure continues to rise, stagnant urine creates an ideal breeding ground for harmful bacteria, dramatically increasing your risk of severe urinary infections. In dangerous cases, urine can actually back up through the ureters directly into your kidneys, causing painful swelling and potential tissue damage. Doctor Guide: Never hold your urine for long stretches. When you feel the natural urge, find a restroom within fifteen minutes. What is the longest you have ever held your pee? Share your experience in the comments, and subscribe to Factify for more incredible body secrets!",
         "scenes": [
             {
-                "label": "Scene 1 - Person desperately trying to hold urine while working",
-                "query": "ytsearch1:person holding pee funny desperate",
-                "start_sec": 2.0,
-                "duration": 4.0
-            },
-            {
-                "label": "Scene 2 - 3D Medical animation of bladder expanding like balloon",
-                "query": "ytsearch1:human bladder 3d animation expanding urine",
-                "start_sec": 3.0,
-                "duration": 5.5
-            },
-            {
-                "label": "Scene 3 - Pelvic floor sphincter muscles clamping tightly",
-                "query": "ytsearch1:pelvic floor sphincter muscle contraction 3d",
-                "start_sec": 2.0,
-                "duration": 5.0
-            },
-            {
-                "label": "Scene 4 - Microscopic bacteria multiplying in stagnant liquid",
-                "query": "ytsearch1:bacteria multiplying under microscope science",
-                "start_sec": 4.0,
-                "duration": 6.0
-            },
-            {
-                "label": "Scene 5 - 3D animation of urine backing into ureter tubes and kidneys",
-                "query": "ytsearch1:hydronephrosis kidney reflux 3d animation",
-                "start_sec": 3.0,
-                "duration": 6.5
-            },
-            {
-                "label": "Scene 6 - Relief bathroom flush / clean human body anatomy",
-                "query": "ytsearch1:human urinary system 3d rotation anatomy",
+                "label": "Scene 1 - Bladder filling rapidly with liquid and stretching",
+                "source_video": "pipeline/assets/footage/source_holding_pee_3d.mp4",
                 "start_sec": 1.0,
-                "duration": 5.0
+                "duration": 5.5,
+                "custom_crop": "crop=in_w:in_h-160:0:160"
+            },
+            {
+                "label": "Scene 2 - Internal bladder wall tension and sphincter clamping",
+                "source_video": "pipeline/assets/footage/source_holding_pee_3d.mp4",
+                "start_sec": 14.0,
+                "duration": 6.5,
+                "custom_crop": "crop=in_w:in_h-160:0:160"
+            },
+            {
+                "label": "Scene 3 - Full body transparent anatomy showing kidneys and ureters",
+                "source_video": "pipeline/assets/footage/source_holding_pee_3d.mp4",
+                "start_sec": 48.0,
+                "duration": 6.0,
+                "custom_crop": "crop=in_w:in_h-160:0:160"
+            },
+            {
+                "label": "Scene 4 - Bacterial danger and toxic urine backing into kidneys",
+                "source_video": "pipeline/assets/footage/source_holding_pee_3d.mp4",
+                "start_sec": 65.0,
+                "duration": 6.5,
+                "custom_crop": "crop=in_w:in_h-160:0:160"
+            },
+            {
+                "label": "Scene 5 - Healthy bladder decompression and sphincter relief",
+                "source_video": "pipeline/assets/footage/source_holding_pee_3d.mp4",
+                "start_sec": 24.0,
+                "duration": 6.0,
+                "custom_crop": "crop=in_w:in_h-160:0:160"
+            },
+            {
+                "label": "Scene 6 - Interactive question and Factify body secrets CTA",
+                "source_video": "pipeline/assets/footage/source_holding_pee_3d.mp4",
+                "start_sec": 80.0,
+                "duration": 7.0,
+                "custom_crop": "crop=in_w:in_h-160:0:160"
             }
         ],
         "vidiq_seo": {

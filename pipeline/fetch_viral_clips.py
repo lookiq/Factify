@@ -32,10 +32,13 @@ def smart_normalize_clip(source_file, dest_path, start_sec=2.0, duration=5.0, cu
     if ratio <= 0.75:
         # Native vertical 9:16 (Zack D Films / vertical 3D animations)
         print("  [Format] Native Vertical -> 100% Fullscreen Cover")
+        vf_filter = (
+            f"{custom_crop}," if custom_crop else ""
+        ) + "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920:(in_w-1080)/2:(in_h-1920)/2,eq=contrast=1.06:saturation=1.12,setsar=1,fps=30"
         cmd = [
             'ffmpeg', '-y', '-ss', str(start_sec), '-i', source_file,
             '-t', str(duration),
-            '-vf', 'scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920:(in_w-1080)/2:(in_h-1920)/2,eq=contrast=1.06:saturation=1.12,setsar=1,fps=30',
+            '-vf', vf_filter,
             '-c:v', 'libx264', '-crf', '17', '-preset', 'fast', '-pix_fmt', 'yuv420p', '-an', dest_path
         ]
     else:
