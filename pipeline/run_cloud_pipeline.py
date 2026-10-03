@@ -59,13 +59,8 @@ def select_next_autopilot_topic(forced_id=None):
         if t['id'] not in used_content and t['title'] not in used_content:
             return t['id']
 
-    # Fallback to any unposted topic
-    for t in HEALTH_MECHANISM_TOPICS:
-        if t['id'] not in used_content and t['title'] not in used_content:
-            return t['id']
-
-    # If all posted, cycle through verified topics
-    return verified_topics[0]['id'] if verified_topics else "heart_stent_procedure"
+    print("⚠️ All verified topics with local 3D footage have already been posted!")
+    return None
 
 def run_cloud_pipeline(topic_id=None):
     print("=" * 70)
@@ -77,8 +72,18 @@ def run_cloud_pipeline(topic_id=None):
         print("❌ CRITICAL: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID missing from environment / secrets!")
         sys.exit(1)
 
-    # 1. Autonomous Topic Selection
+    # 1. Autonomous Topic Selection (STRICT: only verified 3D footage allowed)
     chosen_topic_id = select_next_autopilot_topic(topic_id)
+    if not chosen_topic_id:
+        warn_msg = (
+            "⚠️ [Factify Alert] All verified 3D medical topics have already been posted! "
+            "Autopilot safely paused to prevent uploading videos without real 3D video clips. "
+            "Please add new verified topics with 3D footage."
+        )
+        print(warn_msg)
+        send_message(token, chat_id, warn_msg)
+        sys.exit(0)
+
     print(f"\n🎬 Selected Topic for Autonomous Production: {chosen_topic_id}")
 
     # 2. Render Master Short (suppressing manual preview buttons)

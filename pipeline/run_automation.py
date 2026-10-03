@@ -59,13 +59,14 @@ def run_pipeline(topic_id="what_actually_happens_to_fat", notify_telegram=True):
         c_crop = sc.get('custom_crop', None)
         print(f"  ▶️ [{idx+1}/{len(topic['scenes'])}] {sc['label']}")
         success = fetch_scene_clip(query, sc_dest, start_sec=start_sec, duration=dur, source_video=src_vid, custom_crop=c_crop)
-        if success and os.path.exists(sc_dest):
+        if success and os.path.exists(sc_dest) and os.path.getsize(sc_dest) > 10000:
             scene_video_paths.append(sc_dest)
         else:
-            print(f"  ⚠️ Warning: Fallback applied for scene {idx+1}")
+            print(f"  ❌ Error: Real video footage missing for scene {idx+1} ({sc.get('label')})! Aborting build.")
+            sys.exit(1)
 
-    if not scene_video_paths:
-        print("❌ Error: No scenes were successfully fetched.")
+    if len(scene_video_paths) != len(topic['scenes']):
+        print(f"❌ Error: Expected {len(topic['scenes'])} scenes, only got {len(scene_video_paths)}. Aborting.")
         sys.exit(1)
 
     # 3. Assemble VidIQ SEO Package

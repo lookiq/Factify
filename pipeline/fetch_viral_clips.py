@@ -127,17 +127,10 @@ def fetch_scene_clip(query, dest_path, start_sec=2.0, duration=5.0, source_video
                 print(f"  [OK] Successfully transformed and saved: {dest_path}")
                 return True
     except Exception as e:
-        print(f"  [Warning] Could not fetch '{target}': {e}. Using cinematic dark canvas.")
+        print(f"  ❌ [ERROR] Could not fetch real video footage for '{target}': {e}")
+        return False
 
-    # High quality dark cinematic procedural canvas (NEVER TV color bars)
-    fallback_cmd = [
-        'ffmpeg', '-y', '-f', 'lavfi',
-        '-i', f'color=c=#060d1a:s=1080x1920:d={duration},format=yuv420p',
-        '-t', str(duration),
-        '-c:v', 'libx264', '-crf', '18', '-preset', 'fast', '-an', dest_path
-    ]
-    subprocess.run(fallback_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    return os.path.exists(dest_path)
+    return False
 
 def prepare_topic_scenes(topic):
     scenes = topic.get('scenes', [])
