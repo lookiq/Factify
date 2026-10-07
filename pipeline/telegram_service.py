@@ -385,11 +385,33 @@ def send_delivery_package(video_path, metadata_path, topic_id=None):
     tags_str = metadata.get('tags_str') or ", ".join(tags)
     topic_key = metadata.get('topic_id') or metadata.get('id') or topic_id or Path(video_path).stem
 
+    focus_kw = metadata.get('primary_keyword', '')
+    t_low = title.lower()
+    if t_low.startswith('why you should never'):
+        playlist = 'Why You Should NEVER \u26a0\ufe0f'
+    elif 'how doctors' in t_low or 'how dentists' in t_low or 'surgery' in t_low:
+        playlist = 'How Doctors ACTUALLY Do It \U0001FA7A'
+    else:
+        playlist = 'How Your Body ACTUALLY Works \U0001F9EC'
+
+    upload_time_str = ''
+    publish_at = metadata.get('publish_at')
+    if publish_at:
+        try:
+            from zoneinfo import ZoneInfo
+            dt_utc = datetime.fromisoformat(publish_at.replace('Z', '+00:00'))
+            upload_time_str = dt_utc.astimezone(ZoneInfo('Asia/Dhaka')).strftime('%I:%M %p, %b %d (Dhaka)')
+        except Exception:
+            pass
+    if not upload_time_str:
+        upload_time_str = metadata.get('slot_name', '')
+
     pinned_comment = (
         "\U0001F4AC Enjoyed this? Tell me in the comments!\n"
         "\U0001F514 SUBSCRIBE to @FactifyDailyShorts for daily body & health facts! \U0001F9E0\u26A1"
     )
     checklist = (
+        (f"- [ ] Upload/schedule at: {upload_time_str}\n" if upload_time_str else "") +
         f"- [ ] Title pasted exactly: {title}\n"
         "- [ ] Description block pasted\n"
         "- [ ] Tags pasted (comma-separated)\n"
@@ -405,7 +427,8 @@ def send_delivery_package(video_path, metadata_path, topic_id=None):
     upload_target = make_fast_mobile_preview(video_path)
     size_mb = os.path.getsize(upload_target) / (1024 * 1024)
     print(f"\U0001F4E4 Uploading video to Telegram ({size_mb:.1f} MB)...")
-    caption = f"\U0001F3AC <b>Factify Shorts \u2014 Ready to Upload</b>\n\U0001F4CC {_html_escape(title)}"
+    time_line = f"\n\U0001F552 Suggested upload: {upload_time_str}" if upload_time_str else ""
+    caption = f"\U0001F3AC <b>Factify Shorts \u2014 Ready to Upload</b>\n\U0001F4CC {_html_escape(title)}{time_line}"
     try:
         with open(upload_target, 'rb') as vf:
             res = requests.post(
@@ -428,6 +451,8 @@ def send_delivery_package(video_path, metadata_path, topic_id=None):
         ("\U0001F4CC <b>TITLE</b> (tap to copy)", title),
         ("\U0001F4DD <b>DESCRIPTION</b> (tap to copy)", description or "(no description)"),
         ("\U0001F3F7\ufe0f <b>TAGS</b> (tap to copy)", tags_str or "(no tags)"),
+        ("\U0001F3AF <b>FOCUS KEYWORD</b> (tap to copy)", focus_kw or "(none)"),
+        ("\U0001F3B5 <b>PLAYLIST</b> (tap to copy)", playlist),
         ("\U0001F4CC <b>PINNED COMMENT</b> (tap to copy)", pinned_comment),
         ("\u2705 <b>UPLOAD CHECKLIST</b>", checklist),
     ]
