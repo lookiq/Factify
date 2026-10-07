@@ -17,6 +17,8 @@ if hasattr(sys.stderr, 'reconfigure'):
 from pipeline.run_automation import run_pipeline
 from pipeline.telegram_service import get_telegram_creds, send_message, send_delivery_package
 
+BATCH_COUNT = 2  # videos per daily batch run
+
 def is_topic_footage_available(topic):
     """Check if all required local footage for this topic exists in assets or temp"""
     for sc in topic.get('scenes', []):
@@ -71,43 +73,71 @@ def run_cloud_pipeline(topic_id=None):
         print("❌ CRITICAL: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID missing from environment / secrets!")
         sys.exit(1)
 
-    # 1. Autonomous Topic Selection (STRICT: only verified 3D footage allowed)
-    chosen_topic_id = select_next_autopilot_topic(topic_id)
-    if not chosen_topic_id:
-        warn_msg = (
-            "⚠️ [Factify Alert] All verified 3D medical topics have already been posted! "
-            "Autopilot safely paused to prevent uploading videos without real 3D video clips. "
-            "Please add new verified topics with 3D footage."
-        )
-        print(warn_msg)
-        send_message(token, chat_id, warn_msg)
-        sys.exit(0)
+    batch_count = 1 if topic_id else BATCH_COUNT
+    delivered, failed = [], []
 
-    print(f"\n🎬 Selected Topic for Autonomous Production: {chosen_topic_id}")
+    for i in range(batch_count):
+        batch_tag = f"[{i+1}/{batch_count}]" if batch_count > 1 else ""
 
-    # 2. Render Master Short (suppressing manual preview buttons)
-    master_path = run_pipeline(chosen_topic_id, notify_telegram=False)
-    seo_path = master_path.replace('.mp4', '_seo.json')
+        # 1. Autonomous Topic Selection (STRICT: only verified 3D footage allowed)
+        chosen_topic_id = select_next_autopilot_topic(topic_id if i == 0 else None)
+        if not chosen_topic_id:
+            if not delivered:
+                warn_msg = (
+                    "⚠️ [Factify Alert] All verified 3D medical topics have already been posted! "
+                    "Autopilot safely paused to prevent building videos without real 3D video clips. "
+                    "Please add new verified topics with 3D footage."
+                )
+                print(warn_msg)
+                send_message(token, chat_id, warn_msg)
+                sys.exit(0)
+            info_msg = (f"ℹ️ [Factify] Batch partial: {len(delivered)}/{batch_count} delivered — "
+                        "no more verified topics left.")
+            print(info_msg)
+            send_message(token, chat_id, info_msg)
+            break
 
-    if not os.path.exists(master_path):
-        err_msg = f"❌ Production failed: Master video not found at {master_path}"
-        print(err_msg)
-        send_message(token, chat_id, err_msg)
-        sys.exit(1)
+        print(f"\n🎬 {batch_tag} Selected Topic: {chosen_topic_id}")
 
-    # 3. Telegram-only delivery (NO YouTube auto-upload — user publishes manually)
-    print("\n📱 Delivering finished Short + full metadata package to Telegram...")
-    ok = send_delivery_package(master_path, seo_path, topic_id=chosen_topic_id)
-    if not ok:
-        err_msg = f"❌ Telegram delivery failed for topic '{chosen_topic_id}'"
-        print(err_msg)
-        send_message(token, chat_id, err_msg)
-        sys.exit(1)
+        # 2. Render Master Short (suppressing manual preview buttons)
+        try:
+            master_path = run_pipeline(chosen_topic_id, notify_telegram=False)
+        except (Exception, SystemExit) as e:
+            err_msg = f"❌ {batch_tag} Build failed for '{chosen_topic_id}': {e}"
+            print(err_msg)
+            failed.append(chosen_topic_id)
+            continue
+        seo_path = master_path.replace('.mp4', '_seo.json')
+
+        if not os.path.exists(master_path):
+            err_msg = f"❌ {batch_tag} Production failed: Master video not found at {master_path}"
+            print(err_msg)
+            failed.append(chosen_topic_id)
+            continue
+
+        # 3. Telegram-only delivery (NO YouTube auto-upload — user publishes manually)
+        print(f"\n📱 {batch_tag} Delivering finished Short + full metadata package to Telegram...")
+        ok = send_delivery_package(master_path, seo_path, topic_id=chosen_topic_id,
+                                   batch_label=batch_tag)
+        if not ok:
+            err_msg = f"❌ {batch_tag} Telegram delivery failed for topic '{chosen_topic_id}'"
+            print(err_msg)
+            send_message(token, chat_id, err_msg)
+            failed.append(chosen_topic_id)
+            continue
+
+        delivered.append(chosen_topic_id)
 
     print("\n" + "=" * 70)
-    print("🎉 DELIVERY COMPLETE — video + upload package sent to Telegram!")
-    print("   No auto-upload: publish manually from the Telegram package.")
+    print(f"🎉 BATCH COMPLETE — {len(delivered)}/{batch_count} video(s) delivered to Telegram!")
+    if delivered:
+        print("   Delivered: " + ", ".join(delivered))
+    if failed:
+        print("   Failed: " + ", ".join(failed))
+    print("   No auto-upload: publish manually from the Telegram packages.")
     print("=" * 70)
+    if failed and not delivered:
+        sys.exit(1)
 
 if __name__ == '__main__':
     selected = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] else None
