@@ -2,8 +2,8 @@ name: Daily Factify Shorts (Cloud Automation 24/7)
 
 on:
   schedule:
-    # Daily batch: 7:00 AM Dhaka (1:00 AM UTC) — builds 2 videos, delivers to Telegram
-    - cron: '0 1 * * *'
+    # Daily batch: 6:00 AM Dhaka (12:00 AM UTC) — builds 2 videos, delivers to Telegram
+    - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
       topic_id:
