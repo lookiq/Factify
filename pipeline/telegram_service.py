@@ -317,3 +317,141 @@ if __name__ == '__main__':
         v = os.path.join(PROJECT_ROOT, "output", "Factify_what_actually_happens_to_fat_Master.mp4")
         m = os.path.join(PROJECT_ROOT, "output", "Factify_what_actually_happens_to_fat_Master_seo.json")
         send_preview(v, m)
+
+
+# ---------------------------------------------------------------------------
+# Telegram-only delivery (no YouTube auto-upload).
+# Sends: video + title / description / tags / pinned comment / upload checklist,
+# each as its own tap-to-copy message, then marks the topic delivered.
+# ---------------------------------------------------------------------------
+
+def _html_escape(s):
+    return str(s).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+def _send_html(token, chat_id, html):
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    try:
+        res = requests.post(url, json={"chat_id": chat_id, "text": html, "parse_mode": "HTML"}, timeout=15)
+        data = res.json()
+        if data.get('ok'):
+            return True
+        print(f"\u26a0\ufe0f Telegram send failed: {data.get('description')}")
+    except Exception as e:
+        print(f"\u26a0\ufe0f Telegram send error: {e}")
+    return False
+
+def _send_code_blocks(token, chat_id, label, body):
+    """Send a labeled <pre> tap-to-copy block, chunked under Telegram's 4096-char limit."""
+    chunks, cur = [], ""
+    for line in str(body).split('\n'):
+        if len(label) + len(cur) + len(line) + 20 > 3900:
+            chunks.append(cur)
+            cur = ""
+        cur += line + "\n"
+    if cur.strip():
+        chunks.append(cur)
+    ok = True
+    for i, ch in enumerate(chunks):
+        tag = f"{label} ({i+1}/{len(chunks)})" if len(chunks) > 1 else label
+        html = f"{tag}\n<pre>{_html_escape(ch.rstrip())}</pre>"
+        ok = _send_html(token, chat_id, html) and ok
+        time.sleep(0.5)
+    return ok
+
+def send_delivery_package(video_path, metadata_path, topic_id=None):
+    """Deliver the finished Short + full metadata package to Telegram.
+
+    No YouTube upload happens here — the user publishes manually.
+    Returns True only if video + all blocks were delivered.
+    """
+    from datetime import datetime
+
+    token, chat_id = get_telegram_creds()
+    if not token or not chat_id:
+        print("\u274c ERROR: TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set")
+        return False
+    if not os.path.exists(video_path):
+        print(f"\u274c ERROR: Video file not found: {video_path}")
+        return False
+
+    metadata = {}
+    if metadata_path and os.path.exists(metadata_path):
+        with open(metadata_path, 'r', encoding='utf-8') as f:
+            metadata = json.load(f)
+
+    title = metadata.get('title', Path(video_path).stem)
+    description = metadata.get('description', '')
+    tags = metadata.get('tags', [])
+    tags_str = metadata.get('tags_str') or ", ".join(tags)
+    topic_key = metadata.get('topic_id') or metadata.get('id') or topic_id or Path(video_path).stem
+
+    pinned_comment = (
+        "\U0001F4AC Enjoyed this? Tell me in the comments!\n"
+        "\U0001F514 SUBSCRIBE to @FactifyDailyShorts for daily body & health facts! \U0001F9E0\u26A1"
+    )
+    checklist = (
+        f"- [ ] Title pasted exactly: {title}\n"
+        "- [ ] Description block pasted\n"
+        "- [ ] Tags pasted (comma-separated)\n"
+        "- [ ] Pinned comment posted after upload\n"
+        "- [ ] Thumbnail uploaded\n"
+        "- [ ] Added to playlist\n"
+        "- [ ] Audience setting: not made for kids\n"
+        "- [ ] Visibility: Public"
+    )
+
+    # 1) Video (fast mobile preview)
+    print("\u26A1 Generating fast mobile preview for Telegram...")
+    upload_target = make_fast_mobile_preview(video_path)
+    size_mb = os.path.getsize(upload_target) / (1024 * 1024)
+    print(f"\U0001F4E4 Uploading video to Telegram ({size_mb:.1f} MB)...")
+    caption = f"\U0001F3AC <b>Factify Shorts \u2014 Ready to Upload</b>\n\U0001F4CC {_html_escape(title)}"
+    try:
+        with open(upload_target, 'rb') as vf:
+            res = requests.post(
+                f"https://api.telegram.org/bot{token}/sendVideo",
+                data={'chat_id': chat_id, 'caption': caption,
+                      'parse_mode': 'HTML', 'supports_streaming': True},
+                files={'video': vf},
+                timeout=120,
+            )
+            if not res.json().get('ok'):
+                print(f"\u274c Telegram video send failed: {res.text[:300]}")
+                return False
+    except Exception as e:
+        print(f"\u274c Telegram video send error: {e}")
+        return False
+    print("\u2705 Video delivered to Telegram")
+
+    # 2-6) Tap-to-copy blocks, each its own message
+    blocks = [
+        ("\U0001F4CC <b>TITLE</b> (tap to copy)", title),
+        ("\U0001F4DD <b>DESCRIPTION</b> (tap to copy)", description or "(no description)"),
+        ("\U0001F3F7\ufe0f <b>TAGS</b> (tap to copy)", tags_str or "(no tags)"),
+        ("\U0001F4CC <b>PINNED COMMENT</b> (tap to copy)", pinned_comment),
+        ("\u2705 <b>UPLOAD CHECKLIST</b>", checklist),
+    ]
+    all_ok = True
+    for label, body in blocks:
+        all_ok = _send_code_blocks(token, chat_id, label, body) and all_ok
+
+    if not all_ok:
+        print("\u274c Some Telegram messages failed to deliver")
+        return False
+
+    # 7) Dedup: mark topic delivered so the next scheduled run picks a new one
+    try:
+        from pipeline.upload_to_youtube import mark_topic_used
+        mark_topic_used(topic_key)
+    except Exception as e:
+        print(f"Note: mark_topic_used skipped ({e})")
+    try:
+        log_entry = (f"[{datetime.now().isoformat()}] Topic: {topic_key} | "
+                     f"ID: telegram | Title: {title} | URL: telegram-delivery\n")
+        with open('upload_history.log', 'a', encoding='utf-8') as f:
+            f.write(log_entry)
+    except Exception as e:
+        print(f"Note: upload_history append skipped ({e})")
+
+    print("\u2705 Full delivery package sent to Telegram")
+    return True
