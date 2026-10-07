@@ -15,8 +15,7 @@ if hasattr(sys.stderr, 'reconfigure'):
     sys.stderr.reconfigure(encoding='utf-8', errors='replace', line_buffering=True)
 
 from pipeline.run_automation import run_pipeline
-from pipeline.telegram_service import get_telegram_creds, send_message, send_autopilot_notification
-from pipeline.upload_to_youtube import upload_video
+from pipeline.telegram_service import get_telegram_creds, send_message, send_delivery_package
 
 def is_topic_footage_available(topic):
     """Check if all required local footage for this topic exists in assets or temp"""
@@ -64,7 +63,7 @@ def select_next_autopilot_topic(forced_id=None):
 
 def run_cloud_pipeline(topic_id=None):
     print("=" * 70)
-    print("🚀 FACTIFY SHORTS — 100% AUTONOMOUS ZERO-TOUCH CLOUD ENGINE")
+    print("🚀 FACTIFY SHORTS — CLOUD BUILD & TELEGRAM DELIVERY")
     print("=" * 70)
 
     token, chat_id = get_telegram_creds()
@@ -96,25 +95,21 @@ def run_cloud_pipeline(topic_id=None):
         send_message(token, chat_id, err_msg)
         sys.exit(1)
 
-    # 3. Direct Scheduled Upload to YouTube Channel
-    print("\n📤 Uploading and Scheduling Short to YouTube Channel (USA Prime Time)...")
-    try:
-        video_url = upload_video(master_path, seo_path)
-    except Exception as e:
-        err_msg = f"❌ YouTube Upload Error for topic '{chosen_topic_id}': {e}"
+    # 3. Telegram-only delivery (NO YouTube auto-upload — user publishes manually)
+    print("\n📱 Delivering finished Short + full metadata package to Telegram...")
+    ok = send_delivery_package(master_path, seo_path, topic_id=chosen_topic_id)
+    if not ok:
+        err_msg = f"❌ Telegram delivery failed for topic '{chosen_topic_id}'"
         print(err_msg)
         send_message(token, chat_id, err_msg)
         sys.exit(1)
 
-    # 4. Notify User via Telegram with Finished Video & YouTube Link (Zero Clicks Required)
-    print("\n📱 Sending celebratory completion report with video to Telegram...")
-    send_autopilot_notification(master_path, seo_path, video_url)
-
     print("\n" + "=" * 70)
-    print(f"🎉 100% AUTONOMOUS CYCLE COMPLETE!")
-    print(f"   Video URL: {video_url}")
+    print("🎉 DELIVERY COMPLETE — video + upload package sent to Telegram!")
+    print("   No auto-upload: publish manually from the Telegram package.")
     print("=" * 70)
 
 if __name__ == '__main__':
     selected = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] else None
     run_cloud_pipeline(selected)
+
