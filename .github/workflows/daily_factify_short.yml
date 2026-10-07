@@ -2,14 +2,8 @@ name: Daily Factify Shorts (Cloud Automation 24/7)
 
 on:
   schedule:
-    # 1. Early Commute: 6:15 AM EDT (10:15 UTC / 4:15 PM BST)
-    - cron: '15 10 * * *'
-    # 2. Midday Pre-Lunch: 10:45 AM EDT (14:45 UTC / 8:45 PM BST)
-    - cron: '45 14 * * *'
-    # 3. Afternoon Drive: 4:45 PM EDT (20:45 UTC / 2:45 AM BST next day)
-    - cron: '45 20 * * *'
-    # 4. Prime Evening / West Coast: 8:15 PM EDT (00:15 UTC / 6:15 AM BST next day)
-    - cron: '15 0 * * *'
+    # Daily batch: 7:00 AM Dhaka (1:00 AM UTC) — builds 2 videos, delivers to Telegram
+    - cron: '0 1 * * *'
   workflow_dispatch:
     inputs:
       topic_id:
@@ -46,7 +40,7 @@ jobs:
         run: |
           pip install requests edge-tts pillow numpy yt-dlp google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
 
-      - name: Run 100% Autonomous Zero-Touch Cloud Pipeline
+      - name: Run Daily Batch: Build 2 Shorts + Telegram Delivery
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
