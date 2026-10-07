@@ -358,7 +358,7 @@ def _send_code_blocks(token, chat_id, label, body):
         time.sleep(0.5)
     return ok
 
-def send_delivery_package(video_path, metadata_path, topic_id=None):
+def send_delivery_package(video_path, metadata_path, topic_id=None, batch_label=""):
     """Deliver the finished Short + full metadata package to Telegram.
 
     No YouTube upload happens here — the user publishes manually.
@@ -428,7 +428,8 @@ def send_delivery_package(video_path, metadata_path, topic_id=None):
     size_mb = os.path.getsize(upload_target) / (1024 * 1024)
     print(f"\U0001F4E4 Uploading video to Telegram ({size_mb:.1f} MB)...")
     time_line = f"\n\U0001F552 Suggested upload: {upload_time_str}" if upload_time_str else ""
-    caption = f"\U0001F3AC <b>Factify Shorts \u2014 Ready to Upload</b>\n\U0001F4CC {_html_escape(title)}{time_line}"
+    batch_prefix = f" {batch_label}" if batch_label else ""
+    caption = f"\U0001F3AC <b>Factify Shorts \u2014 Ready to Upload{batch_prefix}</b>\n\U0001F4CC {_html_escape(title)}{time_line}"
     try:
         with open(upload_target, 'rb') as vf:
             res = requests.post(
