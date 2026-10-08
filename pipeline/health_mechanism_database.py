@@ -990,32 +990,32 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
 {
                 "label": "Scene 1 - 3D heart with plaque building in coronary artery",
-                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
-                "start_sec": 0.0,
+                "source_video": "pipeline/assets/footage/heart_attack_mechanism_s1.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 2 - 3D plaque rupture inside artery wall",
-                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
-                "start_sec": 10.0,
+                "source_video": "pipeline/assets/footage/heart_attack_mechanism_s2.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             },
 {
                 "label": "Scene 3 - 3D blood clot forming and blocking artery",
-                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
-                "start_sec": 20.0,
+                "source_video": "pipeline/assets/footage/heart_attack_mechanism_s3.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 4 - 3D heart muscle starved of oxygen, tissue damage",
-                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
-                "start_sec": 30.0,
+                "source_video": "pipeline/assets/footage/heart_attack_mechanism_s4.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 5 - 3D stent restoring blood flow",
-                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
-                "start_sec": 40.0,
+                "source_video": "pipeline/assets/footage/heart_attack_mechanism_s5.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             }
         ],
@@ -1050,32 +1050,32 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
 {
                 "label": "Scene 1 - 3D UV rays penetrating skin layers",
-                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
-                "start_sec": 0.0,
+                "source_video": "pipeline/assets/footage/sunburn_mechanism_s1.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             },
 {
                 "label": "Scene 2 - 3D DNA damage inside skin cells",
-                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
-                "start_sec": 10.0,
+                "source_video": "pipeline/assets/footage/sunburn_mechanism_s2.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 3 - 3D inflammation, blood vessels dilating",
-                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
-                "start_sec": 20.0,
+                "source_video": "pipeline/assets/footage/sunburn_mechanism_s3.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 4 - 3D immune cells rushing to damaged area",
-                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
-                "start_sec": 30.0,
+                "source_video": "pipeline/assets/footage/sunburn_mechanism_s4.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             },
 {
                 "label": "Scene 5 - 3D damaged skin cells peeling away",
-                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
-                "start_sec": 40.0,
+                "source_video": "pipeline/assets/footage/sunburn_mechanism_s5.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             }
         ],
@@ -1110,26 +1110,26 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
 {
                 "label": "Scene 1 - 3D skin cut with histamine release",
-                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
-                "start_sec": 5.0,
+                "source_video": "pipeline/assets/footage/wound_healing_itch_s1.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             },
 {
                 "label": "Scene 2 - 3D inflammation and immune response in wound",
-                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
-                "start_sec": 15.0,
+                "source_video": "pipeline/assets/footage/wound_healing_itch_s2.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 3 - 3D nerve endings regenerating in new skin",
-                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
-                "start_sec": 25.0,
+                "source_video": "pipeline/assets/footage/wound_healing_itch_s3.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 4 - 3D new skin cells closing the wound",
-                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
-                "start_sec": 35.0,
+                "source_video": "pipeline/assets/footage/wound_healing_itch_s4.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             }
         ],
@@ -1163,26 +1163,26 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
 {
                 "label": "Scene 1 - 3D glucose molecules flooding bloodstream",
-                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
-                "start_sec": 0.0,
+                "source_video": "pipeline/assets/footage/sugar_rush_crash_s1.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             },
 {
                 "label": "Scene 2 - 3D pancreas releasing insulin surge",
-                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
-                "start_sec": 20.0,
+                "source_video": "pipeline/assets/footage/sugar_rush_crash_s2.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 3 - 3D blood sugar spike then crash graph in body",
-                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
-                "start_sec": 60.0,
+                "source_video": "pipeline/assets/footage/sugar_rush_crash_s3.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 4 - 3D liver converting excess sugar to fat storage",
-                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
-                "start_sec": 100.0,
+                "source_video": "pipeline/assets/footage/sugar_rush_crash_s4.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             }
         ],
@@ -1217,26 +1217,26 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
 {
                 "label": "Scene 1 - 3D bone fracture with blood hematoma forming",
-                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
-                "start_sec": 0.0,
+                "source_video": "pipeline/assets/footage/broken_bone_healing_s1.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             },
 {
                 "label": "Scene 2 - 3D soft cartilage callus forming around break",
-                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
-                "start_sec": 12.0,
+                "source_video": "pipeline/assets/footage/broken_bone_healing_s2.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 3 - 3D osteoblasts building new hard bone",
-                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
-                "start_sec": 25.0,
+                "source_video": "pipeline/assets/footage/broken_bone_healing_s3.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 4 - 3D bone remodeling back to original shape",
-                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
-                "start_sec": 38.0,
+                "source_video": "pipeline/assets/footage/broken_bone_healing_s4.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             }
         ],
@@ -1270,26 +1270,26 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
 {
                 "label": "Scene 1 - 3D kidney filtering blood into urine",
-                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
-                "start_sec": 0.0,
+                "source_video": "pipeline/assets/footage/kidney_stone_causes_s1.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             },
 {
                 "label": "Scene 2 - 3D minerals crystallizing in concentrated urine",
-                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
-                "start_sec": 12.0,
+                "source_video": "pipeline/assets/footage/kidney_stone_causes_s2.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 3 - 3D crystal growing into kidney stone",
-                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
-                "start_sec": 25.0,
+                "source_video": "pipeline/assets/footage/kidney_stone_causes_s3.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 4 - 3D stone moving through ureter",
-                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
-                "start_sec": 38.0,
+                "source_video": "pipeline/assets/footage/kidney_stone_causes_s4.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             }
         ],
@@ -1323,26 +1323,26 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
 {
                 "label": "Scene 1 - 3D finger pressure warping the cornea",
-                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
-                "start_sec": 5.0,
+                "source_video": "pipeline/assets/footage/never_rub_eyes_s1.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             },
 {
                 "label": "Scene 2 - 3D cornea deforming, keratoconus effect",
-                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
-                "start_sec": 15.0,
+                "source_video": "pipeline/assets/footage/never_rub_eyes_s2.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 3 - 3D eye pressure spike inside eyeball",
-                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
-                "start_sec": 28.0,
+                "source_video": "pipeline/assets/footage/never_rub_eyes_s3.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 4 - 3D bacteria transferring to eye surface",
-                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
-                "start_sec": 40.0,
+                "source_video": "pipeline/assets/footage/never_rub_eyes_s4.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             }
         ],
@@ -1376,26 +1376,26 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
 {
                 "label": "Scene 1 - 3D sound waves entering ear canal",
-                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
-                "start_sec": 0.0,
+                "source_video": "pipeline/assets/footage/loud_music_ears_damage_s1.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             },
 {
                 "label": "Scene 2 - 3D cochlea hair cells swaying gently",
-                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
-                "start_sec": 10.0,
+                "source_video": "pipeline/assets/footage/loud_music_ears_damage_s2.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 3 - 3D loud blast snapping hair cells",
-                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
-                "start_sec": 22.0,
+                "source_video": "pipeline/assets/footage/loud_music_ears_damage_s3.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 4 - 3D dead hair cells, permanent hearing gap",
-                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
-                "start_sec": 35.0,
+                "source_video": "pipeline/assets/footage/loud_music_ears_damage_s4.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             }
         ],
@@ -1429,26 +1429,26 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
 {
                 "label": "Scene 1 - 3D bacteria breaching tooth enamel",
-                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
-                "start_sec": 0.0,
+                "source_video": "pipeline/assets/footage/never_ignore_toothache_s1.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             },
 {
                 "label": "Scene 2 - 3D infection reaching tooth pulp nerves",
-                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
-                "start_sec": 12.0,
+                "source_video": "pipeline/assets/footage/never_ignore_toothache_s2.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 3 - 3D abscess pressure building at root",
-                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
-                "start_sec": 25.0,
+                "source_video": "pipeline/assets/footage/never_ignore_toothache_s3.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 4 - 3D infection spreading toward jawbone",
-                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
-                "start_sec": 38.0,
+                "source_video": "pipeline/assets/footage/never_ignore_toothache_s4.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             }
         ],
@@ -1482,26 +1482,26 @@ HEALTH_MECHANISM_TOPICS = [
         "scenes": [
 {
                 "label": "Scene 1 - 3D lacrimal glands above the eye",
-                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
-                "start_sec": 5.0,
+                "source_video": "pipeline/assets/footage/crying_mechanism_s1.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             },
 {
                 "label": "Scene 2 - 3D tear film coating the eye surface",
-                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
-                "start_sec": 15.0,
+                "source_video": "pipeline/assets/footage/crying_mechanism_s2.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 3 - 3D reflex tears flooding to wash irritant",
-                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
-                "start_sec": 28.0,
+                "source_video": "pipeline/assets/footage/crying_mechanism_s3.mp4",
+                "start_sec": 0,
                 "duration": 7.0
             },
 {
                 "label": "Scene 4 - 3D tears draining through nasal ducts",
-                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
-                "start_sec": 40.0,
+                "source_video": "pipeline/assets/footage/crying_mechanism_s4.mp4",
+                "start_sec": 0,
                 "duration": 6.0
             }
         ],
