@@ -8,6 +8,14 @@ Strictly adheres to:
 4. Word-by-word Kinetic Karaoke Subtitles
 """
 
+
+# Topics Md already published manually (2026-10-04..07) — pipeline must never
+# rebuild these angles. Checked by select_next_autopilot_topic().
+MANUAL_BLOCKLIST = [
+    "energy drink",  # manually uploaded 2026-10-07 (632 views)
+    "coffee",        # What Coffee ACTUALLY Does To Your Brain (2026-10-04)
+]
+
 HEALTH_MECHANISM_TOPICS = [
     {
         "id": "danger_triangle_pimple",
@@ -966,129 +974,6 @@ HEALTH_MECHANISM_TOPICS = [
                 "human anatomy 3d",
                 "medical animation 3d",
                 "zack d style",
-                "Factify Shorts",
-                "shorts"
-            ]
-        }
-    },
-    {
-        "id": "energy_drink_brain_impact",
-        "category": "body_mechanism_nutrition",
-        "title": "What Energy Drinks ACTUALLY Do To Your Brain! ⚡ᾞ0 #Shorts",
-        "top_header": "BRAIN ON ENERGY DRINKS",
-        "sub_header": "THE 200MG CAFFEINE HIT!",
-        "watermark_text": "@FactifyDailyShorts",
-        "script": "That energy drink hits different — but here is what it ACTUALLY does inside your brain! Within fifteen minutes, around 200 milligrams of caffeine floods your bloodstream and rushes straight to your brain. There it blocks adenosine, the chemical that tells you you are tired. Your brain literally cannot feel fatigue! At the same time, caffeine triggers a dopamine surge — the same feel-good chemical behind addictive behaviors. That is why that first sip feels so amazing. But here is the catch: your brain fights back by growing MORE adenosine receptors, which means you need bigger doses just to feel normal. And with a half-life of five hours, that afternoon can is still buzzing in your brain at midnight! Subscribe to Factify for more body secrets!",
-        "scenes": [
-{
-                "label": "Scene 1 - 3D brain neurons firing with energy surge",
-                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
-                "start_sec": 0.0,
-                "duration": 6.0
-            },
-{
-                "label": "Scene 2 - 3D caffeine molecules traveling through bloodstream to brain",
-                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
-                "start_sec": 8.0,
-                "duration": 7.0
-            },
-{
-                "label": "Scene 3 - 3D adenosine receptors being blocked in neural tissue",
-                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
-                "start_sec": 18.0,
-                "duration": 7.0
-            },
-{
-                "label": "Scene 4 - 3D dopamine pathways lighting up in brain",
-                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
-                "start_sec": 28.0,
-                "duration": 6.0
-            },
-{
-                "label": "Scene 5 - 3D brain with multiplying receptors, tolerance effect",
-                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
-                "start_sec": 38.0,
-                "duration": 7.0
-            }
-        ],
-        "vidiq_seo": {
-            "primary_keyword": "what energy drinks do to your brain",
-            "search_volume": "Very High",
-            "competition": "Low",
-            "tags": [
-                "what energy drinks do to your brain",
-                "energy drink effects on brain",
-                "caffeine blocks adenosine",
-                "energy drink dopamine",
-                "caffeine tolerance",
-                "energy drink side effects",
-                "is energy drink bad for you",
-                "caffeine half life",
-                "human body mechanism",
-                "medical animation 3d",
-                "did you know",
-                "body secrets",
-                "Factify Shorts",
-                "shorts"
-            ]
-        }
-    },
-    {
-        "id": "never_coffee_after_2pm",
-        "category": "body_mechanism_nutrition",
-        "title": "Why You Should NEVER Drink Coffee After 2 PM! ☕⚠️ #Shorts",
-        "top_header": "COFFEE SLEEP KILLER",
-        "sub_header": "IT STAYS 10 HOURS!",
-        "watermark_text": "@FactifyDailyShorts",
-        "script": "Love your afternoon coffee? Here is why you should NEVER drink it after 2 PM! Caffeine has a half-life of five to six hours, which means half of that 2 PM coffee is still active in your brain at 8 PM — and a quarter is still there at 2 AM! Caffeine works by blocking adenosine receptors, the very receptors your brain needs to feel sleepy. Even worse, studies show caffeine reduces deep sleep — the most restorative sleep stage — by up to 20 percent, and most people do not even realize it! You fall asleep fine, but your brain never fully recharges. The result? You wake up groggy, reach for MORE coffee, and the vicious cycle continues. Switch to decaf after lunch and your sleep will thank you! Subscribe to Factify for more body secrets!",
-        "scenes": [
-{
-                "label": "Scene 1 - 3D brain with caffeine blocking sleep receptors",
-                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
-                "start_sec": 5.0,
-                "duration": 6.0
-            },
-{
-                "label": "Scene 2 - 3D timeline of caffeine half-life decay in brain",
-                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
-                "start_sec": 15.0,
-                "duration": 7.0
-            },
-{
-                "label": "Scene 3 - 3D adenosine receptors blocked during night",
-                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
-                "start_sec": 25.0,
-                "duration": 7.0
-            },
-{
-                "label": "Scene 4 - 3D brain waves showing disrupted deep sleep",
-                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
-                "start_sec": 35.0,
-                "duration": 6.0
-            },
-{
-                "label": "Scene 5 - 3D brain recovering with clean receptors",
-                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
-                "start_sec": 45.0,
-                "duration": 6.0
-            }
-        ],
-        "vidiq_seo": {
-            "primary_keyword": "why not drink coffee afternoon sleep",
-            "search_volume": "High",
-            "competition": "Low",
-            "tags": [
-                "why no coffee after 2pm",
-                "caffeine and sleep",
-                "caffeine half life",
-                "coffee ruins sleep",
-                "deep sleep caffeine",
-                "how long caffeine stays",
-                "coffee insomnia",
-                "adenosine and sleep",
-                "human body mechanism",
-                "medical animation 3d",
-                "did you know",
                 "Factify Shorts",
                 "shorts"
             ]
