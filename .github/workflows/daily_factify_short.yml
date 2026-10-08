@@ -40,7 +40,7 @@ jobs:
         run: |
           pip install requests edge-tts pillow numpy yt-dlp google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
 
-      - name: Run Daily Batch: Build 2 Shorts + Telegram Delivery
+      - name: "Run Daily Batch: Build 2 Shorts + Telegram Delivery"
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
