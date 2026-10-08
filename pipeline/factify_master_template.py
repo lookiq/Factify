@@ -382,7 +382,7 @@ class FactifyShortsTemplate:
         # [2:v] Top-Left Branding overlay at x=48, y=55
         # [3:v] CTA SUBSCRIBE Pill overlay at center bottom (x=(1080-w)/2, y=1610) throughout entire video (A to Z)
         # ass subtitle burning
-        bgm_file = bgm_path or BGM_DEFAULT
+        # BGM disabled by user request (2026-10-08): voiceover only, no background music
 
         # Filter string
         filter_complex = (
@@ -404,10 +404,8 @@ class FactifyShortsTemplate:
             f"[layer4_comp][4:v]overlay=(W-w)/2:1610[layer_branded]; "
             # Layer 5: Subtitles & Keyword Highlights (Mobile-Optimized 70pt, centered in plate)
             f"[layer_branded]ass='{safe_ass}':fontsdir='{fonts_dir_safe}'[outv]; "
-            # Audio: Broadcast EQ + Ducked BGM + Loudnorm -14 LUFS
-            f"[5:a]equalizer=f=120:width_type=o:width=1.5:g=3.2,equalizer=f=3400:width_type=o:width=1.5:g=2.2,volume=1.08[voice]; "
-            f"[6:a]volume=0.07[bgm]; "
-            f"[voice][bgm]amix=inputs=2:duration=first:dropout_transition=2,loudnorm=I=-14:TP=-1.5:LRA=11[outa]"
+            # Audio: Broadcast EQ + Loudnorm -14 LUFS (voiceover only, no BGM)
+            f"[5:a]equalizer=f=120:width_type=o:width=1.5:g=3.2,equalizer=f=3400:width_type=o:width=1.5:g=2.2,volume=1.08,loudnorm=I=-14:TP=-1.5:LRA=11[outa]"
         )
 
         output_path = os.path.join(OUTPUT_DIR, output_filename)
@@ -435,7 +433,6 @@ class FactifyShortsTemplate:
             '-loop', '1', '-i', self.caption_plate_path,
             '-loop', '1', '-i', self.cta_path,
             '-i', voice_path,
-            '-stream_loop', '-1', '-i', bgm_file,
             '-filter_complex', filter_complex,
             '-map', '[outv]',
             '-map', '[outa]',
