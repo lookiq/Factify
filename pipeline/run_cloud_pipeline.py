@@ -35,7 +35,7 @@ def is_topic_footage_available(topic):
     return True
 
 def select_next_autopilot_topic(forced_id=None):
-    from pipeline.health_mechanism_database import HEALTH_MECHANISM_TOPICS
+    from pipeline.health_mechanism_database import HEALTH_MECHANISM_TOPICS, MANUAL_BLOCKLIST
 
     if forced_id:
         match = next((t for t in HEALTH_MECHANISM_TOPICS if t['id'] == forced_id), None)
@@ -47,8 +47,12 @@ def select_next_autopilot_topic(forced_id=None):
         with open("upload_history.log", "r", encoding="utf-8") as f:
             used_content = f.read()
 
-    # Prioritize topics with verified 1080p 3D footage
-    verified_topics = [t for t in HEALTH_MECHANISM_TOPICS if is_topic_footage_available(t)]
+    # Prioritize topics with verified 1080p 3D footage, excluding manually-published angles
+    def _blocked(t):
+        hay = (t.get('title', '') + ' ' + t.get('id', '')).lower()
+        return any(kw in hay for kw in MANUAL_BLOCKLIST)
+    verified_topics = [t for t in HEALTH_MECHANISM_TOPICS
+                       if is_topic_footage_available(t) and not _blocked(t)]
 
     print(f"🔍 Found {len(verified_topics)} verified 3D medical topics with local footage:")
     for vt in verified_topics:
