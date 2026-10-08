@@ -970,7 +970,673 @@ HEALTH_MECHANISM_TOPICS = [
                 "shorts"
             ]
         }
+    },
+    {
+        "id": "energy_drink_brain_impact",
+        "category": "body_mechanism_nutrition",
+        "title": "What Energy Drinks ACTUALLY Do To Your Brain! ⚡ᾞ0 #Shorts",
+        "top_header": "BRAIN ON ENERGY DRINKS",
+        "sub_header": "THE 200MG CAFFEINE HIT!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "That energy drink hits different — but here is what it ACTUALLY does inside your brain! Within fifteen minutes, around 200 milligrams of caffeine floods your bloodstream and rushes straight to your brain. There it blocks adenosine, the chemical that tells you you are tired. Your brain literally cannot feel fatigue! At the same time, caffeine triggers a dopamine surge — the same feel-good chemical behind addictive behaviors. That is why that first sip feels so amazing. But here is the catch: your brain fights back by growing MORE adenosine receptors, which means you need bigger doses just to feel normal. And with a half-life of five hours, that afternoon can is still buzzing in your brain at midnight! Subscribe to Factify for more body secrets!",
+        "scenes": [
+{
+                "label": "Scene 1 - 3D brain neurons firing with energy surge",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 0.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 2 - 3D caffeine molecules traveling through bloodstream to brain",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 8.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 3 - 3D adenosine receptors being blocked in neural tissue",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 18.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 4 - 3D dopamine pathways lighting up in brain",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 28.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 5 - 3D brain with multiplying receptors, tolerance effect",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 38.0,
+                "duration": 7.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "what energy drinks do to your brain",
+            "search_volume": "Very High",
+            "competition": "Low",
+            "tags": [
+                "what energy drinks do to your brain",
+                "energy drink effects on brain",
+                "caffeine blocks adenosine",
+                "energy drink dopamine",
+                "caffeine tolerance",
+                "energy drink side effects",
+                "is energy drink bad for you",
+                "caffeine half life",
+                "human body mechanism",
+                "medical animation 3d",
+                "did you know",
+                "body secrets",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "never_coffee_after_2pm",
+        "category": "body_mechanism_nutrition",
+        "title": "Why You Should NEVER Drink Coffee After 2 PM! ☕⚠️ #Shorts",
+        "top_header": "COFFEE SLEEP KILLER",
+        "sub_header": "IT STAYS 10 HOURS!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "Love your afternoon coffee? Here is why you should NEVER drink it after 2 PM! Caffeine has a half-life of five to six hours, which means half of that 2 PM coffee is still active in your brain at 8 PM — and a quarter is still there at 2 AM! Caffeine works by blocking adenosine receptors, the very receptors your brain needs to feel sleepy. Even worse, studies show caffeine reduces deep sleep — the most restorative sleep stage — by up to 20 percent, and most people do not even realize it! You fall asleep fine, but your brain never fully recharges. The result? You wake up groggy, reach for MORE coffee, and the vicious cycle continues. Switch to decaf after lunch and your sleep will thank you! Subscribe to Factify for more body secrets!",
+        "scenes": [
+{
+                "label": "Scene 1 - 3D brain with caffeine blocking sleep receptors",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 5.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 2 - 3D timeline of caffeine half-life decay in brain",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 15.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 3 - 3D adenosine receptors blocked during night",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 25.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 4 - 3D brain waves showing disrupted deep sleep",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 35.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 5 - 3D brain recovering with clean receptors",
+                "source_video": "pipeline/assets/footage/source_caffeine_brain_3d.mp4",
+                "start_sec": 45.0,
+                "duration": 6.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "why not drink coffee afternoon sleep",
+            "search_volume": "High",
+            "competition": "Low",
+            "tags": [
+                "why no coffee after 2pm",
+                "caffeine and sleep",
+                "caffeine half life",
+                "coffee ruins sleep",
+                "deep sleep caffeine",
+                "how long caffeine stays",
+                "coffee insomnia",
+                "adenosine and sleep",
+                "human body mechanism",
+                "medical animation 3d",
+                "did you know",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "heart_attack_mechanism",
+        "category": "body_mechanism_cardiology",
+        "title": "What ACTUALLY Happens During a Heart Attack! 🫀⚠️ #Shorts",
+        "top_header": "HEART UNDER ATTACK",
+        "sub_header": "MINUTES MATTER!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "A heart attack is not what movies show you — here is what ACTUALLY happens inside your chest! It starts silently: fatty plaque builds up inside your coronary arteries over years. Then one day, that plaque ruptures, and your blood instantly forms a clot over the rupture. That clot blocks the artery completely, starving your heart muscle of oxygen. Within minutes, heart muscle cells begin to DIE — and unlike skin, heart muscle barely regenerates! That is why every minute counts: faster treatment means less permanent damage. The classic warning? Crushing chest pressure, pain spreading to the arm or jaw, and cold sweats. Call emergency services immediately — do not drive yourself! Subscribe to Factify for more body secrets!",
+        "scenes": [
+{
+                "label": "Scene 1 - 3D heart with plaque building in coronary artery",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
+                "start_sec": 0.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 2 - 3D plaque rupture inside artery wall",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
+                "start_sec": 10.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 3 - 3D blood clot forming and blocking artery",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
+                "start_sec": 20.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 4 - 3D heart muscle starved of oxygen, tissue damage",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
+                "start_sec": 30.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 5 - 3D stent restoring blood flow",
+                "source_video": "pipeline/assets/footage/source_heart_stent.mp4",
+                "start_sec": 40.0,
+                "duration": 6.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "what happens during a heart attack",
+            "search_volume": "Very High",
+            "competition": "Low",
+            "tags": [
+                "what happens during heart attack",
+                "heart attack mechanism",
+                "plaque rupture",
+                "coronary artery blockage",
+                "heart attack symptoms",
+                "why heart attacks kill",
+                "heart muscle damage",
+                "medical animation 3d",
+                "did you know",
+                "body secrets",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "sunburn_mechanism",
+        "category": "skincare_anatomy",
+        "title": "What ACTUALLY Happens When You Get Sunburned! ☀️⚠️ #Shorts",
+        "top_header": "SUNBURN EXPLAINED",
+        "sub_header": "YOUR DNA IS DAMAGED!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "That red, painful sunburn is actually your body fighting DNA damage! Here is what ACTUALLY happens! Ultraviolet rays penetrate your skin and directly damage the DNA inside your skin cells. Your body detects this as an emergency and triggers inflammation — blood vessels dilate, flooding the area with immune cells. That is why sunburned skin turns red and hot! The pain? Damaged nerve endings sounding the alarm. Then comes the peeling: your body deliberately kills off the most damaged cells in a process called apoptosis, shedding them so mutated cells cannot turn cancerous. A single blistering sunburn in childhood can double your lifetime melanoma risk! So that sunscreen is not vanity — it is DNA protection! Subscribe to Factify for more body secrets!",
+        "scenes": [
+{
+                "label": "Scene 1 - 3D UV rays penetrating skin layers",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 0.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 2 - 3D DNA damage inside skin cells",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 10.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 3 - 3D inflammation, blood vessels dilating",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 20.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 4 - 3D immune cells rushing to damaged area",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 30.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 5 - 3D damaged skin cells peeling away",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 40.0,
+                "duration": 6.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "what happens when you get sunburned",
+            "search_volume": "High",
+            "competition": "Low",
+            "tags": [
+                "what is sunburn",
+                "sunburn mechanism",
+                "uv dna damage skin",
+                "why sunburn peels",
+                "sunburn inflammation",
+                "melanoma risk sunburn",
+                "sunscreen importance",
+                "skin layers 3d",
+                "medical animation 3d",
+                "did you know",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "wound_healing_itch",
+        "category": "skincare_anatomy",
+        "title": "Why Do Wounds Itch When They Heal? 🩹 #Shorts",
+        "top_header": "HEALING MYSTERY",
+        "sub_header": "DO NOT SCRATCH!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "Ever wonder why a healing wound itches like crazy? Here is the fascinating science! When you get cut, your body launches a repair mission: first, histamine floods the area, triggering inflammation — and histamine is the same chemical that makes allergies itch! Then, as new skin grows, tiny nerve endings regenerate and become hypersensitive, firing itch signals at the slightest touch. Meanwhile, your brain releases the wound-healing cells that literally pull the skin edges together, creating tension that your nerves read as itching. But here is the warning: scratching rips open the fragile new tissue, restarts the whole healing clock, and invites infection! So that itch is actually a sign your body is winning — just do not help it lose! Subscribe to Factify for more body secrets!",
+        "scenes": [
+{
+                "label": "Scene 1 - 3D skin cut with histamine release",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 5.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 2 - 3D inflammation and immune response in wound",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 15.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 3 - 3D nerve endings regenerating in new skin",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 25.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 4 - 3D new skin cells closing the wound",
+                "source_video": "pipeline/assets/footage/source_skin_layers.mp4",
+                "start_sec": 35.0,
+                "duration": 6.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "why do wounds itch when healing",
+            "search_volume": "High",
+            "competition": "Low",
+            "tags": [
+                "why wounds itch",
+                "healing itch explained",
+                "histamine wound healing",
+                "should you scratch scab",
+                "wound healing stages",
+                "nerve regeneration itch",
+                "skin repair 3d",
+                "medical animation 3d",
+                "did you know",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "sugar_rush_crash",
+        "category": "body_mechanism_nutrition",
+        "title": "What Sugar ACTUALLY Does Inside Your Body! 🍬⚠️ #Shorts",
+        "top_header": "SUGAR SPIKE TRUTH",
+        "sub_header": "THE CRASH IS REAL!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "That candy bar gives you energy — then steals it back with interest! Here is what sugar ACTUALLY does inside you! Within minutes, glucose floods your bloodstream and your blood sugar spikes. Your pancreas panics and pumps out insulin to drag that sugar into your cells. But refined sugar hits so fast that your body overcorrects — insulin overshoots, and your blood sugar crashes BELOW where it started! That is the dreaded sugar crash: shakiness, irritability, and intense cravings for MORE sugar. Meanwhile, your liver converts the excess into fat for storage. Do this daily for years and your cells stop responding to insulin properly — the first step toward type 2 diabetes. The spike feels great; the bill comes later! Subscribe to Factify for more body secrets!",
+        "scenes": [
+{
+                "label": "Scene 1 - 3D glucose molecules flooding bloodstream",
+                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
+                "start_sec": 0.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 2 - 3D pancreas releasing insulin surge",
+                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
+                "start_sec": 20.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 3 - 3D blood sugar spike then crash graph in body",
+                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
+                "start_sec": 60.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 4 - 3D liver converting excess sugar to fat storage",
+                "source_video": "pipeline/assets/footage/source_fat_mechanism_3d.mp4.mkv",
+                "start_sec": 100.0,
+                "duration": 7.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "what sugar does to your body",
+            "search_volume": "Very High",
+            "competition": "Low",
+            "tags": [
+                "what sugar does to body",
+                "sugar spike and crash",
+                "insulin response sugar",
+                "sugar crash explained",
+                "why sugar makes you tired",
+                "sugar and diabetes",
+                "glucose metabolism",
+                "human body mechanism",
+                "medical animation 3d",
+                "did you know",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "broken_bone_healing",
+        "category": "body_mechanism_anatomy",
+        "title": "What ACTUALLY Happens When You Break a Bone! 🦴⚠️ #Shorts",
+        "top_header": "BONE BREAK REPAIR",
+        "sub_header": "YOUR BODY REBUILDS IT!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "Breaking a bone sounds permanent — but your body is an incredible construction crew! Here is what ACTUALLY happens! The moment a bone breaks, blood floods the fracture, forming a clot called a hematoma that acts as scaffolding. Within days, your body builds a soft callus of cartilage around the break — nature’s temporary cast! Then osteoblast cells arrive and start converting that cartilage into hard new bone, forming a bony callus. Over the next six to eight weeks, osteoclasts sculpt away the excess, remodeling the bone back to its original shape. Here is the wild part: the healed spot often becomes DENSER than before! Your skeleton literally rebuilds itself stronger. That is why doctors say: let it heal, do not rush it! Subscribe to Factify for more body secrets!",
+        "scenes": [
+{
+                "label": "Scene 1 - 3D bone fracture with blood hematoma forming",
+                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
+                "start_sec": 0.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 2 - 3D soft cartilage callus forming around break",
+                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
+                "start_sec": 12.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 3 - 3D osteoblasts building new hard bone",
+                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
+                "start_sec": 25.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 4 - 3D bone remodeling back to original shape",
+                "source_video": "pipeline/assets/footage/source_bone_marrow_3d.mp4",
+                "start_sec": 38.0,
+                "duration": 7.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "how broken bones heal",
+            "search_volume": "High",
+            "competition": "Low",
+            "tags": [
+                "how bones heal",
+                "broken bone healing stages",
+                "bone callus formation",
+                "osteoblast bone repair",
+                "how long bones heal",
+                "bone remodeling",
+                "human anatomy 3d",
+                "medical animation 3d",
+                "did you know",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "kidney_stone_causes",
+        "category": "body_mechanism_urology",
+        "title": "What ACTUALLY Causes Kidney Stones! 🪨⚠️ #Shorts",
+        "top_header": "KIDNEY STONE TRUTH",
+        "sub_header": "DEHYDRATION IS #1!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "Kidney stones are famously more painful than childbirth — but what ACTUALLY causes them? Your kidneys filter waste from blood into urine. When you do not drink enough water, your urine becomes super concentrated, and minerals like calcium and oxalate start crystallizing together — exactly like rock candy forming on a string! These crystals grow into stones that can block your urinary tract. The biggest culprits? Chronic dehydration, too much salt, and oxalate-heavy foods like spinach and nuts eaten in excess. Once a stone starts moving, it scrapes the ureter walls — that is the excruciating pain! The best prevention is almost embarrassingly simple: drink more water! Your kidneys will thank you! Subscribe to Factify for more body secrets!",
+        "scenes": [
+{
+                "label": "Scene 1 - 3D kidney filtering blood into urine",
+                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
+                "start_sec": 0.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 2 - 3D minerals crystallizing in concentrated urine",
+                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
+                "start_sec": 12.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 3 - 3D crystal growing into kidney stone",
+                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
+                "start_sec": 25.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 4 - 3D stone moving through ureter",
+                "source_video": "pipeline/assets/footage/source_kidney_stones.mp4",
+                "start_sec": 38.0,
+                "duration": 6.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "what causes kidney stones",
+            "search_volume": "Very High",
+            "competition": "Low",
+            "tags": [
+                "kidney stone causes",
+                "how kidney stones form",
+                "kidney stone pain",
+                "prevent kidney stones",
+                "dehydration kidney stones",
+                "calcium oxalate stones",
+                "kidney stone symptoms",
+                "medical animation 3d",
+                "did you know",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "never_rub_eyes",
+        "category": "body_mechanism_vision",
+        "title": "Why You Should NEVER Rub Your Eyes! 👁️⚠️ #Shorts",
+        "top_header": "EYE RUBBING DANGER",
+        "sub_header": "YOU CAN WARP VISION!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "Rubbing your tired eyes feels amazing — but here is why you should NEVER do it! Your cornea, the clear front window of your eye, is incredibly delicate. Aggressive rubbing physically warps its shape over time, a condition called keratoconus that can permanently blur your vision! Even worse, the pressure can spike the fluid pressure inside your eye and even detach the retina in extreme cases. And your hands? They carry millions of bacteria straight to one of your body’s most infection-prone surfaces — hello, pink eye! The rubbing also breaks tiny blood vessels, which is why your eyes look red afterward. Next time they itch, try a cold compress or artificial tears instead. Your future vision depends on it! Subscribe to Factify for more body secrets!",
+        "scenes": [
+{
+                "label": "Scene 1 - 3D finger pressure warping the cornea",
+                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
+                "start_sec": 5.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 2 - 3D cornea deforming, keratoconus effect",
+                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
+                "start_sec": 15.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 3 - 3D eye pressure spike inside eyeball",
+                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
+                "start_sec": 28.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 4 - 3D bacteria transferring to eye surface",
+                "source_video": "pipeline/assets/footage/source_eye_retina_3d.mp4",
+                "start_sec": 40.0,
+                "duration": 6.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "why not rub your eyes",
+            "search_volume": "High",
+            "competition": "Low",
+            "tags": [
+                "why not rub eyes",
+                "eye rubbing dangers",
+                "keratoconus rubbing eyes",
+                "rubbing eyes retinal detachment",
+                "pink eye causes",
+                "eye pressure rubbing",
+                "protect your vision",
+                "eye anatomy 3d",
+                "medical animation 3d",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "loud_music_ears_damage",
+        "category": "body_mechanism_hearing",
+        "title": "What Loud Music ACTUALLY Does To Your Ears! 🎧⚠️ #Shorts",
+        "top_header": "HEARING DESTRUCTION",
+        "sub_header": "DAMAGE IS PERMANENT!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "Blasting music at full volume is slowly destroying your hearing — permanently! Here is what ACTUALLY happens inside your ears! Deep in your cochlea sit 16,000 tiny hair cells that convert sound vibrations into brain signals. At safe volumes they sway gently and recover. But above 85 decibels — a typical maxed-out earbud — the sound waves slam them so violently that the hairs snap and the cells DIE. And here is the terrifying part: unlike skin or bone, these hair cells NEVER regenerate! Once they are gone, that slice of hearing is gone forever. The first warning sign? Ringing ears after a concert — that is literally the sound of your hearing dying. Keep it under 60 percent volume! Subscribe to Factify for more body secrets!",
+        "scenes": [
+{
+                "label": "Scene 1 - 3D sound waves entering ear canal",
+                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
+                "start_sec": 0.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 2 - 3D cochlea hair cells swaying gently",
+                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
+                "start_sec": 10.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 3 - 3D loud blast snapping hair cells",
+                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
+                "start_sec": 22.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 4 - 3D dead hair cells, permanent hearing gap",
+                "source_video": "pipeline/assets/footage/source_headphones_3d.mp4",
+                "start_sec": 35.0,
+                "duration": 6.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "what loud music does to ears",
+            "search_volume": "High",
+            "competition": "Low",
+            "tags": [
+                "loud music hearing damage",
+                "earbuds hearing loss",
+                "cochlea hair cells damage",
+                "tinnitus causes",
+                "85 decibel hearing",
+                "is loud music bad",
+                "hearing loss permanent",
+                "ear anatomy 3d",
+                "medical animation 3d",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "never_ignore_toothache",
+        "category": "body_mechanism_dental",
+        "title": "Why You Should NEVER Ignore a Toothache! 🦷⚠️ #Shorts",
+        "top_header": "TOOTHACHE WARNING",
+        "sub_header": "IT CAN TURN DEADLY!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "That toothache you keep ignoring? Here is why you should NEVER wait it out! A toothache means bacteria have breached your enamel and reached the pulp — the living core packed with nerves and blood vessels. Your immune system attacks, creating a pus-filled abscess that builds pressure — that is the throbbing pain! But here is the scary part: your tooth roots sit dangerously close to your bloodstream and sinuses. An untreated abscess can spread infection into your jawbone, your sinuses, and in rare cases, even your brain or heart! Before antibiotics, tooth infections were a top killer. A simple filling today beats a root canal tomorrow — and beats the emergency room next month! See a dentist at the FIRST throb! Subscribe to Factify for more body secrets!",
+        "scenes": [
+{
+                "label": "Scene 1 - 3D bacteria breaching tooth enamel",
+                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
+                "start_sec": 0.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 2 - 3D infection reaching tooth pulp nerves",
+                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
+                "start_sec": 12.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 3 - 3D abscess pressure building at root",
+                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
+                "start_sec": 25.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 4 - 3D infection spreading toward jawbone",
+                "source_video": "pipeline/assets/footage/source_root_canal.mp4",
+                "start_sec": 38.0,
+                "duration": 6.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "why not ignore toothache",
+            "search_volume": "High",
+            "competition": "Low",
+            "tags": [
+                "toothache dangers",
+                "tooth abscess spread",
+                "tooth infection brain",
+                "why toothache hurts",
+                "dental pulp infection",
+                "root canal explained",
+                "see dentist toothache",
+                "dental anatomy 3d",
+                "medical animation 3d",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
+    },
+    {
+        "id": "crying_mechanism",
+        "category": "body_mechanism_vision",
+        "title": "What ACTUALLY Happens When You Cry! 😢 #Shorts",
+        "top_header": "TEARS EXPLAINED",
+        "sub_header": "3 TYPES OF TEARS!",
+        "watermark_text": "@FactifyDailyShorts",
+        "script": "Crying is not just water leaking from your eyes — it is a brilliant biological system! Here is what ACTUALLY happens! Your lacrimal glands, sitting above each eye, produce THREE types of tears. Basal tears coat your eyes all day to keep them moist. Reflex tears flood out to wash away onions or dust. But emotional tears? They are chemically unique — packed with stress hormones and natural painkillers! Scientists believe crying literally flushes stress chemicals OUT of your body, which is why you feel calmer afterward. The tears drain through tiny ducts into your nose — that is why your nose runs when you sob! And that lump in your throat? Your nervous system swelling the throat muscles during intense emotion. Crying is not weakness — it is chemistry! Subscribe to Factify for more body secrets!",
+        "scenes": [
+{
+                "label": "Scene 1 - 3D lacrimal glands above the eye",
+                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
+                "start_sec": 5.0,
+                "duration": 6.0
+            },
+{
+                "label": "Scene 2 - 3D tear film coating the eye surface",
+                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
+                "start_sec": 15.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 3 - 3D reflex tears flooding to wash irritant",
+                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
+                "start_sec": 28.0,
+                "duration": 7.0
+            },
+{
+                "label": "Scene 4 - 3D tears draining through nasal ducts",
+                "source_video": "pipeline/assets/footage/source_lasik_eye.mp4",
+                "start_sec": 40.0,
+                "duration": 6.0
+            }
+        ],
+        "vidiq_seo": {
+            "primary_keyword": "what happens when you cry",
+            "search_volume": "High",
+            "competition": "Low",
+            "tags": [
+                "why do we cry",
+                "types of tears",
+                "emotional tears stress hormones",
+                "lacrimal glands",
+                "why nose runs when crying",
+                "crying benefits",
+                "tear film eye",
+                "eye anatomy 3d",
+                "medical animation 3d",
+                "Factify Shorts",
+                "shorts"
+            ]
+        }
     }
 ]
-
-
