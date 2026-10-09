@@ -122,7 +122,7 @@ def run_cloud_pipeline(topic_id=None):
         # 3. Telegram-only delivery (NO YouTube auto-upload — user publishes manually)
         print(f"\n📱 {batch_tag} Delivering finished Short + full metadata package to Telegram...")
         ok = send_delivery_package(master_path, seo_path, topic_id=chosen_topic_id,
-                                   batch_label=batch_tag)
+                                   batch_label=batch_tag, batch_index=i)
         if not ok:
             err_msg = f"❌ {batch_tag} Telegram delivery failed for topic '{chosen_topic_id}'"
             print(err_msg)

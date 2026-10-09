@@ -358,7 +358,7 @@ def _send_code_blocks(token, chat_id, label, body):
         time.sleep(0.5)
     return ok
 
-def send_delivery_package(video_path, metadata_path, topic_id=None, batch_label=""):
+def send_delivery_package(video_path, metadata_path, topic_id=None, batch_label="", batch_index=0):
     """Deliver the finished Short + full metadata package to Telegram.
 
     No YouTube upload happens here — the user publishes manually.
@@ -405,6 +405,16 @@ def send_delivery_package(video_path, metadata_path, topic_id=None, batch_label=
             pass
     if not upload_time_str:
         upload_time_str = metadata.get('slot_name', '')
+    # Staggered upload schedule (user plan 2026-10-09):
+    # [1/2] -> morning after delivery (US evening peak)
+    # [2/2] -> 10:00 PM Dhaka today (US lunch peak)
+    from zoneinfo import ZoneInfo
+    _now_dhaka = datetime.now(ZoneInfo('Asia/Dhaka'))
+    _today = _now_dhaka.strftime('%b %d')
+    if batch_index == 0:
+        upload_time_str = f"Today morning after delivery (~9:00 AM, {_today} Dhaka)"
+    else:
+        upload_time_str = f"Today 10:00 PM, {_today} (Dhaka)"
 
     pinned_comment = (
         "\U0001F4AC Enjoyed this? Tell me in the comments!\n"
